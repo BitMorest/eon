@@ -1,0 +1,81 @@
+{
+	"name": "@bitmorerest/eon",
+	"private": true,
+	"description": "Ultra fast electron bootstrap",
+	"homepage": "https://github.com/bitmorerest/eon",
+	"bugs": "https://github.com/bitmorerest/eon/issues",
+	"engines": {
+		"node": "^14.20.0 || ^16.13.0 || >=18.10.0",
+		"yarn": ">=1.22.4 <2",
+		"npm": "Please use yarn instead of NPM to install dependencies"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bitmorerest/eon.git"
+	},
+	"license": "UNLICENSED",
+	"workspaces": [
+		"packages/common",
+		"packages/core",
+		"packages/cli",
+		"packages/angular-workspace",
+		"packages/angular"
+	],
+	"scripts": {
+		"prepare": "husky install",
+		"bootstrap": "lerna bootstrap --include-dependencies",
+		"lint": "eslint .",
+		"build": "run-s -l build:common build:core build:angular",
+		"build:common": "yarn workspace @bitmorest/eon-common build",
+		"build:core": "yarn workspace @bitmorest/eon-core build",
+		"build:angular": "yarn workspace @bitmorest/eon-angular-workspace build",
+		"watch": "run-p -l watch:common watch:core watch:angular",
+		"watch:common": "yarn workspace @bitmorest/eon-common watch",
+		"watch:core": "yarn workspace @bitmorest/eon-core watch",
+		"watch:angular": "yarn workspace @bitmorest/eon-angular-workspace watch",
+		"release": "yarn build && lerna publish --no-private --skip-git",
+		"clean": "git clean -xdfq"
+	},
+	"devDependencies": {
+		"@angular/animations": "^15.0.4",
+		"@angular/cdk": "15.0.3",
+		"@angular/common": "^15.0.4",
+		"@angular/core": "^15.0.4",
+		"@angular/forms": "^15.0.4",
+		"@angular/material": "^15.0.3",
+		"@angular/platform-browser": "^15.0.4",
+		"@commitlint/cli": "^17.3.0",
+		"@commitlint/config-conventional": "^17.3.0",
+		"@commitlint/cz-commitlint": "^17.3.0",
+		"@types/node": "^18.11.17",
+		"@typescript-eslint/eslint-plugin": "^5.47.0",
+		"@typescript-eslint/parser": "^5.47.0",
+		"commitizen": "^4.2.6",
+		"eslint": "^8.30.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-import-resolver-typescript": "^3.5.2",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-sonarjs": "^0.17.0",
+		"eslint-plugin-unicorn": "^45.0.2",
+		"husky": "^8.0.2",
+		"inquirer": "^9.1.4",
+		"lerna": "^6.2.0",
+		"ngx-bootstrap": "^10.2.0",
+		"npm-check-updates": "^16.6.2",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.8.1",
+		"pretty-quick": "^3.1.3",
+		"rxjs": "^7.8.0",
+		"typescript": "~4.9.4",
+		"zone.js": "^0.12.0"
+	},
+	"lint-staged": {
+		"**/*.ts": "yarn lint"
+	},
+	"resolutions": {
+		"**/typescript": "4.8.4",
+		"**/inquirer": "8.2.4",
+		"**/lerna": "6.2.0"
+	}
+}
