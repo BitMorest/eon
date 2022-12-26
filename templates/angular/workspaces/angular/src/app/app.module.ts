@@ -11,7 +11,7 @@ import {
 	BootstrapComponent,
 	SidebarLayoutComponent,
 	SideBarLayoutData,
-	FramelessLayoutComponent,
+	// FramelessLayoutComponent,
 } from '@bitmorest/eon-angular';
 import {AboutComponent} from './components/about/about.component';
 import {SettingsComponent} from './components/settings/settings.component';
@@ -71,11 +71,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 				],
 			},
 			// Using bellow for layout out without sidebar
-			{
-				path: '',
-				component: FramelessLayoutComponent,
-				children: [{path: 'active', component: SettingsComponent}],
-			},
+			// {
+			// 	path: '',
+			// 	component: FramelessLayoutComponent,
+			// 	children: [{path: 'active', component: SettingsComponent}],
+			// },
 		]),
 	],
 	providers: [],
