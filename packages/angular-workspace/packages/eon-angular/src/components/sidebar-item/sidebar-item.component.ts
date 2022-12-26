@@ -17,7 +17,7 @@ export interface SideBarItem {
 
 @Component({
 	selector: 'sidebar-item',
-	template: `<mat-icon>{{ icon }}</mat-icon>`,
+	template: ``,
 	styleUrls: ['sidebar-item.component.scss'],
 	host: {
 		class: `d-flex flex-column align-items-center justify-content-center`,

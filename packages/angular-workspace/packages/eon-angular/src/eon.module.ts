@@ -1,10 +1,8 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {ThemeApiService} from './services/theme-api.service';
-import {MatTooltipModule} from '@angular/material/tooltip';
 import {BootstrapComponent} from './components/bootstrap/bootstrap.component';
 import {SidebarLayoutComponent} from './components/sidebar-layout/sidebar-layout.component';
 import {FramelessLayoutComponent} from './components/frameless-layout/frameless-layout.component';
@@ -30,20 +28,12 @@ import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.compo
 		SidebarComponent,
 		SideBarItemComponent,
 	],
-	imports: [
-		CommonModule,
-		BrowserModule,
-		RouterModule,
-		MatIconModule,
-		MatTooltipModule,
-	],
+	imports: [CommonModule, BrowserModule, RouterModule],
 	exports: [
 		// Rexport modules
 		CommonModule,
 		BrowserModule,
 		RouterModule,
-		MatIconModule,
-		MatTooltipModule,
 
 		// Export components
 		BootstrapComponent,

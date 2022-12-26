@@ -6,15 +6,10 @@ import {WindowApiService} from '../../services/window-api.service';
 	selector: 'window-controls',
 	template: `
 		<window-button [disabled]="!state?.isMinimizable" action="minimize">
-			<mat-icon>minimize</mat-icon>
 		</window-button>
 		<window-button [disabled]="!state?.isMaximiable" action="toogleMaximize">
-			<mat-icon *ngIf="!state?.isMaximized">crop_din</mat-icon>
-			<mat-icon *ngIf="state?.isMaximized">filter_none</mat-icon>
 		</window-button>
-		<window-button action="close">
-			<mat-icon>close</mat-icon>
-		</window-button>
+		<window-button action="close"> </window-button>
 	`,
 	styleUrls: ['window-controls.component.scss'],
 	host: {
@@ -23,6 +18,17 @@ import {WindowApiService} from '../../services/window-api.service';
 })
 export class WindowControlsComponent {
 	public state?: WindowState;
+
+	// <window-button[disabled]="!state?.isMinimizable" action = "minimize" >
+	// // <mat-icon>minimize</mat-icon>
+	// </window-button>
+	// < window - button[disabled]="!state?.isMaximiable" action = "toogleMaximize" >
+	// 	// <mat-icon *ngIf="!state?.isMaximized">crop_din</mat-icon>
+	// 	// <mat-icon *ngIf="state?.isMaximized">filter_none</mat-icon>
+	// 	</window-button>
+	// 	< window - button action = "close" >
+	// 		// <mat-icon>close</mat-icon>
+	// 		</window-button>
 
 	constructor(private windowApiService: WindowApiService) {
 		this.windowApiService.getState().subscribe({
