@@ -2,17 +2,18 @@
 	"name": "@bitmorest/eon-angular",
 	"version": "0.0.0",
 	"description": "The angular ui library for eon framework",
-	"homepage": "https://github.com/bitmorerest/eon",
 	"bugs": "https://github.com/bitmorerest/eon/issues",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/bitmorerest/eon.git"
 	},
+	"license": "UNLICENSED",
 	"peerDependencies": {
 		"@angular/common": "^15.0.4",
 		"@angular/core": "^15.0.4",
 		"@angular/material": "^15.0.3",
-		"ngx-bootstrap": "^10.0.0"
+		"@popperjs/core": "^2.11.6",
+		"bootstrap": "^5.2.3"
 	},
 	"dependencies": {
 		"tslib": "^2.3.0"

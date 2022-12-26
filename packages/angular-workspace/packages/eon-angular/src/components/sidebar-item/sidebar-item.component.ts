@@ -6,7 +6,7 @@ import {
 	OnInit,
 } from '@angular/core';
 import {NavigationEnd, Router, Scroll} from '@angular/router';
-import {SideBarItemClickEventService} from '../../public-api';
+import {SideBarItemClickEventService} from '../../services/events/side-bar-item-click-event.service';
 
 export interface SideBarItem {
 	icon: string;

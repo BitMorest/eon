@@ -1,8 +1,4 @@
-/* Importing Bootstrap SCSS file. */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import '../../../node_modules/bootstrap/scss/bootstrap';
-@import '../../../node_modules/ngx-bootstrap/datepicker/bs-datepicker';
+@import '../../../node_modules/@bitmorest/eon-angular/assets/styles.scss';
 
 html,
 body {

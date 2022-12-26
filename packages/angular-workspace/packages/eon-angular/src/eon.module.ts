@@ -38,11 +38,14 @@ import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.compo
 		MatTooltipModule,
 	],
 	exports: [
+		// Rexport modules
 		CommonModule,
 		BrowserModule,
 		RouterModule,
 		MatIconModule,
 		MatTooltipModule,
+
+		// Export components
 		BootstrapComponent,
 		SidebarLayoutComponent,
 		FramelessLayoutComponent,

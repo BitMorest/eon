@@ -6,7 +6,7 @@ import {
 	OnInit,
 } from '@angular/core';
 import {WindowAction} from '@bitmorest/eon-common';
-import {WindowActionClickEventService} from '../../public-api';
+import {WindowActionClickEventService} from '../../services/events/window-action-click-event.service';
 import {WindowApiService} from '../../services/window-api.service';
 
 export type WindowActionEventData = {
