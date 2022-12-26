@@ -1,0 +1,30 @@
+:host {
+	flex: 0 0 50px;
+}
+
+:host-context(.platform-win32) {
+	:host {
+	}
+}
+
+:host-context(.platform-darwin) {
+	:host {
+		border-radius: 0 0 0 6px;
+	}
+}
+
+:host-context(.theme-light) {
+	:host {
+		background: #f9f9f9;
+		border-right: 1px solid #f3f3f3;
+		color: #131313;
+	}
+}
+
+:host-context(.theme-dark) {
+	:host {
+		background: #262626;
+		border-right: 1px solid #2a2a2a;
+		color: #f0f0f0;
+	}
+}

@@ -14,3 +14,6 @@ The list of scopes
 **revert**: Reverts a previous commit
 **style**: Changes that do not affect the meaning of the code (Eg: adding white-space, formatting, missing semi-colons, etc)
 **test**: Adding missing tests or correcting existing tests
+
+#Notes:
+https://www.cssscript.com/dark-mode-switcher-for-bootstrap-5/

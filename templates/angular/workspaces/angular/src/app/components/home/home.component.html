@@ -1,0 +1,34 @@
+<div id="multiples">
+	<div class="container">
+		<button class="btn btn-secondary me-2" (click)="translateIn('en')">
+			EN
+		</button>
+		<button class="btn btn-secondary me-2" (click)="translateIn('vi')">
+			VI
+		</button>
+		<button class="btn btn-secondary" (click)="translateIn('fr')">FR</button>
+		<h2>{{ 'MULTIPLES.TITLE' | translate }}</h2>
+		<form [formGroup]="timesTableForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				<input
+					id="input"
+					type="number"
+					class="form-control"
+					formControlName="input"
+					required
+				/>
+			</div>
+			<button
+				type="submit"
+				class="btn btn-success"
+				[disabled]="!timesTableForm.valid"
+			>
+				{{ 'MULTIPLES.SUBMIT' | translate }}
+			</button>
+		</form>
+
+		<h3 class="results" *ngFor="let multiple of multiples; let i = index">
+			{{ timesTableForm.value.input }} * {{ 1 + i }} = {{ multiple }}
+		</h3>
+	</div>
+</div>

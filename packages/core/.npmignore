@@ -1,0 +1,7 @@
+.*
+*.json
+*.md
+src
+test
+!.dist
+!package.json

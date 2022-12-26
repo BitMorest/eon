@@ -1,0 +1,15 @@
+#multiples {
+	font-weight: 900;
+
+	.container {
+		padding: 20px;
+
+		form {
+			display: flex;
+
+			> * {
+				margin: 5px;
+			}
+		}
+	}
+}

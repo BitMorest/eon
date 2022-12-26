@@ -1,0 +1,56 @@
+:host {
+	width: calc(100% - 2px);
+	border-left: 2px solid transparent;
+
+	.mat-icon {
+		width: 26px;
+		height: 26px;
+		font-size: 26px;
+	}
+
+	&:hover {
+		.mat-icon {
+			transform: scale(1.1);
+		}
+	}
+}
+
+:host-context(.platform-win32) {
+	:host {
+	}
+}
+
+:host-context(.platform-darwin) {
+	:host {
+	}
+}
+
+:host-context(.theme-light) {
+	:host {
+		color: #696a6f;
+
+		&:hover,
+		&.active {
+			color: #464646;
+		}
+
+		&.active {
+			border-color: #464646;
+		}
+	}
+}
+
+:host-context(.theme-dark) {
+	:host {
+		color: #909199;
+
+		&:hover,
+		&.active {
+			color: #f0f0f0;
+		}
+
+		&.active {
+			border-color: #f0f0f0;
+		}
+	}
+}

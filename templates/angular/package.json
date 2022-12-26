@@ -1,0 +1,131 @@
+{
+	"name": "eon-application",
+	"version": "0.0.1",
+	"productName": "Eon Application",
+	"description": "Codebase for desktop application base on electron and angular",
+	"author": {
+		"name": "BitMorest",
+		"url": "https://github.com/BitMorest"
+	},
+	"repository": "https://github.com/BitMorest/electron-angular.git",
+	"main": ".webpack/main",
+	"private": true,
+	"engines": {
+		"node": "^14.20.0 || ^16.13.0 || >=18.10.0",
+		"yarn": ">=1.22.4 <2",
+		"npm": "Please use yarn instead of NPM to install dependencies"
+	},
+	"license": "UNLICENSED",
+	"workspaces": [
+		"workspaces/angular",
+		"workspaces/shared"
+	],
+	"scripts": {
+		"preinstall": "cd ../.. && yarn build",
+		"start": "run-p -l start:core start:shared start:angular start:electron",
+		"start:core": "cd ../.. && yarn watch",
+		"start:shared": "tsc -p workspaces/shared/tsconfig.json -w",
+		"start:angular": "wait-on ../../packages/common/.dist/index.d.ts && wait-on ../../packages/core/.dist/index.d.ts && wait-on workspaces/shared/.dist/index.d.ts && cd workspaces/angular && yarn start",
+		"start:electron": "node scripts/electron-start-watch.js",
+		"package": "yarn package:shared && yarn package:angular-app && yarn package:electron-app",
+		"package:shared": "tsc -b workspaces/shared",
+		"package:angular-app": "cd workspaces/angular && yarn package",
+		"package:electron-app": "electron-forge package",
+		"test:e2e": "yarn test:angular-e2e && yarn test:electron-e2e",
+		"test:angular-e2e": "run-p -l -r start start:angular-e2e",
+		"start:angular-e2e": "wait-on http://localhost:4200 && cd workspaces/angular && yarn cypress:run",
+		"test:electron-e2e": "yarn package && playwright test -c ./workspaces/electron/test/playwright.config.ts",
+		"make": "yarn package:shared && yarn package:angular && electron-forge make",
+		"publish": "electron-forge publish",
+		"clean": "git clean -xdfq"
+	},
+	"config": {
+		"forge": {
+			"packagerConfig": {
+				"icon": "./worspaces/electron/assets/icons/icon",
+				"executableName": "EonApplication"
+			},
+			"makers": [
+				{
+					"name": "@electron-forge/maker-zip"
+				},
+				{
+					"name": "@electron-forge/maker-dmg",
+					"config": {}
+				},
+				{
+					"name": "@electron-forge/maker-deb",
+					"config": {}
+				},
+				{
+					"name": "@electron-forge/maker-squirrel",
+					"config": {}
+				}
+			],
+			"plugins": [
+				{
+					"name": "@electron-forge/plugin-webpack",
+					"config": {
+						"mainConfig": "./settings/webpack.main.config.js",
+						"renderer": {
+							"config": "./settings/webpack.renderer.config.js",
+							"entryPoints": [
+								{
+									"html": "./node_modules/@bitmorest/eon-core/renderer/index.html",
+									"js": "./node_modules/@bitmorest/eon-core/renderer/index.ts",
+									"name": "main_window",
+									"preload": {
+										"js": "./node_modules/@bitmorest/eon-core/renderer/preload.ts"
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	},
+	"devDependencies": {
+		"@electron-forge/cli": "^6.0.4",
+		"@electron-forge/maker-deb": "^6.0.4",
+		"@electron-forge/maker-dmg": "^6.0.4",
+		"@electron-forge/maker-rpm": "^6.0.4",
+		"@electron-forge/maker-squirrel": "^6.0.4",
+		"@electron-forge/maker-zip": "^6.0.4",
+		"@electron-forge/plugin-webpack": "^6.0.4",
+		"@playwright/test": "^1.28.1",
+		"@types/fs-extra": "^9.0.13",
+		"@types/lodash": "^4.14.191",
+		"@types/node": "^18.11.12",
+		"@vercel/webpack-asset-relocator-loader": "^1.7.3",
+		"chokidar": "^3.5.3",
+		"chokidar-cli": "^3.0.0",
+		"chromedriver": "^108.0.0",
+		"copy-webpack-plugin": "^11.0.0",
+		"css-loader": "^6.7.2",
+		"electron": "^22.0.0",
+		"electron-playwright-helpers": "^1.2.2",
+		"fork-ts-checker-webpack-plugin": "^7.2.13",
+		"node-loader": "^2.0.0",
+		"npm-check-updates": "^16.5.3",
+		"npm-run-all": "^4.1.5",
+		"playwright": "^1.28.1",
+		"shx": "^0.3.4",
+		"style-loader": "^3.3.1",
+		"tree-kill": "^1.2.2",
+		"ts-loader": "^9.4.2",
+		"ts-node": "^10.9.1",
+		"typescript": "4.8.4",
+		"wait-on": "^6.0.1",
+		"webpack": "^5.75.0"
+	},
+	"dependencies": {
+		"@bitmorest/eon-core": "link:../../packages/core"
+	},
+	"resolutions": {
+		"**/typescript": "4.8.4",
+		"@bitmorest/eon-common": "link:../../packages/common",
+		"@bitmorest/eon-core": "link:../../packages/core",
+		"@bitmorest/eon-angular": "link:../../packages/angular"
+	}
+}

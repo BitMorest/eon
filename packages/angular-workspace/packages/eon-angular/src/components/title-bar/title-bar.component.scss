@@ -1,0 +1,77 @@
+:host {
+	-webkit-app-region: drag;
+}
+
+:host-context(.platform-win32) {
+	:host {
+		flex: 0 0 32px;
+		box-sizing: border-box;
+
+		.title {
+			display: inline-flex;
+			align-items: center;
+
+			.icon {
+				height: 20px;
+				margin: 6px 0 6px 10px;
+			}
+
+			.text {
+				text-indent: 8px;
+				font-size: 14px;
+			}
+		}
+
+		window-controls.macos {
+			display: none !important;
+		}
+	}
+}
+
+:host-context(.platform-darwin) {
+	:host {
+		flex: 0 0 26px;
+		border-radius: 6px 6px 0 0;
+
+		window-controls {
+			margin-left: 8px;
+		}
+
+		.title {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding-right: 56px;
+
+			.icon {
+				height: 16px;
+				margin: 6px 0 6px 10px;
+			}
+
+			.text {
+				font-size: 12px;
+				text-indent: 6px;
+			}
+		}
+
+		window-controls.windows {
+			display: none !important;
+		}
+	}
+}
+
+:host-context(.theme-light) {
+	:host {
+		background: #f9f9f9;
+		border-bottom: 1px solid #f3f3f3;
+		color: #131313;
+	}
+}
+
+:host-context(.theme-dark) {
+	:host {
+		background: #262626;
+		color: #fafafa;
+		border-bottom: 1px solid #2a2a2a;
+	}
+}

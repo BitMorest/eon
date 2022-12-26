@@ -1,0 +1,14 @@
+{
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"incremental": true,
+		"tsBuildInfoFile": "./.dist/tsbuildinfo.json",
+		"sourceMap": true,
+		"composite": true,
+		"declaration": true,
+		"rootDir": "./src",
+		"outDir": "./.dist"
+	},
+	"exclude": [".dist"],
+	"include": ["./**/*.ts"]
+}

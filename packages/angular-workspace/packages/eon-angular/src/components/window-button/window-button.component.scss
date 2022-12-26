@@ -1,0 +1,48 @@
+:host {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: transparent;
+	-webkit-app-region: no-drag;
+}
+
+:host-context(.platform-win32) {
+	:host {
+		width: 48px;
+		height: 100%;
+	}
+}
+
+:host-context(.platform-darwin) {
+	:host {
+		width: 12px;
+		height: 12px;
+
+		border-radius: 50%;
+		background: red;
+	}
+}
+
+:host-context(.theme-light) {
+	:host {
+		color: #131313;
+
+		&:hover {
+			background: #f0f0f099;
+		}
+
+		&[action='close']:hover {
+			background: #fd2929de;
+		}
+	}
+}
+
+:host-context(.theme-dark) {
+	:host {
+		color: #f0f0f0;
+
+		&:hover {
+			background-color: #f0f0f013;
+		}
+	}
+}
