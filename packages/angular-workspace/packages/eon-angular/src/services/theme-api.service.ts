@@ -8,16 +8,15 @@ export class ThemeApiService {
 	private _body = document.body;
 	private _themeData = new BehaviorSubject<ThemeData | undefined>(undefined);
 
-	// /* eslint-disable unicorn/prefer-dom-node-dataset */
+	/* eslint-disable unicorn/prefer-dom-node-dataset */
 	constructor(private _electron: ElectronService) {
-		this._body.dataset.eonThemeColor = 'light';
-		this._body.dataset.eonThemePlatform = 'darwin';
+		this._body.setAttribute('data-theme-color', 'light');
+		this._body.setAttribute('data-theme-flatform', 'win32');
 
 		// implement for bootstrap
 		// this._body.setAttribute('data-bs-theme', 'dark');
 		// this.setupTheme();
 	}
-	/* eslint-enable unicorn/prefer-dom-node-dataset */
 
 	private setupTheme() {
 		this._electron.receive<ThemeData>(
@@ -28,7 +27,7 @@ export class ThemeApiService {
 				this._body.setAttribute('theme', themeData.current);
 
 				// implement for bootstrap
-				this._body.dataset.bsTheme = themeData.current;
+				// this._body.dataset.bsTheme = themeData.current;
 			}
 		);
 		this._electron.send<ThemeApiInput>(CoreApiConst.THEME_API_INPUT, {});
