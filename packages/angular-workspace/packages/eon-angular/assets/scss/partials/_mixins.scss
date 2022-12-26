@@ -1,0 +1,25 @@
+@import 'bootstrap/scss/mixins';
+
+@mixin theme-color-mode($color: light, $root: false) {
+	@if $root ==true {
+		:host-context([data-eon-theme-color='#{$color}']) {
+			@content;
+		}
+	} @else {
+		[data-eon-theme-color='#{$color}'] {
+			@content;
+		}
+	}
+}
+
+@mixin theme-flatform-mode($flatform: win32, $root: false) {
+	@if $root ==true {
+		:host-context([data-eon-theme-platform='#{$flatform}']) {
+			@content;
+		}
+	} @else {
+		[data-eon-theme-platform='#{$flatform}'] {
+			@content;
+		}
+	}
+}

@@ -1,8 +1,14 @@
+@import '../../../assets/scss/partials/index';
+
 :host {
+	@extend .d-flex;
+	@extend .text-body;
 	-webkit-app-region: drag;
+	background: var(--bs-tertiary-bg);
+	border-bottom: 1px solid var(--bs-tertiary-bg-border);
 }
 
-:host-context(.platform-win32) {
+@include theme-flatform-mode(win32) {
 	:host {
 		flex: 0 0 32px;
 		box-sizing: border-box;
@@ -12,13 +18,13 @@
 			align-items: center;
 
 			.icon {
-				height: 20px;
-				margin: 6px 0 6px 10px;
+				height: 16px;
+				margin-left: ($spacer * 0.5);
 			}
 
 			.text {
-				text-indent: 8px;
-				font-size: 14px;
+				text-indent: ($spacer * 0.5);
+				font-size: $font-size-sm;
 			}
 		}
 
@@ -28,7 +34,7 @@
 	}
 }
 
-:host-context(.platform-darwin) {
+@include theme-flatform-mode(darwin) {
 	:host {
 		flex: 0 0 26px;
 		border-radius: 6px 6px 0 0;
@@ -45,33 +51,16 @@
 
 			.icon {
 				height: 16px;
-				margin: 6px 0 6px 10px;
 			}
 
 			.text {
-				font-size: 12px;
-				text-indent: 6px;
+				font-size: $font-size-sm * 0.96;
+				text-indent: ($spacer * 0.5);
 			}
 		}
 
 		window-controls.windows {
 			display: none !important;
 		}
-	}
-}
-
-:host-context(.theme-light) {
-	:host {
-		background: #f9f9f9;
-		border-bottom: 1px solid #f3f3f3;
-		color: #131313;
-	}
-}
-
-:host-context(.theme-dark) {
-	:host {
-		background: #262626;
-		color: #fafafa;
-		border-bottom: 1px solid #2a2a2a;
 	}
 }

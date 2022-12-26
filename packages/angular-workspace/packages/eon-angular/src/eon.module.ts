@@ -1,5 +1,6 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {ThemeApiService} from './services/theme-api.service';
@@ -28,12 +29,13 @@ import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.compo
 		SidebarComponent,
 		SideBarItemComponent,
 	],
-	imports: [CommonModule, BrowserModule, RouterModule],
+	imports: [CommonModule, BrowserModule, RouterModule, HttpClientModule],
 	exports: [
-		// Rexport modules
+		// ReExport modules
 		CommonModule,
 		BrowserModule,
 		RouterModule,
+		HttpClientModule,
 
 		// Export components
 		BootstrapComponent,

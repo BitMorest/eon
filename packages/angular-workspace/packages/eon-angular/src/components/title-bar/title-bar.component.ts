@@ -11,14 +11,11 @@ import {Component, Input} from '@angular/core';
 		<window-controls class="windows"></window-controls>
 	`,
 	styleUrls: ['./title-bar.component.scss'],
-	host: {
-		class: 'd-flex',
-	},
 })
 export class TitleBarComponent {
 	@Input()
 	public icon?: string =
-		'https://cdn.iconscout.com/icon/free/png-256/kik-4-722711.png';
+		'https://code.visualstudio.com/assets/apple-touch-icon.png';
 
 	@Input()
 	public title?: string = 'Demo Application';

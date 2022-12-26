@@ -1,48 +1,32 @@
+@import '../../../assets/scss/partials/index';
+
 :host {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@extend .d-flex;
+	@extend .align-items-center;
+	@extend .justify-content-center;
 	background: transparent;
 	-webkit-app-region: no-drag;
+
+	&:hover {
+		background: var(--bs-tertiary-bg-hover);
+	}
+
+	&[action='close']:hover {
+		background: rgba(var(--bs-danger-rgb), 0.8);
+	}
 }
 
-:host-context(.platform-win32) {
+@include theme-flatform-mode(win32) {
 	:host {
 		width: 48px;
 		height: 100%;
 	}
 }
 
-:host-context(.platform-darwin) {
+@include theme-flatform-mode(darwin) {
 	:host {
 		width: 12px;
 		height: 12px;
-
 		border-radius: 50%;
-		background: red;
-	}
-}
-
-:host-context(.theme-light) {
-	:host {
-		color: #131313;
-
-		&:hover {
-			background: #f0f0f099;
-		}
-
-		&[action='close']:hover {
-			background: #fd2929de;
-		}
-	}
-}
-
-:host-context(.theme-dark) {
-	:host {
-		color: #f0f0f0;
-
-		&:hover {
-			background-color: #f0f0f013;
-		}
 	}
 }

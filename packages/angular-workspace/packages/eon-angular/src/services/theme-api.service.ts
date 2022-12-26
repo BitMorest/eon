@@ -8,26 +8,27 @@ export class ThemeApiService {
 	private _body = document.body;
 	private _themeData = new BehaviorSubject<ThemeData | undefined>(undefined);
 
+	// /* eslint-disable unicorn/prefer-dom-node-dataset */
 	constructor(private _electron: ElectronService) {
-		this._body.classList.add('platform-win32');
-		this._body.classList.add('theme-dark');
+		this._body.dataset.eonThemeColor = 'light';
+		this._body.dataset.eonThemePlatform = 'darwin';
+
+		// implement for bootstrap
+		// this._body.setAttribute('data-bs-theme', 'dark');
 		// this.setupTheme();
 	}
+	/* eslint-enable unicorn/prefer-dom-node-dataset */
 
 	private setupTheme() {
 		this._electron.receive<ThemeData>(
 			CoreApiConst.THEME_API_OUTPUT,
 			(themeData: ThemeData) => {
 				this._themeData.next(themeData);
+				this._body.setAttribute('platform', window.api.environment.platform);
+				this._body.setAttribute('theme', themeData.current);
 
-				/* eslint-disable-next-line unicorn/no-array-for-each */
-				this._body.classList.forEach((value) => {
-					if (value.startsWith('theme-')) {
-						this._body.classList.remove(value);
-					}
-				});
-				this._body.classList.add('platform-' + window.api.environment.platform);
-				this._body.classList.add('theme-' + themeData.current);
+				// implement for bootstrap
+				this._body.dataset.bsTheme = themeData.current;
 			}
 		);
 		this._electron.send<ThemeApiInput>(CoreApiConst.THEME_API_INPUT, {});

@@ -1,26 +1,29 @@
-:host-context(.platform-win32) {
+@import '../../../assets/scss/partials/index';
+
+:host {
+	svg {
+		width: 10px;
+		height: 10px;
+
+		& > * {
+			fill: var(--bs-body-color);
+		}
+	}
+}
+
+@include theme-flatform-mode(win32) {
 	:host {
 		window-button {
-			&.minimize {
-				padding-bottom: 9px;
-			}
-
 			&.close {
 				&:hover {
-					background: #ff5c5c;
+					background: var(#{to-rgb($red-600)}, 0.9);
 				}
-			}
-
-			.mat-icon {
-				font-size: 14px;
-				width: 14px;
-				height: 14px;
 			}
 		}
 	}
 }
 
-:host-context(.platform-darwin) {
+@include theme-flatform-mode(darwin) {
 	:host {
 		display: flex;
 		flex-direction: row-reverse;
@@ -37,62 +40,50 @@
 			}
 
 			&.minimize {
-				background: #ffbd4c;
-				border: 1px solid #e09e3e;
+				background: $orange-300;
+				border: 1px solid $orange-400;
 
 				&:hover {
-					background: #c08e38;
-					border: 1px solid #af7c33;
+					background: $orange-500;
+					border: 1px solid $orange-600;
 				}
 			}
 
 			&.toogleMaximize {
-				background: #00ca56;
-				border: 1px solid #14ae46;
+				background: $green-400;
+				border: 1px solid $green-500;
 
 				&:hover {
-					background: #029740;
-					border: 1px solid #128435;
+					background: $green-500;
+					border: 1px solid $green-600;
 				}
 			}
 
 			&.close {
-				background: #ff5c5c;
-				border: 1px solid #e33e41;
+				background: $red-400;
+				border: 1px solid $red-500;
 
 				&:hover {
-					background: #c14645;
-					border: 1px solid #b03537;
+					background: $red-500;
+					border: 1px solid $red-600;
 				}
 			}
 		}
 	}
 }
 
-:host-context(.theme-light) {
+@include theme-color-mode(light) {
 	:host {
 		.disabled {
-			color: #999999 !important;
-
-			&.mac-os-ui,
-			&.mac-os-ui:hover {
-				background-color: #999999;
-				border-color: #858585;
-			}
+			color: $gray-600 !important;
 		}
 	}
 }
 
-:host-context(.theme-dark) {
+@include theme-color-mode(dark) {
 	:host {
 		.disabled {
-			color: #333333 !important;
-
-			&.mac-os-ui,
-			&.mac-os-ui:hover {
-				background-color: #333333;
-				border-color: #313131;
-			}
+			color: $gray-700 !important;
 		}
 	}
 }

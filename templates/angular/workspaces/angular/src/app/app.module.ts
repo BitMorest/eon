@@ -1,8 +1,6 @@
-import {CommonModule} from '@angular/common';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -27,9 +25,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 	declarations: [HomeComponent, AboutComponent, SettingsComponent],
 	imports: [
 		EonModule,
-		CommonModule,
-		BrowserModule,
-		HttpClientModule,
 		ReactiveFormsModule,
 		BrowserAnimationsModule,
 		TranslateModule.forRoot({
@@ -63,7 +58,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 						},
 						{
 							icon: 'contact_support',
-							href: 'https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/',
 							description: 'Support',
 							bottom: true,
 						},

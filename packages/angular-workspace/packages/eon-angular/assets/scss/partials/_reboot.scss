@@ -1,0 +1,10 @@
+@import 'bootstrap/scss/reboot';
+
+html,
+body {
+	background: transparent;
+
+	* {
+		user-select: none;
+	}
+}

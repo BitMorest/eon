@@ -21,7 +21,7 @@ export interface SideBarLayoutData {
 				>
 				</sidebar-item>
 			</sidebar>
-			<div class="flex-grow-1 overflow-auto main-content">
+			<div class="flex-grow-1 overflow-auto text-body bg-body main-content">
 				<div class="container-fluid">
 					<router-outlet></router-outlet>
 				</div>

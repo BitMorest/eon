@@ -1,3 +1,5 @@
+@import '../../../assets/scss/partials/index';
+
 .main-content {
 	&::-webkit-scrollbar {
 		width: 14px;
@@ -16,21 +18,26 @@
 	}
 }
 
-:host-context(.platform-win32) {
+@include theme-flatform-mode(win32) {
 	:host {
+		.main-content {
+		}
 	}
 }
 
-:host-context(.platform-darwin) {
+@include theme-flatform-mode(darwin) {
 	:host {
+		.main-content {
+			border-radius: 0 0 6px 0;
+		}
 	}
 }
 
 :host-context(.theme-light) {
 	:host {
 		.main-content {
-			background: #ffffff;
-			color: #131313;
+			// background: #ffffff;
+			// color: #131313;
 
 			&::-webkit-scrollbar-thumb {
 				background-color: #d6dee1;
@@ -46,8 +53,8 @@
 :host-context(.theme-dark) {
 	:host {
 		.main-content {
-			background: #202020;
-			color: #f0f0f0;
+			// background: #202020;
+			// color: #f0f0f0;
 
 			&::-webkit-scrollbar-thumb {
 				background-color: #d6dee1;

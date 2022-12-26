@@ -16,5 +16,13 @@
 	},
 	"dependencies": {
 		"tslib": "^2.3.0"
+	},
+	"exports": {
+		"./styles": {
+			"sass": "./assets/scss/global.scss"
+		},
+		"./scripts": {
+			"js": "./assets/js/global.js"
+		}
 	}
 }
