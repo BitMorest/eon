@@ -18,14 +18,14 @@
 	}
 }
 
-@include theme-flatform-mode(win32) {
+@include theme-platform-mode(win32) {
 	:host {
 		.main-content {
 		}
 	}
 }
 
-@include theme-flatform-mode(darwin) {
+@include theme-platform-mode(darwin) {
 	:host {
 		.main-content {
 			border-radius: 0 0 6px 0;

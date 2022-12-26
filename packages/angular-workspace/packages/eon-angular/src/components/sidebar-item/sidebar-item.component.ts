@@ -17,7 +17,7 @@ export interface SideBarItem {
 
 @Component({
 	selector: 'sidebar-item',
-	template: ``,
+	template: `<i class="fa-duotone fa-house"></i>`,
 	styleUrls: ['sidebar-item.component.scss'],
 	host: {
 		class: `d-flex flex-column align-items-center justify-content-center`,

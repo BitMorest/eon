@@ -9,12 +9,12 @@
 	border-right: 1px solid var(--bs-tertiary-bg-border);
 }
 
-@include theme-flatform-mode(win32) {
+@include theme-platform-mode(win32) {
 	:host {
 	}
 }
 
-@include theme-flatform-mode(darwin) {
+@include theme-platform-mode(darwin) {
 	:host {
 		border-radius: 0 0 0 6px;
 	}
