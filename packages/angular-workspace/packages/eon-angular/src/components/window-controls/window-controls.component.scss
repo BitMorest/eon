@@ -11,7 +11,7 @@
 	}
 }
 
-@include theme-flatform-mode(win32) {
+@include theme-platform-mode(win32) {
 	:host {
 		window-button {
 			&.close {
@@ -23,7 +23,7 @@
 	}
 }
 
-@include theme-flatform-mode(darwin) {
+@include theme-platform-mode(darwin) {
 	:host {
 		display: flex;
 		flex-direction: row-reverse;
