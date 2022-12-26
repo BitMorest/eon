@@ -10,8 +10,8 @@ export class ThemeApiService {
 
 	/* eslint-disable unicorn/prefer-dom-node-dataset */
 	constructor(private _electron: ElectronService) {
-		this._body.setAttribute('data-theme-color', 'light');
-		this._body.setAttribute('data-theme-flatform', 'win32');
+		this._body.setAttribute('theme-color', 'light');
+		this._body.setAttribute('theme-flatform', 'win32');
 
 		// implement for bootstrap
 		// this._body.setAttribute('data-bs-theme', 'dark');

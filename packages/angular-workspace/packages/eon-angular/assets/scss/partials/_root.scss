@@ -1,7 +1,7 @@
 @import 'bootstrap/scss/root';
 
 :root {
-	@include theme-color-mode(light) {
+	@include theme-color-mode(light, true) {
 		--bs-body-color: #{color-contrast($theme-bg-light)};
 		--bs-body-color-rgb: #{to-rgb(color-contrast($theme-bg-light))};
 
@@ -13,7 +13,7 @@
 		--bs-tertiary-bg-hover: #{shade-color($theme-bg-light, 10%)};
 	}
 
-	@include theme-color-mode(dark) {
+	@include theme-color-mode(dark, true) {
 		--bs-body-color: #{color-contrast($theme-bg-dark)};
 		--bs-body-color-rgb: #{to-rgb(color-contrast($theme-bg-dark))};
 
