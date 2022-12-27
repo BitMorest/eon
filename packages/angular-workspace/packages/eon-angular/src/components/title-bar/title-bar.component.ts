@@ -11,6 +11,9 @@ import {Component, Input} from '@angular/core';
 		<window-controls class="windows"></window-controls>
 	`,
 	styleUrls: ['./title-bar.component.scss'],
+	host: {
+		class: 'd-flex text-body',
+	},
 })
 export class TitleBarComponent {
 	@Input()

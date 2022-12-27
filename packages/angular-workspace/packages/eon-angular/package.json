@@ -12,17 +12,16 @@
 		"@angular/common": "^15.0.4",
 		"@angular/core": "^15.0.4",
 		"@popperjs/core": "^2.11.6",
-		"bootstrap": "^5.2.3"
+		"bootstrap": "^5.2.3",
+		"jquery": "^3.6.3"
 	},
 	"dependencies": {
 		"tslib": "^2.3.0"
 	},
 	"exports": {
 		"./styles": {
-			"sass": "./assets/scss/global.scss"
+			"sass": "./assets/scss/styles.scss"
 		},
-		"./scripts": {
-			"js": "./assets/js/global.js"
-		}
+		"./scripts.js": "./assets/js/scripts.js"
 	}
 }

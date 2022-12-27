@@ -1,0 +1,31 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/variables';
+@import 'variables';
+@import 'mixins/index';
+
+:root {
+	@include theme-color-mode(light, true) {
+		--bs-body-color: #{color-contrast($theme-bg-light)};
+		--bs-body-color-rgb: #{to-rgb(color-contrast($theme-bg-light))};
+
+		--bs-body-bg: #{$theme-bg-light};
+		--bs-body-bg-rgb: #{to-rgb($theme-bg-light)};
+
+		--bs-tertiary-bg: #{shade-color($theme-bg-light, 2%)};
+		--bs-tertiary-bg-border: #{shade-color($theme-bg-light, 5%)};
+		--bs-tertiary-bg-hover: #{shade-color($theme-bg-light, 10%)};
+	}
+
+	@include theme-color-mode(dark, true) {
+		--bs-body-color: #{color-contrast($theme-bg-dark)};
+		--bs-body-color-rgb: #{to-rgb(color-contrast($theme-bg-dark))};
+
+		--bs-body-bg: #{$theme-bg-dark};
+		--bs-body-bg-rgb: #{to-rgb($theme-bg-dark)};
+
+		--bs-tertiary-bg: #{tint-color($theme-bg-dark, 2%)};
+		--bs-tertiary-bg-border: #{tint-color($theme-bg-dark, 5%)};
+		--bs-tertiary-bg-hover: #{tint-color($theme-bg-dark, 10%)};
+	}
+}

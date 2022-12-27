@@ -42,22 +42,22 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 				data: {
 					sidebarItems: [
 						{
-							icon: 'home',
+							icon: 'fa-duotone fa-house-blank',
 							href: '/home',
 							description: 'Home',
 						},
 						{
-							icon: 'settings',
+							icon: 'fa-duotone fa-sliders',
 							href: '/settings',
 							description: 'Settings',
 						},
 						{
-							icon: 'info',
+							icon: 'fa-duotone fa-circle-info',
 							href: '/about',
 							description: 'About',
 						},
 						{
-							icon: 'contact_support',
+							icon: 'fa-duotone fa-circle-question',
 							description: 'Support',
 							bottom: true,
 						},

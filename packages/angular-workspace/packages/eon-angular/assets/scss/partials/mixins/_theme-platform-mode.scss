@@ -1,0 +1,11 @@
+@mixin theme-platform-mode($platform: win32, $root: false) {
+	@if $root ==false {
+		:host-context([data-theme-platform='#{$platform}']) {
+			@content;
+		}
+	} @else {
+		[data-theme-platform='#{$platform}'] {
+			@content;
+		}
+	}
+}

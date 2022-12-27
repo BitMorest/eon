@@ -1,8 +1,10 @@
-@import '../../../assets/scss/partials/index';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import '../../../assets/scss/partials/variables';
+@import '../../../assets/scss/partials/mixins/index';
 
 :host {
-	@extend .d-flex;
-	@extend .text-body;
 	-webkit-app-region: drag;
 	background: var(--bs-tertiary-bg);
 	border-bottom: 1px solid var(--bs-tertiary-bg-border);

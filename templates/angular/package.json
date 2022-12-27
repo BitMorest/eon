@@ -21,7 +21,6 @@
 		"workspaces/shared"
 	],
 	"scripts": {
-		"preinstall": "cd ../.. && yarn build",
 		"start": "run-p -l start:core start:shared start:angular start:electron",
 		"start:core": "cd ../.. && yarn watch",
 		"start:shared": "tsc -p workspaces/shared/tsconfig.json -w",

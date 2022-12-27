@@ -1,0 +1,11 @@
+@mixin theme-color-mode($color: light, $root: false) {
+	@if $root ==false {
+		:host-context([data-theme-color='#{$color}']) {
+			@content;
+		}
+	} @else {
+		[data-theme-color='#{$color}'] {
+			@content;
+		}
+	}
+}
