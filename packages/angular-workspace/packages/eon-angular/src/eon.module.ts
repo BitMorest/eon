@@ -12,7 +12,6 @@ import {WindowControlsComponent} from './components/window-controls/window-contr
 import {WindowButtonComponent} from './components/window-button/window-button.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.component';
-import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {ThemeSettingComponent} from './components/theme-setting/theme-setting.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
@@ -40,8 +39,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
-		// Boostrap
-		TooltipModule.forRoot(),
 		// Angular Material
 		MatButtonModule,
 		MatDividerModule,
@@ -54,8 +51,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
-		// Rexport bootstrap modules
-		TooltipModule,
+
 		// Rexport angular material
 		MatButtonModule,
 		MatDividerModule,

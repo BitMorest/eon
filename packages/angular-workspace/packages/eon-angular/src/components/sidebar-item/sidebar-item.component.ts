@@ -20,9 +20,6 @@ export interface SideBarItem {
 	selector: 'sidebar-item',
 	template: `<div
 		class="d-flex align-items-center justify-content-center w-100 h-100"
-		[tooltip]="description"
-		placement="right"
-		[delay]="100"
 	>
 		<i class="{{ icon }}"></i>
 	</div>`,

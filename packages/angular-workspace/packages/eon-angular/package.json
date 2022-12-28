@@ -18,8 +18,14 @@
 		"tslib": "^2.3.0"
 	},
 	"exports": {
-		"./_styles": {
-			"sass": "./assets/scss/_index.scss"
+		"./_bootstrap": {
+			"sass": "./assets/scss/bootstrap/_index.scss"
+		},
+		"./_font-awesome": {
+			"sass": "./assets/scss/font-awesome/_index.scss"
+		},
+		"./_eon": {
+			"sass": "./assets/scss/eon/_index.scss"
 		}
 	}
 }
