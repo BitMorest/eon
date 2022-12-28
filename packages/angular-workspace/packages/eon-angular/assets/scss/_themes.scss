@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@import 'functions';
 @import 'bootstrap/scss/root';
 
 :root {
@@ -48,37 +49,23 @@
 }
 
 [data-theme-color='light'] {
-	$eon-mat-theme-base: mat.define-light-theme(
-		(
-			//
-			color:
-				(
-					//
-					primary: $eon-primary,
-					accent: $eon-accent,
-					warn: $eon-warn,
-					success: $eon-success
-				),
-			density: 0
-		)
+	$eon-mat-light-theme: eon-mat-light-theme(
+		$eon-primary,
+		$eon-accent,
+		$eon-warn,
+		$eon-success,
+		$eon-danger
 	);
-	@include mat.all-component-themes($eon-mat-theme-base);
+	@include mat.all-component-themes($eon-mat-light-theme);
 }
 
 [data-theme-color='dark'] {
-	$eon-mat-theme-base: mat.define-dark-theme(
-		(
-			//
-			color:
-				(
-					//
-					primary: $eon-primary,
-					accent: $eon-accent,
-					warn: $eon-warn,
-					success: $eon-success
-				),
-			density: 0
-		)
+	$eon-mat-dark-theme: eon-mat-dark-theme(
+		$eon-primary,
+		$eon-accent,
+		$eon-warn,
+		$eon-success,
+		$eon-danger
 	);
-	@include mat.all-component-themes($eon-mat-theme-base);
+	@include mat.all-component-themes($eon-mat-dark-theme);
 }
