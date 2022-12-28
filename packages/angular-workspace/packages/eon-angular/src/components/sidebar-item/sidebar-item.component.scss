@@ -1,21 +1,8 @@
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import '../../../assets/scss/partials/variables';
+@import '../../../assets/scss/functions';
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
 
-:host {
-	&:hover,
-	&.active {
-		color: $primary;
-	}
-
-	&.active {
-		background: var(--bs-tertiary-bg-hover);
-
-		i {
-			border-color: $primary;
-		}
-	}
-
+sidebar-item {
 	i {
 		font-size: 20px;
 		width: 100%;
@@ -25,8 +12,28 @@
 	}
 
 	&:hover {
-		.mat-icon {
-			transform: scale(1.1);
+		color: var(--bs-primary);
+	}
+
+	&.active {
+		background: var(--eon-sidebar-bar-active-bg);
+
+		i {
+			border-color: var(--bs-primary);
+			color: var(--bs-primary);
 		}
+	}
+
+	.tooltip.show {
+		opacity: 1 !important;
+	}
+
+	.tooltip-inner {
+		background-color: var(--eon-sidebar-bar-tooltip-bg) !important;
+		color: var(--eon-sidebar-bar-tooltip-color) !important;
+	}
+
+	.tooltip-arrow:before {
+		border-right-color: var(--eon-sidebar-bar-tooltip-bg) !important;
 	}
 }

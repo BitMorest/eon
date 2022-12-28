@@ -1,8 +1,6 @@
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
-@import '../../../assets/scss/partials/variables';
-@import '../../../assets/scss/partials/mixins/index';
+@import '../../../assets/scss/functions';
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
 
 :host {
 	svg {
@@ -10,7 +8,7 @@
 		height: 10px;
 
 		& > * {
-			fill: var(--bs-body-color);
+			fill: var(--eon-title-bar-color);
 		}
 	}
 }

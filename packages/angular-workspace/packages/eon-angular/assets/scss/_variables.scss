@@ -1,0 +1,9 @@
+// 1. Eon variables
+$eon-theme-bg-light: #fefefe !default;
+$eon-theme-bg-dark: #222222 !default;
+
+// 2. Override  bootstrap variables
+$font-size-root: 14px;
+
+// Bootstrap variables
+@import 'bootstrap/scss/variables';

@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/prefer-dom-node-dataset */
+
 import {Injectable} from '@angular/core';
 import {CoreApiConst, ThemeApiInput, ThemeData} from '@bitmorest/eon-common';
 import {BehaviorSubject, filter, map, Observer, SubscriptionLike} from 'rxjs';
@@ -8,14 +10,10 @@ export class ThemeApiService {
 	private _body = document.body;
 	private _themeData = new BehaviorSubject<ThemeData | undefined>(undefined);
 
-	/* eslint-disable unicorn/prefer-dom-node-dataset */
 	constructor(private _electron: ElectronService) {
 		this._body.setAttribute('data-theme-color', 'light');
-		this._body.setAttribute('data-theme-platform', 'win32');
-
-		// implement for bootstrap
-		// this._body.setAttribute('data-bs-theme', 'dark');
-		// this.setupTheme();
+		this._body.setAttribute('data-theme-platform', 'darwin');
+		this.setupTheme();
 	}
 
 	private setupTheme() {
@@ -23,11 +21,11 @@ export class ThemeApiService {
 			CoreApiConst.THEME_API_OUTPUT,
 			(themeData: ThemeData) => {
 				this._themeData.next(themeData);
-				this._body.setAttribute('platform', window.api.environment.platform);
-				this._body.setAttribute('theme', themeData.current);
-
-				// implement for bootstrap
-				// this._body.dataset.bsTheme = themeData.current;
+				this._body.setAttribute('data-theme-color', themeData.current);
+				this._body.setAttribute(
+					'data-theme-platform',
+					window.api.environment.platform
+				);
 			}
 		);
 		this._electron.send<ThemeApiInput>(CoreApiConst.THEME_API_INPUT, {});

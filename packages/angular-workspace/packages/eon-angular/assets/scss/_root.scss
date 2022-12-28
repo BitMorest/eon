@@ -1,0 +1,47 @@
+@import 'bootstrap/scss/root';
+
+:root {
+	@include theme-color-mode(light, true) {
+		--bs-body-color: #{color-contrast($eon-theme-bg-light)};
+		--bs-body-color-rgb: #{to-rgb(color-contrast($eon-theme-bg-light))};
+		--bs-body-bg: #{$eon-theme-bg-light};
+		--bs-body-bg-rgb: #{to-rgb($eon-theme-bg-light)};
+
+		--eon-title-bar-color: #{color-contrast($eon-theme-bg-light)};
+		--eon-title-bar-bg: #{shade-color($theme-bg-light, 2%)};
+		--eon-title-bar-hover: #{shade-color($theme-bg-light, 10%)};
+		--eon-title-bar-border: #{shade-color($theme-bg-light, 10%)};
+
+		--eon-sidebar-bar-bg: #{shade-color($theme-bg-light, 2%)};
+		--eon-sidebar-bar-border: #{shade-color($theme-bg-light, 10%)};
+		--eon-sidebar-bar-color: #{shade-color($theme-bg-light, 70%)};
+		--eon-sidebar-bar-active-bg: #{shade-color($theme-bg-light, 10%)};
+		--eon-sidebar-bar-tooltip-bg: #{shade-color($theme-bg-light, 60%)};
+		--eon-sidebar-bar-tooltip-color: #{$eon-theme-bg-light};
+
+		--eon-scroll-bar-bg: #{shade-color($theme-bg-light, 12%)};
+		--eon-scroll-bar-hover: #{shade-color($theme-bg-light, 18%)};
+	}
+
+	@include theme-color-mode(dark, true) {
+		--bs-body-color: #{color-contrast($eon-theme-bg-dark)};
+		--bs-body-color-rgb: #{to-rgb(color-contrast($eon-theme-bg-dark))};
+		--bs-body-bg: #{$eon-theme-bg-dark};
+		--bs-body-bg-rgb: #{to-rgb($eon-theme-bg-dark)};
+
+		--eon-title-bar-color: #{color-contrast($eon-theme-bg-dark)};
+		--eon-title-bar-bg: #{tint-color($theme-bg-dark, 2%)};
+		--eon-title-bar-hover: #{tint-color($theme-bg-dark, 10%)};
+		--eon-title-bar-border: #{tint-color($theme-bg-dark, 5%)};
+
+		--eon-sidebar-bar-bg: #{tint-color($theme-bg-dark, 2.5%)};
+		--eon-sidebar-bar-border: #{tint-color($theme-bg-dark, 2.7%)};
+		--eon-sidebar-bar-color: #{tint-color($theme-bg-dark, 70%)};
+		--eon-sidebar-bar-active-bg: #{tint-color($theme-bg-dark, 10%)};
+		--eon-sidebar-bar-tooltip-bg: #{tint-color($theme-bg-dark, 60%)};
+		--eon-sidebar-bar-tooltip-color: #{$eon-theme-bg-dark};
+
+		--eon-scroll-bar-bg: #{tint-color($theme-bg-dark, 2%)};
+		--eon-scroll-bar-hover: #{tint-color($theme-bg-dark, 2%)};
+	}
+}

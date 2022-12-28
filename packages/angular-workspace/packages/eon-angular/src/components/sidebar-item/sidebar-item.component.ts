@@ -4,6 +4,7 @@ import {
 	HostListener,
 	Input,
 	OnInit,
+	ViewEncapsulation,
 } from '@angular/core';
 import {NavigationEnd, Router, Scroll} from '@angular/router';
 import {SideBarItemClickEventService} from '../../services/events/side-bar-item-click-event.service';
@@ -18,17 +19,15 @@ export interface SideBarItem {
 @Component({
 	selector: 'sidebar-item',
 	template: `<div
-		tooltip="{{ description }}"
-		triggers="click"
+		class="d-flex align-items-center justify-content-center w-100 h-100"
+		[tooltip]="description"
 		placement="right"
-		container="sidebar-item"
+		[delay]="100"
 	>
 		<i class="{{ icon }}"></i>
 	</div>`,
 	styleUrls: ['sidebar-item.component.scss'],
-	host: {
-		class: `d-flex flex-column align-items-center justify-content-center`,
-	},
+	encapsulation: ViewEncapsulation.None,
 })
 export class SideBarItemComponent implements OnInit {
 	/**

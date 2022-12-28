@@ -10,10 +10,10 @@ import {FramelessLayoutComponent} from './components/frameless-layout/frameless-
 import {TitleBarComponent} from './components/title-bar/title-bar.component';
 import {WindowControlsComponent} from './components/window-controls/window-controls.component';
 import {WindowButtonComponent} from './components/window-button/window-button.component';
-import {CommonSettingsComponent} from './components/common-settings/common-settings.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.component';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
+import {ThemeSettingComponent} from './components/theme-setting/theme-setting.component';
 
 @NgModule({
 	declarations: [
@@ -21,7 +21,7 @@ import {TooltipModule} from 'ngx-bootstrap/tooltip';
 		BootstrapComponent,
 		SidebarLayoutComponent,
 		FramelessLayoutComponent,
-		CommonSettingsComponent,
+		ThemeSettingComponent,
 
 		// internal
 		TitleBarComponent,
@@ -49,7 +49,7 @@ import {TooltipModule} from 'ngx-bootstrap/tooltip';
 		BootstrapComponent,
 		SidebarLayoutComponent,
 		FramelessLayoutComponent,
-		CommonSettingsComponent,
+		ThemeSettingComponent,
 	],
 	providers: [
 		{

@@ -123,6 +123,8 @@
 	},
 	"resolutions": {
 		"**/typescript": "4.8.4",
+		"**/bootstrap": "~5.1.3",
+		"**/@popperjs/core": "^2.10.2",
 		"@bitmorest/eon-common": "link:../../packages/common",
 		"@bitmorest/eon-core": "link:../../packages/core",
 		"@bitmorest/eon-angular": "link:../../packages/angular"

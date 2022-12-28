@@ -1,13 +1,12 @@
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
-@import '../../../assets/scss/partials/variables';
-@import '../../../assets/scss/partials/mixins/index';
+@import '../../../assets/scss/functions';
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
 
 :host {
 	-webkit-app-region: drag;
-	background: var(--bs-tertiary-bg);
-	border-bottom: 1px solid var(--bs-tertiary-bg-border);
+	background: var(--eon-title-bar-bg);
+	border-bottom: 1px solid var(--eon-title-bar-border);
+	color: var(--eon-title-bar-color);
 }
 
 @include theme-platform-mode(win32, false) {

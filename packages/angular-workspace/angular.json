@@ -12,6 +12,11 @@
 	"projects": {
 		"eon-angular": {
 			"projectType": "library",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
 			"root": "packages/eon-angular",
 			"sourceRoot": "packages/eon-angular/src",
 			"prefix": "eon",

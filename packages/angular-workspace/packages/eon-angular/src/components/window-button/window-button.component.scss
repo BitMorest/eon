@@ -1,15 +1,13 @@
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
-@import '../../../assets/scss/partials/variables';
-@import '../../../assets/scss/partials/mixins/index';
+@import '../../../assets/scss/functions';
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
 
 :host {
 	background: transparent;
 	-webkit-app-region: no-drag;
 
 	&:hover {
-		background: var(--bs-tertiary-bg-hover);
+		background: var(--eon-title-bar-hover);
 	}
 
 	&[action='close']:hover {

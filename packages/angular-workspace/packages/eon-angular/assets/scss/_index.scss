@@ -1,29 +1,11 @@
-/**
-*  Global Styles
-*/
 @import 'fa';
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+@import 'root';
+@import 'reboot';
+@import 'utilities';
 
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import 'bootstrap/scss/functions';
-
-// 2. Include any default variable overrides here
-
-// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
-@import 'bootstrap/scss/variables';
-
-// 4. Include any default map overrides here
-
-// 5. Include remainder of required parts
-@import 'bootstrap/scss/maps';
-@import 'bootstrap/scss/mixins';
-@import 'bootstrap/scss/root';
-
-// 6. Include utilities and reboot
-@import 'bootstrap/scss/utilities';
-@import 'bootstrap/scss/utilities/api';
-@import 'bootstrap/scss/reboot';
-
-// 7. Include components
 @import 'bootstrap/scss/containers';
 @import 'bootstrap/scss/grid';
 @import 'bootstrap/scss/type';
@@ -54,14 +36,8 @@
 @import 'bootstrap/scss/offcanvas';
 @import 'bootstrap/scss/placeholders';
 
-@import './partials/variables';
-@import './partials/themes';
-
-html,
-body {
-	background: transparent;
-
-	* {
-		user-select: none;
-	}
-}
+// .form-control,
+// .form-control:active {
+//     color: var(--bs-body-color);
+//     background-color: var(--bs-body-bg);
+// }
