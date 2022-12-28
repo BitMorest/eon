@@ -1,9 +1,16 @@
+@use '@angular/material' as mat;
+
 // 1. Eon variables
 $eon-theme-bg-light: #fefefe !default;
 $eon-theme-bg-dark: #222222 !default;
 
 // 2. Override  bootstrap variables
 $font-size-root: 14px;
+
+$eon-primary: mat.define-palette(mat.$indigo-palette, 500);
+$eon-success: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$eon-accent: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
+$eon-warn: mat.define-palette(mat.$red-palette);
 
 // Bootstrap variables
 @import 'bootstrap/scss/variables';

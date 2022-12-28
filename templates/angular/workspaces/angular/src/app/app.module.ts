@@ -15,6 +15,7 @@ import {
 } from '@bitmorest/eon-angular';
 import {AboutComponent} from './components/about/about.component';
 import {SettingsComponent} from './components/settings/settings.component';
+import {ExamplesComponent} from './components/examples/examples.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -22,7 +23,12 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-	declarations: [HomeComponent, AboutComponent, SettingsComponent],
+	declarations: [
+		HomeComponent,
+		AboutComponent,
+		SettingsComponent,
+		ExamplesComponent,
+	],
 	imports: [
 		EonModule,
 		ReactiveFormsModule,
@@ -57,6 +63,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 							description: 'About',
 						},
 						{
+							icon: 'fa-duotone fa-books',
+							href: '/examples',
+							description: 'Examples',
+						},
+						{
 							icon: 'fa-duotone fa-circle-question',
 							description: 'Support',
 							bottom: true,
@@ -67,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 					{path: '', pathMatch: 'full', redirectTo: '/home'},
 					{path: 'home', component: HomeComponent},
 					{path: 'settings', component: SettingsComponent},
+					{path: 'examples', component: ExamplesComponent},
 					{path: 'about', component: AboutComponent},
 				],
 			},

@@ -26,7 +26,8 @@ export class ThemeSettingComponent {
 		});
 	}
 
-	changeTheme() {
-		// console.log(event);
+	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+	changeTheme(event: any) {
+		if (event.target.value) this.themeService.changeTheme(event.target.value);
 	}
 }

@@ -48,6 +48,7 @@
 			}
 		],
 		"import/no-unresolved": "off",
+		"unicorn/empty-brace-spaces": "off",
 		"unicorn/prefer-module": "off"
 	}
 }

@@ -15,5 +15,13 @@ The list of scopes
 **style**: Changes that do not affect the meaning of the code (Eg: adding white-space, formatting, missing semi-colons, etc)
 **test**: Adding missing tests or correcting existing tests
 
-#Notes:
-https://www.cssscript.com/dark-mode-switcher-for-bootstrap-5/
+## TODO:
+
+### features:
+
+- Update angular show preload screen cho đến khi load xong
+
+### chores:
+
+Đợi angular ra phiên bản 15.1 để update
+Đợi ngx-bootstrap ra phiên bản mới để update lên bootstrap 5.3 hoặc 5.2

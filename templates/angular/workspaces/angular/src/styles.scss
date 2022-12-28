@@ -1,4 +1,15 @@
-$theme-bg-light: #f0f1f3 !default;
-$theme-bg-dark: #222222 !default;
-$primary: red;
+// $eon-theme-bg-light: #f0f1f3 !default;
+// $eon-theme-bg-dark: #222222 !default;
+// Using for override primary color
+// $primary: red;
 @import '@bitmorest/eon-angular/styles';
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

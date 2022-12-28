@@ -1,0 +1,26 @@
+article {
+	margin: 12px 0;
+	padding: 12px;
+	border: 1px solid var(--eon-title-bar-border);
+	border-radius: 4px;
+
+	section {
+		padding: 10px;
+	}
+}
+
+#mat-buttons {
+	section {
+		display: flex;
+		padding: 10px;
+		align-items: center;
+	}
+
+	.example-label {
+		flex: 0 0 100px;
+	}
+
+	button {
+		margin-right: 8px;
+	}
+}

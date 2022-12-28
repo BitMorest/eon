@@ -1,8 +1,12 @@
+@use '@angular/material' as mat;
+
 @import 'fa';
+
+@include mat.core();
 @import 'functions';
 @import 'variables';
 @import 'mixins';
-@import 'root';
+@import 'themes';
 @import 'reboot';
 @import 'utilities';
 
@@ -35,9 +39,3 @@
 @import 'bootstrap/scss/spinners';
 @import 'bootstrap/scss/offcanvas';
 @import 'bootstrap/scss/placeholders';
-
-// .form-control,
-// .form-control:active {
-//     color: var(--bs-body-color);
-//     background-color: var(--bs-body-bg);
-// }

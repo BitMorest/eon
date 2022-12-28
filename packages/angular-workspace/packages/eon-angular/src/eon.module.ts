@@ -14,6 +14,10 @@ import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.component';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {ThemeSettingComponent} from './components/theme-setting/theme-setting.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
 	declarations: [
@@ -31,19 +35,31 @@ import {ThemeSettingComponent} from './components/theme-setting/theme-setting.co
 		SideBarItemComponent,
 	],
 	imports: [
+		// Core
 		CommonModule,
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
+		// Boostrap
 		TooltipModule.forRoot(),
+		// Angular Material
+		MatButtonModule,
+		MatDividerModule,
+		MatIconModule,
+		MatButtonToggleModule,
 	],
 	exports: [
-		// ReExport modules
+		// ReExport angular modules
 		CommonModule,
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
+		// Rexport bootstrap modules
 		TooltipModule,
+		// Rexport angular material
+		MatButtonModule,
+		MatDividerModule,
+		MatIconModule,
 
 		// Export components
 		BootstrapComponent,
