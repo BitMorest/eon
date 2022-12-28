@@ -13,6 +13,7 @@ import {WindowButtonComponent} from './components/window-button/window-button.co
 import {CommonSettingsComponent} from './components/common-settings/common-settings.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.component';
+import {TooltipModule} from 'ngx-bootstrap/tooltip';
 
 @NgModule({
 	declarations: [
@@ -29,13 +30,20 @@ import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.compo
 		SidebarComponent,
 		SideBarItemComponent,
 	],
-	imports: [CommonModule, BrowserModule, RouterModule, HttpClientModule],
+	imports: [
+		CommonModule,
+		BrowserModule,
+		RouterModule,
+		HttpClientModule,
+		TooltipModule.forRoot(),
+	],
 	exports: [
 		// ReExport modules
 		CommonModule,
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
+		TooltipModule,
 
 		// Export components
 		BootstrapComponent,

@@ -23,6 +23,7 @@
 		"@bitmorest/eon-angular": "link:../../packages/angular",
 		"@ngx-translate/core": "^14.0.0",
 		"@ngx-translate/http-loader": "^7.0.0",
+		"ngx-bootstrap": "^10.2.0",
 		"@popperjs/core": "^2.11.6",
 		"bootstrap": "^5.1.3",
 		"electron": "^22.0.0",

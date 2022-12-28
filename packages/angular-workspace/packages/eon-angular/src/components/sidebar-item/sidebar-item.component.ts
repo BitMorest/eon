@@ -17,14 +17,14 @@ export interface SideBarItem {
 
 @Component({
 	selector: 'sidebar-item',
-	template: `<i
-		data-bs-toggle="tooltip"
-		data-bs-placement="top"
-		data-bs-custom-class="custom-tooltip"
-		data-bs-title="This top tooltip is themed via CSS variables."
-		class="{{ icon }}"
+	template: `<div
+		tooltip="{{ description }}"
+		triggers="click"
+		placement="right"
+		container="sidebar-item"
 	>
-	</i>`,
+		<i class="{{ icon }}"></i>
+	</div>`,
 	styleUrls: ['sidebar-item.component.scss'],
 	host: {
 		class: `d-flex flex-column align-items-center justify-content-center`,
