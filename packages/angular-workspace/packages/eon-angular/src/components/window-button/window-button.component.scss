@@ -1,31 +1,29 @@
-@import '../../../assets/scss/functions';
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
+// @use '../../../assets/scss/index' as bs;
 
-:host {
-	background: transparent;
-	-webkit-app-region: no-drag;
+// :host {
+// 	background: transparent;
+// 	-webkit-app-region: no-drag;
 
-	&:hover {
-		background: var(--eon-title-bar-hover);
-	}
+// 	&:hover {
+// 		background: var(--eon-title-bar-hover);
+// 	}
 
-	&[action='close']:hover {
-		background: rgba(var(--bs-danger-rgb), 0.8);
-	}
-}
+// 	&[action='close']:hover {
+// 		background: rgba(var(--bs-danger-rgb), 0.8);
+// 	}
+// }
 
-@include theme-platform-mode(win32) {
-	:host {
-		width: 48px;
-		height: 100%;
-	}
-}
+// @include bs.theme-platform-mode(win32) {
+// 	:host {
+// 		width: 48px;
+// 		height: 100%;
+// 	}
+// }
 
-@include theme-platform-mode(darwin) {
-	:host {
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-	}
-}
+// @include bs.theme-platform-mode(darwin) {
+// 	:host {
+// 		width: 12px;
+// 		height: 12px;
+// 		border-radius: 50%;
+// 	}
+// }

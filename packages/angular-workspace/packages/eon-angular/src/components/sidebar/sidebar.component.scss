@@ -1,21 +1,18 @@
-@import '../../../assets/scss/functions';
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
+// @use '../../../assets/scss/index' as bs;
 
-:host {
-	flex: 0 0 50px;
-	background: var(--eon-sidebar-bar-bg);
-	border-right: 1px solid var(--eon-sidebar-bar-border);
-	color: var(--eon-sidebar-bar-color);
-}
+// :host {
+// 	flex: 0 0 50px;
+// 	background: var(--eon-sidebar-bar-bg);
+// 	border-right: 1px solid var(--eon-sidebar-bar-border);
+// 	color: var(--eon-sidebar-bar-color);
+// }
 
-@include theme-platform-mode(win32) {
-	:host {
-	}
-}
+// @include bs.theme-platform-mode(win32) {
+// 	:host {}
+// }
 
-@include theme-platform-mode(darwin) {
-	:host {
-		border-radius: 0 0 0 6px;
-	}
-}
+// @include bs.theme-platform-mode(darwin) {
+// 	:host {
+// 		border-radius: 0 0 0 6px;
+// 	}
+// }

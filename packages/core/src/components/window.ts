@@ -13,7 +13,7 @@ import {Logger} from '../utils';
 import {Environment} from '../models';
 import {ThemeApiService} from '../services/theme-api-service';
 import {WindowApiService} from '../services/window-api-service';
-import debug from 'electron-debug';
+import contextMenu from 'electron-context-menu';
 
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 const log = new Logger('eon-core');
@@ -86,7 +86,14 @@ export class Window {
 		if (environment.env == 'development') {
 			// Dev mode, take advantage of the live reload by loading local URL
 			this.browser?.loadURL(`http://localhost:4200`);
-			debug();
+			contextMenu({
+				window: this.browser,
+				showInspectElement: true,
+				showCopyLink: true,
+				showCopyImageAddress: true,
+				showCopyImage: true,
+				showCopyVideoAddress: true,
+			});
 			this.browser?.webContents.openDevTools({
 				mode: 'undocked',
 				activate: true,

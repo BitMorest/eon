@@ -1,6 +1,4 @@
-@import '../../../assets/scss/functions';
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
+@use '../../../assets/scss/eon/index' as eon;
 
 :host {
 	-webkit-app-region: drag;
@@ -9,7 +7,7 @@
 	color: var(--eon-title-bar-color);
 }
 
-@include theme-platform-mode(win32, false) {
+@include eon.theme-platform-mode(win32, false) {
 	:host {
 		flex: 0 0 32px;
 		box-sizing: border-box;
@@ -20,11 +18,11 @@
 
 			.icon {
 				height: 16px;
-				margin-left: ($spacer * 0.5);
+				// margin-left: ($spacer * 0.5);
 			}
 
 			.text {
-				text-indent: ($spacer * 0.5);
+				// text-indent: ($spacer * 0.5);
 				font-size: $font-size-sm;
 			}
 		}
@@ -35,7 +33,7 @@
 	}
 }
 
-@include theme-platform-mode(darwin) {
+@include eon.theme-platform-mode(darwin) {
 	:host {
 		flex: 0 0 26px;
 		border-radius: 6px 6px 0 0;
@@ -55,8 +53,8 @@
 			}
 
 			.text {
-				font-size: $font-size-sm * 0.96;
-				text-indent: ($spacer * 0.5);
+				// font-size: $font-size-sm * 0.96;
+				// text-indent: ($spacer * 0.5);
 			}
 		}
 

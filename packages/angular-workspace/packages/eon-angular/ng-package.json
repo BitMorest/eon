@@ -4,7 +4,7 @@
 	"assets": ["./assets"],
 	"inlineStyleLanguage": "scss",
 	"keepLifecycleScripts": false,
-	"deleteDestPath": true,
+	"deleteDestPath": false,
 	"dest": "../../../angular",
 	"lib": {
 		"entryFile": "src/public-api.ts",

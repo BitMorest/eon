@@ -1,7 +1,3 @@
-@use '@angular/material' as mat;
-@import 'functions';
-@import 'bootstrap/scss/root';
-
 :root {
 	@include theme-color-mode(light, true) {
 		--bs-body-color: #{color-contrast($eon-theme-bg-light)};
@@ -46,26 +42,4 @@
 		--eon-scroll-bar-bg: #{tint-color($eon-theme-bg-dark, 2%)};
 		--eon-scroll-bar-hover: #{tint-color($eon-theme-bg-dark, 2%)};
 	}
-}
-
-[data-theme-color='light'] {
-	$eon-mat-light-theme: eon-mat-light-theme(
-		$eon-primary,
-		$eon-accent,
-		$eon-warn,
-		$eon-success,
-		$eon-danger
-	);
-	@include mat.all-component-themes($eon-mat-light-theme);
-}
-
-[data-theme-color='dark'] {
-	$eon-mat-dark-theme: eon-mat-dark-theme(
-		$eon-primary,
-		$eon-accent,
-		$eon-warn,
-		$eon-success,
-		$eon-danger
-	);
-	@include mat.all-component-themes($eon-mat-dark-theme);
 }
