@@ -222,3 +222,63 @@
 		</div>
 	</section>
 </article>
+<article id="form">
+	<h2>Typograpy</h2>
+	<section>
+		<div class="example-form-row">
+			<mat-form-field class="example-full-width">
+				<mat-label>Favorite food</mat-label>
+				<input matInput placeholder="Ex. Pizza" value="Sushi" />
+			</mat-form-field>
+		</div>
+		<div class="example-form-row">
+			<mat-form-field class="example-full-width">
+				<mat-label>Leave a comment</mat-label>
+				<textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+			</mat-form-field>
+		</div>
+		<div class="example-form-row">
+			<mat-form-field>
+				<mat-label>Favorite food</mat-label>
+				<mat-select>
+					<mat-option *ngFor="let food of foods" [value]="food.value">
+						{{ food.viewValue }}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+	</section>
+	<section>
+		<div class="example-form-row">
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Favorite food</mat-label>
+				<input matInput placeholder="Ex. Pizza" value="Sushi" />
+			</mat-form-field>
+		</div>
+		<div class="example-form-row">
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Leave a comment</mat-label>
+				<textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+			</mat-form-field>
+		</div>
+		<div class="example-form-row">
+			<mat-form-field appearance="outline">
+				<mat-label>Favorite food</mat-label>
+				<mat-select>
+					<mat-option *ngFor="let food of foods" [value]="food.value">
+						{{ food.viewValue }}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+	</section>
+	<section>
+		<div>
+			<h4>Select your toppings:</h4>
+			<p><mat-checkbox>Pepperoni</mat-checkbox></p>
+			<p><mat-checkbox>Extra Cheese</mat-checkbox></p>
+			<p><mat-checkbox>Mushroom</mat-checkbox></p>
+		</div>
+	</section>
+	<mat-divider></mat-divider>
+</article>

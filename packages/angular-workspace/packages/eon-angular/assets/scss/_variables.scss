@@ -2,7 +2,7 @@
 @use '@angular/material' as mat;
 @import 'functions';
 
-$primary-color: mat.define-palette(mat.$indigo-palette) !default;
+$primary-color: mat.define-palette(mat.$cyan-palette, 600) !default;
 $primary-color-dark: $primary-color !default;
 $primary-color-light: $primary-color !default;
 
@@ -10,23 +10,44 @@ $light-theme: (
 	primary: $primary-color-light,
 	accent: mat.define-palette(mat.$pink-palette, A200, A100, A400),
 	warn: mat.define-palette(mat.$amber-palette),
-	background: (
+	components: (
 		//
-		sidebar:
+		titlebar:
 			(
 				//
-				default: #cfd8dc,
-				border: #c3cccf,
+				background: #f1f2f3,
+				border: #e3e6e9,
+				text: #111111,
 				windowsOsButtonHover: #cfd8dc,
-				windownsOsCloseButtonHover: #c62828aa //
+				windownsOsCloseButtonHover: #ce3232,
+
+				macOsMinimizeBg: #ffbd4c,
+				macOsMinimizeHoverDotColor: #af7c33,
+
+				macOsMaximizeBg: #00ca56,
+				macOsMaximizeHoverDotColor: #128435,
+
+				macOsCloseBg: #ff5c5c,
+				macOsCloseHoverDotColor: #b03537
 			),
-		titlebar: (
+		sidebar: (
 			//
-			default: #cfd8dc,
-			border: #c3cccf,
-			windowsOsButtonHover: #cfd8dc,
-			windownsOsCloseButtonHover: #c62828aa //
+			background: #eceff1,
+			border: #e9eced,
+			text: #111111,
+			menuActive: #d3dbdf,
+			tooltipBg: #d3dbdf,
+			tooltipColor: #343638,
+			//
 		),
+		content: (
+			//
+			background: #fafafa,
+			text: rgba(0, 0, 0, 0.87),
+			scrollBarBg: #c5cccf,
+			scrollBarBgHover: #adb6bb //
+		)
+		//,
 	),
 );
 
@@ -39,29 +60,50 @@ $dark-theme: (
 		titlebar:
 			(
 				//
-				background: #cfd8dc,
-				text: #111111,
-				border: #c3cccf,
-				windowsOsButtonHover: #cfd8dc,
-				windownsOsCloseButtonHover: #c62828aa //
+				background: #262626,
+				border: #282828,
+				text: #abb2bf,
+				windowsOsButtonHover: #2f333b,
+				windownsOsCloseButtonHover: #ce3232,
+
+				macOsMinimizeBg: #ffbd4c,
+				macOsMinimizeHoverDotColor: #af7c33,
+
+				macOsMaximizeBg: #00ca56,
+				macOsMaximizeHoverDotColor: #128435,
+
+				macOsCloseBg: #ff5c5c,
+				macOsCloseHoverDotColor: #b03537
 			),
 		sidebar: (
 			//
-			default: #cfd8dc,
-			border: #c3cccf,
-			windowsOsButtonHover: #cfd8dc,
-			windownsOsCloseButtonHover: #c62828aa //
+			background: #2a2a2a,
+			border: #2d2d2d,
+			text: #abb2bf,
+			menuActive: #2f333b,
+			tooltipBg: #3d3f44,
+			tooltipColor: rgba(255, 255, 255, 0.87),
+			//
 		),
+		content: (
+			//
+			background: #303030,
+			text: rgba(255, 255, 255, 0.87),
+			scrollBarBg: #313235,
+			scrollBarBgHover: #515352 //
+		)
+		//,
 	),
 );
 
 $themes: (
 	light: $light-theme,
 	// Light theme
-	dark: $dark-theme // Dark theme,
+	dark: $dark-theme // Dark theme,,
 );
 
-$font-size-base: 1rem;
+$font-size-base: 0.9rem;
+$font-size-xs: $font-size-base * 0.75;
 $font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto,
 	'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif,
 	'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';

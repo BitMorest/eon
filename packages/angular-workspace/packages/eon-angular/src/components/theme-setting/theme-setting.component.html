@@ -1,13 +1,8 @@
-<select
-	class="form-control custom-select"
-	(change)="changeTheme($event)"
-	[value]="current"
->
-	<option
-		*ngFor="let theme of themes"
-		value="{{ theme }}"
-		[selected]="current == theme"
-	>
-		{{ theme | titlecase }}
-	</option>
-</select>
+<mat-form-field appearance="outline">
+	<mat-label>Themes</mat-label>
+	<mat-select [(value)]="current" (selectionChange)="changeTheme($event)">
+		<mat-option *ngFor="let theme of themes" value="{{ theme }}">{{
+			theme | titlecase
+		}}</mat-option>
+	</mat-select>
+</mat-form-field>

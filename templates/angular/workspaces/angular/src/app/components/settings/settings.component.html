@@ -1,6 +1,11 @@
-<div class="form-group row mt-3">
-	<label for="inputEmail3" class="col-sm-3 col-form-label">Theme</label>
-	<div class="col-sm-3">
-		<theme-setting></theme-setting>
-	</div>
-</div>
+<mat-card class="mt-4">
+	<mat-card-header>
+		<mat-card-title>{{ 'Appearance Settings' | translate }} </mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<div class="mt-4">
+			<theme-setting></theme-setting>
+			<theme-setting class="ms-3"></theme-setting>
+		</div>
+	</mat-card-content>
+</mat-card>

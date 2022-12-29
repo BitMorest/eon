@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {MatSelectChange} from '@angular/material/select';
 import {ThemeApiService} from '../../services/theme-api.service';
 
 @Component({
@@ -26,8 +27,7 @@ export class ThemeSettingComponent {
 		});
 	}
 
-	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-	changeTheme(event: any) {
-		if (event.target.value) this.themeService.changeTheme(event.target.value);
+	changeTheme(event: MatSelectChange) {
+		this.themeService.changeTheme(event.value);
 	}
 }

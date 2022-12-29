@@ -17,6 +17,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
 	declarations: [
@@ -44,6 +48,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 		MatDividerModule,
 		MatIconModule,
 		MatButtonToggleModule,
+		MatTooltipModule,
+		MatSelectModule,
+		MatInputModule,
+		MatCheckboxModule,
 	],
 	exports: [
 		// ReExport angular modules
@@ -56,6 +64,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 		MatButtonModule,
 		MatDividerModule,
 		MatIconModule,
+		MatTooltipModule,
+		MatSelectModule,
+		MatInputModule,
+		MatCheckboxModule,
 
 		// Export components
 		BootstrapComponent,

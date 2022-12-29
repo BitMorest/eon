@@ -5,11 +5,11 @@
 	-webkit-app-region: no-drag;
 
 	&:hover {
-		background: var(--eon-title-bar-windown-button-hover-bg);
+		background: var(--eon-title-bar-windown-os-window-button-hover-bg);
 	}
 
 	&.close:hover {
-		background: #e53935;
+		background: var(--eon-title-bar-windown-os-close-window-button-hover-bg);
 	}
 }
 

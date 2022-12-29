@@ -19,6 +19,9 @@ export interface SideBarItem {
 @Component({
 	selector: 'sidebar-item',
 	template: `<div
+		[matTooltip]="description"
+		matTooltipPosition="right"
+		matTooltipClass="sidebar-item-tooltip"
 		class="d-flex align-items-center justify-content-center w-100 h-100"
 	>
 		<i class="{{ icon }}"></i>

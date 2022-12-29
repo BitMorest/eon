@@ -16,6 +16,7 @@ import {
 import {AboutComponent} from './components/about/about.component';
 import {SettingsComponent} from './components/settings/settings.component';
 import {ExamplesComponent} from './components/examples/examples.component';
+import {MatCardModule} from '@angular/material/card';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -32,6 +33,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 	imports: [
 		EonModule,
 		ReactiveFormsModule,
+		MatCardModule,
 		BrowserAnimationsModule,
 		TranslateModule.forRoot({
 			defaultLanguage: 'en',
@@ -48,27 +50,27 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 				data: {
 					sidebarItems: [
 						{
-							icon: 'fa-duotone fa-house-blank',
+							icon: 'fa-regular fa-house',
 							href: '/home',
 							description: 'Home',
 						},
 						{
-							icon: 'fa-duotone fa-sliders',
+							icon: 'fa-regular fa-sliders',
 							href: '/settings',
 							description: 'Settings',
 						},
 						{
-							icon: 'fa-duotone fa-circle-info',
+							icon: 'fa-regular fa-circle-info',
 							href: '/about',
 							description: 'About',
 						},
 						{
-							icon: 'fa-duotone fa-books',
+							icon: 'fa-regular fa-books',
 							href: '/examples',
 							description: 'Examples',
 						},
 						{
-							icon: 'fa-duotone fa-circle-question',
+							icon: 'fa-regular fa-circle-question',
 							description: 'Support',
 							bottom: true,
 						},

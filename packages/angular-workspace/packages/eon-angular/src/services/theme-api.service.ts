@@ -11,9 +11,9 @@ export class ThemeApiService {
 	private _themeData = new BehaviorSubject<ThemeData | undefined>(undefined);
 
 	constructor(private _electron: ElectronService) {
-		this._body.setAttribute('data-theme-color', 'dark');
-		this._body.setAttribute('data-theme-platform', 'darwin');
-		// this.setupTheme();
+		this._body.setAttribute('data-theme-color', 'light');
+		this._body.setAttribute('data-theme-platform', 'win32');
+		this.setupTheme();
 	}
 
 	private setupTheme() {

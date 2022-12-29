@@ -18,6 +18,7 @@
 
 		window-button {
 			margin-left: 6px;
+			box-sizing: border-box;
 
 			& > * {
 				display: none;
@@ -27,33 +28,30 @@
 				margin-left: 0;
 			}
 
-			// &.minimize {
-			//     background: $orange-300;
-			//     border: 1px solid $orange-400;
-
-			//     &:hover {
-			//         background: $orange-500;
-			//         border: 1px solid $orange-600;
-			//     }
-			// }
-
-			// &.toogleMaximize {
-			//     background: $green-400;
-			//     border: 1px solid $green-500;
-
-			//     &:hover {
-			//         background: $green-500;
-			//         border: 1px solid $green-600;
-			//     }
-			// }
-
-			&.close {
-				background: #e53935;
-				border: 1px solid #d32f2f;
+			&.minimize {
+				background: var(--eon-title-bar-mac-os-minimize-bg);
 
 				&:hover {
-					background: #d32f2f;
-					border: 1px solid #c62828;
+					background: var(--eon-title-bar-mac-os-minimize-hover-dot-color);
+					border: 3.5px solid var(--eon-title-bar-mac-os-minimize-bg);
+				}
+			}
+
+			&.toogleMaximize {
+				background: var(--eon-title-bar-mac-os-maximize-bg);
+
+				&:hover {
+					background: var(--eon-title-bar-mac-os-maximize-hover-dot-color);
+					border: 3.5px solid var(--eon-title-bar-mac-os-maximize-bg);
+				}
+			}
+
+			&.close {
+				background: var(--eon-title-bar-mac-os-close-bg);
+
+				&:hover {
+					background: var(--eon-title-bar-mac-os-close-hover-dot-color);
+					border: 3.5px solid var(--eon-title-bar-mac-os-close-bg);
 				}
 			}
 		}

@@ -4,7 +4,6 @@
 @import '../variables';
 @import '../maps';
 @import '../mixins';
-@import './components/titlebar';
 
 @include theme-color-mode(light, true) {
 	$primary: map.get($themes, 'light', 'primary');
@@ -19,28 +18,50 @@
 		)
 	);
 
-	$titlebarColors: map.get($components, 'titlebar');
-	--eon-title-bar-color: #{map.get($titlebarColors, 'text')};
-	--eon-title-bar-bg: #{map.get($titlebarColors, 'background')};
-	--eon-title-bar-border-color: #{map.get($titlebarColors, 'border')};
+	$titlebar: map.get($components, 'titlebar');
+	--eon-title-bar-color: #{map.get($titlebar, 'text')};
+	--eon-title-bar-bg: #{map.get($titlebar, 'background')};
+	--eon-title-bar-border-color: #{map.get($titlebar, 'border')};
 	--eon-title-bar-windown-os-window-button-hover-bg: #{map.get(
-			$titlebarColors,
+			$titlebar,
 			'windowsOsButtonHover'
 		)};
 	--eon-title-bar-windown-os-close-window-button-hover-bg: #{map.get(
-			$titlebarColors,
+			$titlebar,
 			'windownsOsCloseButtonHover'
 		)};
 
+	--eon-title-bar-mac-os-minimize-bg: #{map.get($titlebar, 'macOsMinimizeBg')};
+	--eon-title-bar-mac-os-minimize-hover-dot-color: #{map.get(
+			$titlebar,
+			'macOsMinimizeHoverDotColor'
+		)};
+
+	--eon-title-bar-mac-os-maximize-bg: #{map.get($titlebar, 'macOsMaximizeBg')};
+	--eon-title-bar-mac-os-maximize-hover-dot-color: #{map.get(
+			$titlebar,
+			'macOsMaximizeHoverDotColor'
+		)};
+
+	--eon-title-bar-mac-os-close-bg: #{map.get($titlebar, 'macOsCloseBg')};
+	--eon-title-bar-mac-os-close-hover-dot-color: #{map.get(
+			$titlebar,
+			'macOsCloseHoverDotColor'
+		)};
+
 	// // SIDE BAR //
-	// --eon-sidebar-bar-color: #{map.get($background, 'text')};
-	// --eon-sidebar-bar-bg:#{map.get($background, 'default')};
-	// --eon-sidebar-bar-border: #{map.get($background, 'darker')};
-	// --eon-sidebar-bar-active-bg: #{map.get($background, 'darker')};
+	$sidebar: map.get($components, 'sidebar');
+	--eon-sidebar-bar-color: #{map.get($sidebar, 'text')};
+	--eon-sidebar-bar-bg: #{map.get($sidebar, 'background')};
+	--eon-sidebar-bar-border-color: #{map.get($sidebar, 'border')};
+	--eon-sidebar-bar-active-bg: #{map.get($sidebar, 'menuActive')};
+	--eon-sidebar-bar-tooltop-bg: #{map.get($sidebar, 'tooltipBg')};
+	--eon-sidebar-bar-tooltop-color: #{map.get($sidebar, 'tooltipColor')};
 
 	// // MAIN CONTENT//
-	// --eon-body-color: #{map.get($background, 'text')};
-	// --eon-body-bg: #{map.get($background, 'lighter')};
-	// --eon-scroll-bar-bg: rgba(#{to-rgb(map.get($background, 'text'))}, 0.3);
-	// --eon-scroll-bar-hover-color: rgba(#{to-rgb(map.get($background, 'text'))}, 0.5);
+	$content: map.get($components, 'content');
+	--eon-body-color: #{map.get($content, 'text')};
+	--eon-body-bg: #{map.get($content, 'background')};
+	--eon-scroll-bar-bg: #{map.get($content, 'scrollBarBg')};
+	--eon-scroll-bar-hover-color: #{map.get($content, 'scrollBarBgHover')};
 }
