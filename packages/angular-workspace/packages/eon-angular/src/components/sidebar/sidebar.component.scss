@@ -1,18 +1,14 @@
-// @use '../../../assets/scss/index' as bs;
+@import '../../../assets/scss/mixins';
 
-// :host {
-// 	flex: 0 0 50px;
-// 	background: var(--eon-sidebar-bar-bg);
-// 	border-right: 1px solid var(--eon-sidebar-bar-border);
-// 	color: var(--eon-sidebar-bar-color);
-// }
+:host {
+	flex: 0 0 50px;
+	background: var(--eon-sidebar-bar-bg);
+	border-right: 1px solid var(--eon-sidebar-bar-border);
+	color: var(--eon-sidebar-bar-color);
+}
 
-// @include bs.theme-platform-mode(win32) {
-// 	:host {}
-// }
-
-// @include bs.theme-platform-mode(darwin) {
-// 	:host {
-// 		border-radius: 0 0 0 6px;
-// 	}
-// }
+@include theme-platform-mode(darwin) {
+	:host {
+		border-radius: 0 0 0 6px;
+	}
+}

@@ -4,7 +4,15 @@ article {
 	border: 1px solid var(--eon-title-bar-border);
 	border-radius: 4px;
 
+	.example-label {
+		flex: 0 0 100px;
+	}
+}
+
+#typography {
 	section {
+		display: flex;
+		padding: 10px;
 	}
 }
 

@@ -12,7 +12,7 @@ import {Component, Input} from '@angular/core';
 	`,
 	styleUrls: ['./title-bar.component.scss'],
 	host: {
-		class: 'd-flex',
+		class: 'titlebar d-flex',
 	},
 })
 export class TitleBarComponent {

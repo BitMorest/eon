@@ -21,7 +21,7 @@ export interface SideBarLayoutData {
 				>
 				</sidebar-item>
 			</sidebar>
-			<div class="flex-grow-1 overflow-auto text-body bg-body main-content">
+			<div class="main-content flex-grow-1 overflow-auto">
 				<div class="container-fluid">
 					<router-outlet></router-outlet>
 				</div>
@@ -30,7 +30,7 @@ export interface SideBarLayoutData {
 	`,
 	styleUrls: ['sidebar-layout.component.scss'],
 	host: {
-		class: 'd-flex flex-column vw-100 vh-100 overflow-hidden',
+		class: 'd-flex flex-column vw-100 vh-100',
 	},
 })
 export class SidebarLayoutComponent implements OnInit {

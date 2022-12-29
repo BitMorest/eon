@@ -1,3 +1,65 @@
+<article id="typography">
+	<h2>Typograpy</h2>
+	<section>
+		<div class="example-label">Heading</div>
+		<div class="example-typography-row">
+			<h1>h1. Bootstrap heading</h1>
+			<mat-divider></mat-divider>
+			<h2>h2. Bootstrap heading</h2>
+			<mat-divider></mat-divider>
+			<h3>h3. Bootstrap heading</h3>
+			<mat-divider></mat-divider>
+			<h4>h4. Bootstrap heading</h4>
+			<mat-divider></mat-divider>
+			<h5>h5. Bootstrap heading</h5>
+			<mat-divider></mat-divider>
+			<h6>h6. Bootstrap heading</h6>
+		</div>
+	</section>
+	<mat-divider></mat-divider>
+	<section>
+		<div class="example-label">Customizing headings</div>
+		<div class="example-typography-row">
+			<h3>
+				Fancy display heading
+				<small class="text-muted">With faded secondary text</small>
+			</h3>
+		</div>
+	</section>
+	<section>
+		<div class="example-label">Inline text elements</div>
+		<div class="example-typography-row">
+			<p>You can use the mark tag to <mark>highlight</mark> text.</p>
+			<p>
+				<del>This line of text is meant to be treated as deleted text.</del>
+			</p>
+			<p>
+				<s>This line of text is meant to be treated as no longer accurate.</s>
+			</p>
+			<p>
+				<ins
+					>This line of text is meant to be treated as an addition to the
+					document.</ins
+				>
+			</p>
+			<p><u>This line of text will render as underlined.</u></p>
+			<p>
+				<small>This line of text is meant to be treated as fine print.</small>
+			</p>
+			<p><strong>This line rendered as bold text.</strong></p>
+			<p><em>This line rendered as italicized text.</em></p>
+		</div>
+	</section>
+	<section>
+		<div class="example-label">Abbreviations</div>
+		<div class="example-typography-row">
+			<p><abbr title="attribute">attr</abbr></p>
+			<p>
+				<abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+			</p>
+		</div>
+	</section>
+</article>
 <article id="mat-buttons">
 	<h2>Buttons</h2>
 	<section>
@@ -7,8 +69,6 @@
 			<button mat-button color="primary">Primary</button>
 			<button mat-button color="accent">Accent</button>
 			<button mat-button color="warn">Warn</button>
-			<button mat-button color="success">Success</button>
-			<button mat-button color="danger">Danger</button>
 			<button mat-button disabled>Disabled</button>
 			<a mat-button href="https://www.google.com/" target="_blank">Link</a>
 		</div>
@@ -21,8 +81,6 @@
 			<button mat-raised-button color="primary">Primary</button>
 			<button mat-raised-button color="accent">Accent</button>
 			<button mat-raised-button color="warn">Warn</button>
-			<button mat-raised-button color="success">Success</button>
-			<button mat-raised-button color="danger">Danger</button>
 			<button mat-raised-button disabled>Disabled</button>
 			<a mat-raised-button href="https://www.google.com/" target="_blank"
 				>Link</a
@@ -37,8 +95,6 @@
 			<button mat-stroked-button color="primary">Primary</button>
 			<button mat-stroked-button color="accent">Accent</button>
 			<button mat-stroked-button color="warn">Warn</button>
-			<button mat-stroked-button color="success">Success</button>
-			<button mat-stroked-button color="danger">Danger</button>
 			<button mat-stroked-button disabled>Disabled</button>
 			<a mat-stroked-button href="https://www.google.com/" target="_blank"
 				>Link</a
@@ -53,8 +109,6 @@
 			<button mat-flat-button color="primary">Primary</button>
 			<button mat-flat-button color="accent">Accent</button>
 			<button mat-flat-button color="warn">Warn</button>
-			<button mat-flat-button color="success">Success</button>
-			<button mat-flat-button color="danger">Danger</button>
 			<button mat-flat-button disabled>Disabled</button>
 			<a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
 		</div>
@@ -67,49 +121,35 @@
 				mat-icon-button
 				aria-label="Example icon button with a vertical three dot icon"
 			>
-				<mat-icon>more_vert</mat-icon>
+				<i class="fas fa-magnifying-glass"></i>
 			</button>
 			<button
 				mat-icon-button
 				color="primary"
 				aria-label="Example icon button with a home icon"
 			>
-				<mat-icon>home</mat-icon>
+				<i class="fas fa-house"></i>
 			</button>
 			<button
 				mat-icon-button
 				color="accent"
 				aria-label="Example icon button with a menu icon"
 			>
-				<mat-icon>menu</mat-icon>
+				<i class="fas fa-ellipsis-vertical"></i>
 			</button>
 			<button
 				mat-icon-button
 				color="warn"
 				aria-label="Example icon button with a heart icon"
 			>
-				<mat-icon>favorite</mat-icon>
-			</button>
-			<button
-				mat-icon-button
-				color="success"
-				aria-label="Example icon button with a heart icon"
-			>
-				<mat-icon>favorite</mat-icon>
-			</button>
-			<button
-				mat-icon-button
-				color="danger"
-				aria-label="Example icon button with a heart icon"
-			>
-				<mat-icon>favorite</mat-icon>
+				<i class="fas fa-pen-to-square"></i>
 			</button>
 			<button
 				mat-icon-button
 				disabled
 				aria-label="Example icon button with a open in new tab icon"
 			>
-				<mat-icon>open_in_new</mat-icon>
+				<i class="fas fa-cart-minus"></i>
 			</button>
 		</div>
 	</section>
@@ -122,42 +162,28 @@
 				color="primary"
 				aria-label="Example icon button with a delete icon"
 			>
-				<mat-icon>delete</mat-icon>
+				<i class="fa-duotone fa-mug-hot"></i>
 			</button>
 			<button
 				mat-fab
 				color="accent"
 				aria-label="Example icon button with a bookmark icon"
 			>
-				<mat-icon>bookmark</mat-icon>
+				<i class="fa-duotone fa-hashtag"></i>
 			</button>
 			<button
 				mat-fab
 				color="warn"
 				aria-label="Example icon button with a home icon"
 			>
-				<mat-icon>home</mat-icon>
-			</button>
-			<button
-				mat-fab
-				color="success"
-				aria-label="Example icon button with a home icon"
-			>
-				<mat-icon>home</mat-icon>
-			</button>
-			<button
-				mat-fab
-				color="danger"
-				aria-label="Example icon button with a home icon"
-			>
-				<mat-icon>home</mat-icon>
+				<i class="fa-duotone fa-users"></i>
 			</button>
 			<button
 				mat-fab
 				disabled
 				aria-label="Example icon button with a heart icon"
 			>
-				<mat-icon>favorite</mat-icon>
+				<i class="fa-duotone fa-brackets-curly"></i>
 			</button>
 		</div>
 	</section>
@@ -170,42 +196,28 @@
 				color="primary"
 				aria-label="Example icon button with a menu icon"
 			>
-				<mat-icon>menu</mat-icon>
+				<i class="fa-duotone fa-mug-hot"></i>
 			</button>
 			<button
 				mat-mini-fab
 				color="accent"
 				aria-label="Example icon button with a plus one icon"
 			>
-				<mat-icon>plus_one</mat-icon>
+				<i class="fa-duotone fa-house"></i>
 			</button>
 			<button
 				mat-mini-fab
 				color="warn"
 				aria-label="Example icon button with a filter list icon"
 			>
-				<mat-icon>filter_list</mat-icon>
-			</button>
-			<button
-				mat-mini-fab
-				color="success"
-				aria-label="Example icon button with a filter list icon"
-			>
-				<mat-icon>filter_list</mat-icon>
-			</button>
-			<button
-				mat-mini-fab
-				color="danger"
-				aria-label="Example icon button with a filter list icon"
-			>
-				<mat-icon>filter_list</mat-icon>
+				<i class="fa-duotone fa-house"></i>
 			</button>
 			<button
 				mat-mini-fab
 				disabled
 				aria-label="Example icon button with a home icon"
 			>
-				<mat-icon>home</mat-icon>
+				<i class="fa-duotone fa-hippo"></i>
 			</button>
 		</div>
 	</section>

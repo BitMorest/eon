@@ -25,6 +25,9 @@ export interface SideBarItem {
 	</div>`,
 	styleUrls: ['sidebar-item.component.scss'],
 	encapsulation: ViewEncapsulation.None,
+	host: {
+		class: 'sidebar-item',
+	},
 })
 export class SideBarItemComponent implements OnInit {
 	/**

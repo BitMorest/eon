@@ -1,10 +1,16 @@
+@import 'bootstrap/scss/mixins/lists';
+@import 'bootstrap/scss/mixins/breakpoints';
+@import 'bootstrap/scss/mixins/container';
+@import 'bootstrap/scss/mixins/grid';
+@import 'bootstrap/scss/mixins/utilities';
+
 @mixin theme-color-mode($color: light, $root: false) {
 	@if $root ==false {
 		:host-context([data-theme-color='#{$color}']) {
 			@content;
 		}
 	} @else {
-		[data-theme-color='#{$color}'] {
+		body[data-theme-color='#{$color}'] {
 			@content;
 		}
 	}
@@ -16,7 +22,7 @@
 			@content;
 		}
 	} @else {
-		[data-theme-platform='#{$platform}'] {
+		body[data-theme-platform='#{$platform}'] {
 			@content;
 		}
 	}

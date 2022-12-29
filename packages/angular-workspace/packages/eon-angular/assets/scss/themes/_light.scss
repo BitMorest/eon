@@ -1,0 +1,46 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+@import '../functions';
+@import '../variables';
+@import '../maps';
+@import '../mixins';
+@import './components/titlebar';
+
+@include theme-color-mode(light, true) {
+	$primary: map.get($themes, 'light', 'primary');
+	--primary: #{map.get($primary, 'default')};
+
+	$components: map.get($themes, 'light', 'components');
+	@include mat.all-component-themes(
+		mat.define-light-theme(
+			(
+				color: $light-theme,
+			)
+		)
+	);
+
+	$titlebarColors: map.get($components, 'titlebar');
+	--eon-title-bar-color: #{map.get($titlebarColors, 'text')};
+	--eon-title-bar-bg: #{map.get($titlebarColors, 'background')};
+	--eon-title-bar-border-color: #{map.get($titlebarColors, 'border')};
+	--eon-title-bar-windown-os-window-button-hover-bg: #{map.get(
+			$titlebarColors,
+			'windowsOsButtonHover'
+		)};
+	--eon-title-bar-windown-os-close-window-button-hover-bg: #{map.get(
+			$titlebarColors,
+			'windownsOsCloseButtonHover'
+		)};
+
+	// // SIDE BAR //
+	// --eon-sidebar-bar-color: #{map.get($background, 'text')};
+	// --eon-sidebar-bar-bg:#{map.get($background, 'default')};
+	// --eon-sidebar-bar-border: #{map.get($background, 'darker')};
+	// --eon-sidebar-bar-active-bg: #{map.get($background, 'darker')};
+
+	// // MAIN CONTENT//
+	// --eon-body-color: #{map.get($background, 'text')};
+	// --eon-body-bg: #{map.get($background, 'lighter')};
+	// --eon-scroll-bar-bg: rgba(#{to-rgb(map.get($background, 'text'))}, 0.3);
+	// --eon-scroll-bar-hover-color: rgba(#{to-rgb(map.get($background, 'text'))}, 0.5);
+}

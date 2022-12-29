@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+@import '../functions';
+@import '../variables';
+@import '../maps';
+@import '../mixins';
+
+// @include theme-color-mode(dark, true) {
+//     $primary: map.get($themes, "dark", 'primary');
+//     $background: map.get($themes, "dark", 'background');
+
+//     @include mat.all-component-themes(mat.define-light-theme((color: $dark-theme)));
+
+//     --primary: #{map.get($primary, 'default')};
+
+//     // TITLE BAR //
+//     --eon-title-bar-color: #{map.get($background, 'text')};
+//     --eon-title-bar-bg: #{map.get($background, 'default')};
+//     --eon-title-bar-border-color: #{map.get($background, 'lighter')};
+//     --eon-title-bar-windown-button-hover-bg: #{map.get($background, 'lighter')};
+
+//     // SIDE BAR //
+//     --eon-sidebar-bar-color: #{map.get($background, 'text')};
+//     --eon-sidebar-bar-bg:#{map.get($background, 'default')};
+//     --eon-sidebar-bar-border: #{map.get($background, 'lighter')};
+//     --eon-sidebar-bar-active-bg: #{map.get($background, 'lighter')};
+
+//     // MAIN CONTENT//
+//     --eon-body-color: #{map.get($background, 'text')};
+//     --eon-body-bg: #{map.get($background, 'darker')};
+//     --eon-scroll-bar-bg: rgba(#{to-rgb(map.get($background, 'text'))}, 0.3);
+//     --eon-scroll-bar-hover-color: rgba(#{to-rgb(map.get($background, 'text'))}, 0.5);
+// }

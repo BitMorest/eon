@@ -30,7 +30,7 @@ import {WindowApiService} from '../../services/window-api.service';
 	`,
 	styleUrls: ['window-controls.component.scss'],
 	host: {
-		class: `d-flex align-items-center h-100`,
+		class: `window-controls d-flex align-items-center h-100`,
 	},
 })
 export class WindowControlsComponent {

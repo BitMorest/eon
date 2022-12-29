@@ -1,0 +1,81 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import 'functions';
+
+$primary-color: mat.define-palette(mat.$indigo-palette) !default;
+$primary-color-dark: $primary-color !default;
+$primary-color-light: $primary-color !default;
+
+$light-theme: (
+	primary: $primary-color-light,
+	accent: mat.define-palette(mat.$pink-palette, A200, A100, A400),
+	warn: mat.define-palette(mat.$amber-palette),
+	background: (
+		//
+		sidebar:
+			(
+				//
+				default: #cfd8dc,
+				border: #c3cccf,
+				windowsOsButtonHover: #cfd8dc,
+				windownsOsCloseButtonHover: #c62828aa //
+			),
+		titlebar: (
+			//
+			default: #cfd8dc,
+			border: #c3cccf,
+			windowsOsButtonHover: #cfd8dc,
+			windownsOsCloseButtonHover: #c62828aa //
+		),
+	),
+);
+
+$dark-theme: (
+	primary: $primary-color-dark,
+	accent: mat.define-palette(mat.$pink-palette, A200, A100, A400),
+	warn: mat.define-palette(mat.$amber-palette),
+	components: (
+		//
+		titlebar:
+			(
+				//
+				background: #cfd8dc,
+				text: #111111,
+				border: #c3cccf,
+				windowsOsButtonHover: #cfd8dc,
+				windownsOsCloseButtonHover: #c62828aa //
+			),
+		sidebar: (
+			//
+			default: #cfd8dc,
+			border: #c3cccf,
+			windowsOsButtonHover: #cfd8dc,
+			windownsOsCloseButtonHover: #c62828aa //
+		),
+	),
+);
+
+$themes: (
+	light: $light-theme,
+	// Light theme
+	dark: $dark-theme // Dark theme,
+);
+
+$font-size-base: 1rem;
+$font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto,
+	'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif,
+	'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+$enable-negative-margins: true;
+$prefix: eon-;
+$variable-prefix: $prefix;
+$empty-map: ();
+$grays: $empty-map;
+$colors: $empty-map;
+$theme-colors: $empty-map;
+$theme-colors-rgb: $empty-map;
+
+@import 'bootstrap/scss/variables';
+
+// $theme-bg-light: #fefefe !default;
+// $theme-bg-dark: #222222 !default;

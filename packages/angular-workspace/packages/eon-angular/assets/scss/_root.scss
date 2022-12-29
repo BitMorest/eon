@@ -1,0 +1,10 @@
+@import 'functions';
+@import 'variables';
+@import 'maps';
+@import 'mixins';
+
+:root {
+	--font-size-base: #{$font-size-base};
+	--font-size-sm: #{$font-size-sm};
+	--font-size-lg: #{$font-size-lg};
+}

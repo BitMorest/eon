@@ -18,7 +18,7 @@ export type WindowActionEventData = {
 	template: '<ng-content></ng-content>',
 	styleUrls: ['window-button.component.scss'],
 	host: {
-		class: 'd-flex align-items-center justify-content-center',
+		class: 'window-button d-flex align-items-center justify-content-center',
 	},
 })
 export class WindowButtonComponent implements OnInit {

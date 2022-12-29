@@ -25,3 +25,27 @@ The list of scopes
 
 Đợi angular ra phiên bản 15.1 để update
 Đợi ngx-bootstrap ra phiên bản mới để update lên bootstrap 5.3 hoặc 5.2
+
+### Style
+
+Angular Material là một thư viện UI component tốt cho angular nó có hầu hết mọi thứ tuy nhiên chúng thiếu đi một số thành phần quan trọng như là Grid System làm cho việc sử dụng nó một cách độc lập là rất khó. Vì vậy Eon sử dụng grid tử bootstrap (Bởi vì nó đã được phát triển trong thời gian dài và hầu hết các developer đều biết hoặc quyen thuộc với nó). Ngoài ra tôi cũng lấy một số utilities từ bootstrap như
+là hệ thống display, flex, float, spacing từ bootstrap. Chi tiết các thành phần ở bên dưới
+
+1. Hệ thống grid thừa hưởng từ Bootstrap
+
+A. Layout
+
+- **Brakepoint**: https://getbootstrap.com/docs/5.2/layout/breakpoints/
+- **Container**: https://getbootstrap.com/docs/5.2/layout/containers/
+- **Grid**: https://getbootstrap.com/docs/5.2/layout/grid/
+- **Columns**: https://getbootstrap.com/docs/5.2/layout/columns/
+- **Gutter**: https://getbootstrap.com/docs/5.2/layout/gutters/
+-
+
+B. Utilities
+
+- **Display**: https://getbootstrap.com/docs/5.2/utilities/display/
+- **Flex**: https://getbootstrap.com/docs/5.2/utilities/flex/
+- **Float**: https://getbootstrap.com/docs/5.2/utilities/float/
+- **Spacing**: https://getbootstrap.com/docs/5.2/utilities/spacing/
+- **Text**: https://getbootstrap.com/docs/5.2/utilities/text/ _(Except text transform let's use pipe in angular for alternate and except Mono Space)_

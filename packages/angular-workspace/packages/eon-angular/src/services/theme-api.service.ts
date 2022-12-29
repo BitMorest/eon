@@ -13,7 +13,7 @@ export class ThemeApiService {
 	constructor(private _electron: ElectronService) {
 		this._body.setAttribute('data-theme-color', 'dark');
 		this._body.setAttribute('data-theme-platform', 'darwin');
-		this.setupTheme();
+		// this.setupTheme();
 	}
 
 	private setupTheme() {

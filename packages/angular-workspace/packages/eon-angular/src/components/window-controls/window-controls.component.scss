@@ -1,76 +1,64 @@
-// @use '../../../assets/scss/index' as bs;
+@import '../../../assets/scss/mixins';
 
-// :host {
-// 	svg {
-// 		width: 10px;
-// 		height: 10px;
+:host {
+	svg {
+		width: 10px;
+		height: 10px;
 
-// 		&>* {
-// 			fill: var(--eon-title-bar-color);
-// 		}
-// 	}
-// }
+		& > * {
+			fill: var(--eon-title-bar-color);
+		}
+	}
+}
 
-// @include bs.theme-platform-mode(win32) {
-// 	:host {
-// 		window-button {
-// 			&.close {
-// 				&:hover {
-// 					background: var(#{to-rgb($red-600)}, 0.9);
-// 				}
-// 			}
-// 		}
-// 	}
-// }
+@include theme-platform-mode(darwin) {
+	:host {
+		display: flex;
+		flex-direction: row-reverse;
 
-// @include bs.theme-platform-mode(darwin) {
-// 	:host {
-// 		display: flex;
-// 		flex-direction: row-reverse;
+		window-button {
+			margin-left: 6px;
 
-// 		window-button {
-// 			margin-left: 6px;
+			& > * {
+				display: none;
+			}
 
-// 			&>* {
-// 				display: none;
-// 			}
+			&:last-child {
+				margin-left: 0;
+			}
 
-// 			&:last-child {
-// 				margin-left: 0;
-// 			}
+			// &.minimize {
+			//     background: $orange-300;
+			//     border: 1px solid $orange-400;
 
-// 			&.minimize {
-// 				background: $orange-300;
-// 				border: 1px solid $orange-400;
+			//     &:hover {
+			//         background: $orange-500;
+			//         border: 1px solid $orange-600;
+			//     }
+			// }
 
-// 				&:hover {
-// 					background: $orange-500;
-// 					border: 1px solid $orange-600;
-// 				}
-// 			}
+			// &.toogleMaximize {
+			//     background: $green-400;
+			//     border: 1px solid $green-500;
 
-// 			&.toogleMaximize {
-// 				background: $green-400;
-// 				border: 1px solid $green-500;
+			//     &:hover {
+			//         background: $green-500;
+			//         border: 1px solid $green-600;
+			//     }
+			// }
 
-// 				&:hover {
-// 					background: $green-500;
-// 					border: 1px solid $green-600;
-// 				}
-// 			}
+			&.close {
+				background: #e53935;
+				border: 1px solid #d32f2f;
 
-// 			&.close {
-// 				background: $red-400;
-// 				border: 1px solid $red-500;
-
-// 				&:hover {
-// 					background: $red-500;
-// 					border: 1px solid $red-600;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
+				&:hover {
+					background: #d32f2f;
+					border: 1px solid #c62828;
+				}
+			}
+		}
+	}
+}
 
 // @include theme-color-mode(light) {
 // 	:host {

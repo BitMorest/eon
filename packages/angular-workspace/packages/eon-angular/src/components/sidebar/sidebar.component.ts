@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
 	template: '<ng-content></ng-content>',
 	styleUrls: ['sidebar.component.scss'],
 	host: {
-		class: 'd-flex flex-column h-100',
+		class: 'sidebar d-flex flex-column h-100',
 	},
 })
 export class SidebarComponent {}
