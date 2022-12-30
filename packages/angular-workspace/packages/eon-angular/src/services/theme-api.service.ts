@@ -2,7 +2,14 @@
 
 import {Injectable} from '@angular/core';
 import {CoreApiConst, ThemeApiInput, ThemeData} from '@bitmorest/eon-common';
-import {BehaviorSubject, filter, map, Observer, SubscriptionLike} from 'rxjs';
+import {
+	BehaviorSubject,
+	filter,
+	first,
+	map,
+	Observer,
+	SubscriptionLike,
+} from 'rxjs';
 import {ElectronService} from './electron.service';
 
 @Injectable({providedIn: 'root'})
@@ -28,12 +35,7 @@ export class ThemeApiService {
 
 	public initialize(): Promise<void> {
 		return new Promise<void>((resolve) => {
-			this._electron.receive<ThemeData>(
-				CoreApiConst.THEME_API_OUTPUT,
-				(_themeData: ThemeData) => {
-					resolve();
-				}
-			);
+			this._themeData.pipe(first()).subscribe({next: (_value) => resolve});
 			this._electron.send<ThemeApiInput>(CoreApiConst.THEME_API_INPUT, {});
 		});
 	}

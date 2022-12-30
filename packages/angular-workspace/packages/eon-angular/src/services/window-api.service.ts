@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {CoreApiConst, WindowState, WindowAction} from '@bitmorest/eon-common';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
+import {filter, first, map} from 'rxjs/operators';
 import {ElectronService} from './electron.service';
 
 @Injectable({providedIn: 'root'})
@@ -19,12 +19,7 @@ export class WindowApiService {
 
 	public initialize(): Promise<void> {
 		return new Promise<void>((resolve) => {
-			this._electron.receive<WindowState>(
-				CoreApiConst.WINDOW_API_OUTPUT,
-				(_windowState: WindowState) => {
-					resolve();
-				}
-			);
+			this.state.pipe(first()).subscribe({next: (_value) => resolve});
 			this._electron.send(CoreApiConst.WINDOW_API_INPUT, '');
 		});
 	}

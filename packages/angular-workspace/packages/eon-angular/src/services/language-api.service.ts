@@ -5,7 +5,14 @@ import {
 	LanguageData,
 } from '@bitmorest/eon-common';
 import {TranslateService} from '@ngx-translate/core';
-import {BehaviorSubject, filter, map, Observer, SubscriptionLike} from 'rxjs';
+import {
+	BehaviorSubject,
+	filter,
+	first,
+	map,
+	Observer,
+	SubscriptionLike,
+} from 'rxjs';
 import {ElectronService} from './electron.service';
 
 @Injectable({
@@ -29,12 +36,7 @@ export class LanguageApiService {
 
 	public initialize(): Promise<void> {
 		return new Promise<void>((resolve) => {
-			this._electron.receive<LanguageData>(
-				CoreApiConst.LANGUAGE_API_OUTPUT,
-				(_languageData: LanguageData) => {
-					resolve();
-				}
-			);
+			this._languageData.pipe(first()).subscribe({next: (_value) => resolve});
 			this._electron.send(CoreApiConst.LANGUAGE_API_INPUT, {});
 		});
 	}
@@ -50,8 +52,8 @@ export class LanguageApiService {
 			.subscribe(observerOrNext);
 	}
 
-	public changeTheme(language: string) {
-		this._electron.send<LanguageApiInput>(CoreApiConst.LANGUAGE_API_OUTPUT, {
+	public changeLanguage(language: string) {
+		this._electron.send<LanguageApiInput>(CoreApiConst.LANGUAGE_API_INPUT, {
 			current: language,
 		});
 	}

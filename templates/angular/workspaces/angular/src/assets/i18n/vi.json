@@ -2,5 +2,11 @@
 	"MULTIPLES": {
 		"TITLE": "Bảng cửu chương",
 		"SUBMIT": "Gửi đi"
-	}
+	},
+	// Default language for settings
+	"Appearance Settings": "Cài đặt giao diện",
+	"Theme": "Chủ đề",
+	"Language": "Ngôn ngữ",
+	"Light": "Sáng",
+	"Dark": "Tối"
 }
