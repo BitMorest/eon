@@ -21,6 +21,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {LanguageSettingComponent} from './components/language-setting/language-setting.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {LanguageApiService} from './services/language-api.service';
+import {WindowApiService} from './services/window-api.service';
 
 @NgModule({
 	declarations: [
@@ -36,6 +40,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 		WindowButtonComponent,
 		SidebarComponent,
 		SideBarItemComponent,
+		LanguageSettingComponent,
 	],
 	imports: [
 		// Core
@@ -43,6 +48,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
+		TranslateModule.forChild(),
 		// Angular Material
 		MatButtonModule,
 		MatDividerModule,
@@ -74,12 +80,32 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 		SidebarLayoutComponent,
 		FramelessLayoutComponent,
 		ThemeSettingComponent,
+		LanguageSettingComponent,
 	],
 	providers: [
 		{
 			provide: APP_INITIALIZER,
-			useClass: ThemeApiService,
+			useFactory:
+				(
+					window: WindowApiService,
+					theme: ThemeApiService,
+					language: LanguageApiService
+				) =>
+				() => {
+					Promise.all([
+						window.initialize(),
+						theme.initialize(),
+						language.initialize(),
+					]);
+				},
+			deps: [ThemeApiService, LanguageApiService, WindowApiService],
+			multi: true,
 		},
+		// {
+		// 	provide: APP_INITIALIZER,
+		// 	useClass: LanguageApiService,
+		// 	multi: true,
+		// },
 	],
 })
 export class EonModule {}

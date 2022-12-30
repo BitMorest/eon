@@ -7,6 +7,8 @@ import {
 import {ApiService} from '../services/api-service';
 import {Window} from './window';
 import {Logger} from '../utils';
+import {Language} from '@bitmorest/eon-common';
+import {Language as LanguageManager} from './language';
 const log = new Logger('eon-core');
 
 // import { Environment } from '../models';
@@ -16,10 +18,11 @@ export class Application {
 	private static instance?: Application;
 
 	public static create(
-		windowOptions: BrowserWindowConstructorOptions
+		windowOptions: BrowserWindowConstructorOptions,
+		languages: Array<Language>
 	): Application {
 		if (!this.instance) {
-			this.instance = new Application(windowOptions);
+			this.instance = new Application(windowOptions, languages);
 		}
 		return this.instance;
 	}
@@ -32,10 +35,14 @@ export class Application {
 	public mainWindow: Window | undefined;
 	public windowOptions: BrowserWindowConstructorOptions;
 
-	private constructor(windowOptions: BrowserWindowConstructorOptions) {
+	private constructor(
+		windowOptions: BrowserWindowConstructorOptions,
+		languages: Array<Language>
+	) {
 		log.debug('application instance creating');
 		this.services = new Array<ApiService<unknown, unknown>>();
 		this.windowOptions = windowOptions;
+		LanguageManager.getInstance().registerSupportLanguages(languages);
 		process.on('uncaughtException', this.onUncaughtException);
 	}
 

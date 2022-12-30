@@ -15,7 +15,18 @@ export class WindowApiService {
 				this.state.next(windowState);
 			}
 		);
-		_electron.send(CoreApiConst.WINDOW_API_INPUT, '');
+	}
+
+	public initialize(): Promise<void> {
+		return new Promise<void>((resolve) => {
+			this._electron.receive<WindowState>(
+				CoreApiConst.WINDOW_API_OUTPUT,
+				(_windowState: WindowState) => {
+					resolve();
+				}
+			);
+			this._electron.send(CoreApiConst.WINDOW_API_INPUT, '');
+		});
 	}
 
 	public getState(): Observable<WindowState> {

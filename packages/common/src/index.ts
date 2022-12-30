@@ -19,9 +19,26 @@ export type ThemeData = {
 	themes: Array<string>;
 	current: string;
 };
+
+export type Language = {
+	name: string;
+	symbol: string;
+};
+export type LanguageApiInput = {
+	/**
+	 * The symbol of current language
+	 */
+	current?: string;
+};
+export type LanguageData = {
+	languages: Array<Language>;
+	current: string;
+};
 export class CoreApiConst {
 	static readonly WINDOW_API_INPUT = 'WindowApiInput';
 	static readonly WINDOW_API_OUTPUT = 'WindowApiOuput';
 	static readonly THEME_API_INPUT = 'ThemeApiInput';
 	static readonly THEME_API_OUTPUT = 'ThemeApiOuput';
+	static readonly LANGUAGE_API_INPUT = 'LanguageApiInput';
+	static readonly LANGUAGE_API_OUTPUT = 'LanguageApiOuput';
 }

@@ -11,12 +11,6 @@ export class ThemeApiService {
 	private _themeData = new BehaviorSubject<ThemeData | undefined>(undefined);
 
 	constructor(private _electron: ElectronService) {
-		this._body.setAttribute('data-theme-color', 'light');
-		this._body.setAttribute('data-theme-platform', 'win32');
-		this.setupTheme();
-	}
-
-	private setupTheme() {
 		this._electron.receive<ThemeData>(
 			CoreApiConst.THEME_API_OUTPUT,
 			(themeData: ThemeData) => {
@@ -28,7 +22,20 @@ export class ThemeApiService {
 				);
 			}
 		);
-		this._electron.send<ThemeApiInput>(CoreApiConst.THEME_API_INPUT, {});
+		this._body.setAttribute('data-theme-color', 'light');
+		this._body.setAttribute('data-theme-platform', 'win32');
+	}
+
+	public initialize(): Promise<void> {
+		return new Promise<void>((resolve) => {
+			this._electron.receive<ThemeData>(
+				CoreApiConst.THEME_API_OUTPUT,
+				(_themeData: ThemeData) => {
+					resolve();
+				}
+			);
+			this._electron.send<ThemeApiInput>(CoreApiConst.THEME_API_INPUT, {});
+		});
 	}
 
 	public subcribe(

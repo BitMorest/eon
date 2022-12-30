@@ -11,3 +11,4 @@ export * from './components/bootstrap/bootstrap.component';
 export * from './components/sidebar-layout/sidebar-layout.component';
 export * from './components/frameless-layout/frameless-layout.component';
 export * from './components/theme-setting/theme-setting.component';
+export * from './components/language-setting/language-setting.component';

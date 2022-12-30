@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+// import { Language } from '@bitmorest/eon-angular';
 // import { ThemeApiService } from '@bitmorest/eon-angular';
 
 @Component({
@@ -7,11 +8,8 @@ import {Component} from '@angular/core';
 	styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-	// constructor(private themeService: ThemeApiService) {
-
-	// }
-
-	test() {
-		// this.themeService.changeTheme("light");
-	}
+	// languages: Array<Language> = [
+	// 	{ label: 'Tiếng Việt', value: "vi" },
+	// 	{ label: 'English', value: "en" }
+	// ]
 }
