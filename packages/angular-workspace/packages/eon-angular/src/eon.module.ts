@@ -13,14 +13,9 @@ import {WindowButtonComponent} from './components/window-button/window-button.co
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.component';
 import {ThemeSettingComponent} from './components/theme-setting/theme-setting.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 import {LanguageSettingComponent} from './components/language-setting/language-setting.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {LanguageApiService} from './services/language-api.service';
@@ -33,6 +28,7 @@ import {WindowApiService} from './services/window-api.service';
 		SidebarLayoutComponent,
 		FramelessLayoutComponent,
 		ThemeSettingComponent,
+		LanguageSettingComponent,
 
 		// internal
 		TitleBarComponent,
@@ -40,7 +36,7 @@ import {WindowApiService} from './services/window-api.service';
 		WindowButtonComponent,
 		SidebarComponent,
 		SideBarItemComponent,
-		LanguageSettingComponent,
+		
 	],
 	imports: [
 		// Core
@@ -50,14 +46,9 @@ import {WindowApiService} from './services/window-api.service';
 		HttpClientModule,
 		TranslateModule.forChild(),
 		// Angular Material
-		MatButtonModule,
-		MatDividerModule,
-		MatIconModule,
-		MatButtonToggleModule,
+		
 		MatTooltipModule,
-		MatSelectModule,
-		MatInputModule,
-		MatCheckboxModule,
+		MatSelectModule,		
 	],
 	exports: [
 		// ReExport angular modules
@@ -67,13 +58,13 @@ import {WindowApiService} from './services/window-api.service';
 		HttpClientModule,
 
 		// Rexport angular material
-		MatButtonModule,
-		MatDividerModule,
-		MatIconModule,
+		// MatButtonModule,
+		// MatDividerModule,
+		// MatIconModule,
 		MatTooltipModule,
 		MatSelectModule,
-		MatInputModule,
-		MatCheckboxModule,
+		// MatInputModule,
+		// MatCheckboxModule,
 
 		// Export components
 		BootstrapComponent,
@@ -92,7 +83,7 @@ import {WindowApiService} from './services/window-api.service';
 					language: LanguageApiService
 				) =>
 				() => {
-					Promise.all([
+					return Promise.all([
 						window.initialize(),
 						theme.initialize(),
 						language.initialize(),
@@ -101,11 +92,6 @@ import {WindowApiService} from './services/window-api.service';
 			deps: [ThemeApiService, LanguageApiService, WindowApiService],
 			multi: true,
 		},
-		// {
-		// 	provide: APP_INITIALIZER,
-		// 	useClass: LanguageApiService,
-		// 	multi: true,
-		// },
 	],
 })
 export class EonModule {}

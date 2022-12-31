@@ -92,7 +92,7 @@ export class Application {
 		// But WebDriverIO Test Runner does handle that behaviour yet
 		// if (enviroment.platform == 'darwin' || enviroment.env == 'testing') {
 		app.quit();
-		// process.exit(0);
+		process.exit(0);
 		// }
 	}
 

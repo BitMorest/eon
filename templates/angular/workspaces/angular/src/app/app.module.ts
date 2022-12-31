@@ -17,6 +17,12 @@ import {AboutComponent} from './components/about/about.component';
 import {SettingsComponent} from './components/settings/settings.component';
 import {ExamplesComponent} from './components/examples/examples.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -31,12 +37,18 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 		ExamplesComponent,
 	],
 	imports: [
+		MatButtonModule,
+		MatDividerModule,
+		MatIconModule,
+		MatButtonToggleModule,
+		MatInputModule,
+		MatCheckboxModule,
+
 		EonModule,
 		ReactiveFormsModule,
 		MatCardModule,
 		BrowserAnimationsModule,
 		TranslateModule.forRoot({
-			defaultLanguage: 'en',
 			loader: {
 				provide: TranslateLoader,
 				useFactory: HttpLoaderFactory,
