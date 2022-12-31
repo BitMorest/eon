@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -20,6 +20,7 @@ import {LanguageSettingComponent} from './components/language-setting/language-s
 import {TranslateModule} from '@ngx-translate/core';
 import {LanguageApiService} from './services/language-api.service';
 import {WindowApiService} from './services/window-api.service';
+import { EonConfig, EON_CONFIG } from './config';
 
 @NgModule({
 	declarations: [
@@ -94,4 +95,13 @@ import {WindowApiService} from './services/window-api.service';
 		},
 	],
 })
-export class EonModule {}
+export class EonModule {
+
+	static forRoot(config: EonConfig): ModuleWithProviders<EonModule> {
+		return {
+		  ngModule: EonModule,
+		  providers: [{ provide: EON_CONFIG, useValue: config }],
+		};
+	  }
+	  
+}

@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
+import { EonConfig, EON_CONFIG } from '../../config';
 
 @Component({
 	selector: 'titlebar',
@@ -22,4 +23,10 @@ export class TitleBarComponent {
 
 	@Input()
 	public title?: string = 'Demo Application';
+
+	constructor(@Inject(EON_CONFIG) private config: EonConfig){
+
+		console.log(config);
+
+	}
 }

@@ -44,7 +44,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 		MatInputModule,
 		MatCheckboxModule,
 
-		EonModule,
 		ReactiveFormsModule,
 		MatCardModule,
 		BrowserAnimationsModule,
@@ -54,6 +53,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 				useFactory: HttpLoaderFactory,
 				deps: [HttpClient],
 			},
+		}),
+		// EonModule,
+		EonModule.forRoot({
+			titlebarTitle: "EonApp",
+			sidebarItems: []
 		}),
 		RouterModule.forRoot([
 			{
