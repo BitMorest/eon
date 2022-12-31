@@ -42,9 +42,6 @@ export class HomeComponent implements OnInit {
 		this.onSubmit();
 	}
 
-	translateIn(lang: string): void {
-		this.translate.use(lang);
-	}
 
 	onSubmit(): void {
 		const input = this.timesTableForm.value.input;

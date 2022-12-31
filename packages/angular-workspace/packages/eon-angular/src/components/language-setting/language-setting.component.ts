@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {MatSelectChange} from '@angular/material/select';
 import {Language, LanguageData} from '@bitmorest/eon-common';
 import {TranslateService} from '@ngx-translate/core';
@@ -9,13 +9,12 @@ import {LanguageApiService} from '../../services/language-api.service';
 	templateUrl: './language-setting.component.html',
 	styleUrls: ['./language-setting.component.scss'],
 })
-export class LanguageSettingComponent implements OnInit {
-	@Input()
+export class LanguageSettingComponent{
 	public languages: Array<Language> = [];
 
-	// /**
-	//  * Current theme
-	//  */
+	/**
+	 * Current language
+	 */
 	public current = '';
 
 	constructor(
@@ -32,16 +31,11 @@ export class LanguageSettingComponent implements OnInit {
 				}
 
 				this.translate.use(this.current);
-
-				// console.log('Language Data', languageData);
 			},
 		});
 	}
 
-	ngOnInit(): void {
-		// console.log('Default Lang', this.translate.defaultLang);
-		// console.log('Current Lang', this.translate.currentLang);
-	}
+	
 
 	changeLanguage(event: MatSelectChange) {
 		this.languageService.changeLanguage(event.value);

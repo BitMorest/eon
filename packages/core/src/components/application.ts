@@ -11,8 +11,8 @@ import {Language} from '@bitmorest/eon-common';
 import {Language as LanguageManager} from './language';
 const log = new Logger('eon-core');
 
-// import { Environment } from '../models';
-// const enviroment = Environment.load();
+import { Environment } from '../models';
+const enviroment = Environment.load();
 
 export class Application {
 	private static instance?: Application;
@@ -90,10 +90,9 @@ export class Application {
 		log.debug('onWindowAllClosed');
 		// On MacOS it is common for applications to stay open until the user explicitly quits
 		// But WebDriverIO Test Runner does handle that behaviour yet
-		// if (enviroment.platform == 'darwin' || enviroment.env == 'testing') {
-		app.quit();
-		process.exit(0);
-		// }
+		if (enviroment.platform == 'darwin' || enviroment.env == 'testing') {
+			app.quit();
+		}
 	}
 
 	private onWebContentCreated(event: Electron.Event, contents: WebContents) {

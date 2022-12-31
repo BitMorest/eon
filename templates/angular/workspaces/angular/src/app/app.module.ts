@@ -6,12 +6,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HomeComponent} from './components/home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {
-	EonModule,
-	BootstrapComponent,
-	SidebarLayoutComponent,
-	// FramelessLayoutComponent,
-} from '@bitmorest/eon-angular';
+import {	EonModule,	BootstrapComponent} from '@bitmorest/eon-angular';
 import {AboutComponent} from './components/about/about.component';
 import {SettingsComponent} from './components/settings/settings.component';
 import {ExamplesComponent} from './components/examples/examples.component';

@@ -25,7 +25,7 @@ import { EonConfig, EON_CONFIG } from './config';
 
 function initializeAppFactory(window: WindowApiService,	theme: ThemeApiService,	language: LanguageApiService): () => Promise<void>  {
  return () => {
-	return new Promise(async (resolve, reject) => {
+	return new Promise(async (resolve) => {
 	    Promise.all([
 			window.initialize(),	
 			theme.initialize(),
