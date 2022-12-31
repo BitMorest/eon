@@ -5,18 +5,22 @@
 @import '../maps';
 @import '../mixins';
 
-@include theme-color-mode(light, true) {
-	$primary: map.get($themes, 'light', 'primary');
-	--primary: #{map.get($primary, 'default')};
 
-	$components: map.get($themes, 'light', 'components');
-	@include mat.all-component-themes(
+@include mat.all-component-themes(
 		mat.define-light-theme(
 			(
 				color: $light-theme,
 			)
 		)
 	);
+	
+
+@include theme-color-mode(light, true) {
+	$primary: map.get($themes, 'light', 'primary');
+	--primary: #{map.get($primary, 'default')};
+
+	$components: map.get($themes, 'light', 'components');
+	
 
 	$titlebar: map.get($components, 'titlebar');
 	--eon-title-bar-color: #{map.get($titlebar, 'text')};

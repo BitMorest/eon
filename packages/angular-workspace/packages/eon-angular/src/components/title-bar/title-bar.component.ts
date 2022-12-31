@@ -18,15 +18,13 @@ import { EonConfig, EON_CONFIG } from '../../config';
 })
 export class TitleBarComponent {
 	@Input()
-	public icon?: string =
-		'https://code.visualstudio.com/assets/apple-touch-icon.png';
+	public icon?: string;
 
 	@Input()
-	public title?: string = 'Demo Application';
+	public title?: string;
 
 	constructor(@Inject(EON_CONFIG) private config: EonConfig){
-
-		console.log(config);
-
+		this.title = config.titlebarTitle;
+		this.icon = config.titlebarIcon;
 	}
 }

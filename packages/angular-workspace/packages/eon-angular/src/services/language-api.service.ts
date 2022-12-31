@@ -37,7 +37,7 @@ export class LanguageApiService {
 	public initialize(): Promise<void> {
 		return new Promise<void>((resolve) => {
 			this._languageData.pipe(first()).subscribe({next: (_value) => resolve});
-			this._electron.send(CoreApiConst.LANGUAGE_API_INPUT, {});
+			this._electron.send(CoreApiConst.LANGUAGE_API_INPUT, '');
 		});
 	}
 

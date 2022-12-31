@@ -2,6 +2,8 @@
  * Public API Surface of efastdev-angular
  */
 export * from './eon.module';
+export * from './global';
+export * from './config';
 
 export * from './services/electron.service';
 export * from './services/events/side-bar-item-click-event.service';

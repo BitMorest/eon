@@ -22,6 +22,20 @@ import {LanguageApiService} from './services/language-api.service';
 import {WindowApiService} from './services/window-api.service';
 import { EonConfig, EON_CONFIG } from './config';
 
+
+function initializeAppFactory(window: WindowApiService,	theme: ThemeApiService,	language: LanguageApiService): () => Promise<void>  {
+ return () => {
+	return new Promise(async (resolve, reject) => {
+	    Promise.all([
+			window.initialize(),	
+			theme.initialize(),
+			language.initialize(),
+		]);   
+		resolve();
+	  });
+ };
+}
+
 @NgModule({
 	declarations: [
 		// export
@@ -77,19 +91,7 @@ import { EonConfig, EON_CONFIG } from './config';
 	providers: [
 		{
 			provide: APP_INITIALIZER,
-			useFactory:
-				(
-					window: WindowApiService,
-					theme: ThemeApiService,
-					language: LanguageApiService
-				) =>
-				() => {
-					return Promise.all([
-						window.initialize(),
-						theme.initialize(),
-						language.initialize(),
-					]);
-				},
+			useFactory: initializeAppFactory,
 			deps: [ThemeApiService, LanguageApiService, WindowApiService],
 			multi: true,
 		},

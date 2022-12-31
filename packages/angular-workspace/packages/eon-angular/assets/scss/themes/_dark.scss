@@ -10,7 +10,7 @@
 	--primary: #{map.get($primary, 'default')};
 
 	$components: map.get($themes, 'dark', 'components');
-	@include mat.all-component-themes(
+	@include mat.all-component-colors(
 		mat.define-dark-theme(
 			(
 				color: $dark-theme,

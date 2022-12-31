@@ -10,7 +10,6 @@ import {
 	EonModule,
 	BootstrapComponent,
 	SidebarLayoutComponent,
-	SideBarLayoutData,
 	// FramelessLayoutComponent,
 } from '@bitmorest/eon-angular';
 import {AboutComponent} from './components/about/about.component';
@@ -23,6 +22,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { routes } from './routes';
+import { eonConfigs } from './eon.config';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -54,59 +55,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 				deps: [HttpClient],
 			},
 		}),
-		// EonModule,
-		EonModule.forRoot({
-			titlebarTitle: "EonApp",
-			sidebarItems: []
-		}),
-		RouterModule.forRoot([
-			{
-				path: '',
-				component: SidebarLayoutComponent,
-				data: {
-					sidebarItems: [
-						{
-							icon: 'fa-regular fa-house',
-							href: '/home',
-							description: 'Home',
-						},
-						{
-							icon: 'fa-regular fa-sliders',
-							href: '/settings',
-							description: 'Settings',
-						},
-						{
-							icon: 'fa-regular fa-circle-info',
-							href: '/about',
-							description: 'About',
-						},
-						{
-							icon: 'fa-regular fa-books',
-							href: '/examples',
-							description: 'Examples',
-						},
-						{
-							icon: 'fa-regular fa-circle-question',
-							description: 'Support',
-							bottom: true,
-						},
-					],
-				} as SideBarLayoutData,
-				children: [
-					{path: '', pathMatch: 'full', redirectTo: '/home'},
-					{path: 'home', component: HomeComponent},
-					{path: 'settings', component: SettingsComponent},
-					{path: 'examples', component: ExamplesComponent},
-					{path: 'about', component: AboutComponent},
-				],
-			},
-			// Using bellow for layout out without sidebar
-			// {
-			// 	path: '',
-			// 	component: FramelessLayoutComponent,
-			// 	children: [{path: 'active', component: SettingsComponent}],
-			// },
-		]),
+		EonModule.forRoot(eonConfigs),
+		RouterModule.forRoot(routes),
 	],
 	providers: [],
 	bootstrap: [BootstrapComponent],

@@ -36,7 +36,7 @@ export class ThemeApiService {
 	public initialize(): Promise<void> {
 		return new Promise<void>((resolve) => {
 			this._themeData.pipe(first()).subscribe({next: (_value) => resolve});
-			this._electron.send<ThemeApiInput>(CoreApiConst.THEME_API_INPUT, {});
+			this._electron.send(CoreApiConst.THEME_API_INPUT, '');
 		});
 	}
 
