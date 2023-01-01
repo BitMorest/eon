@@ -1,11 +1,15 @@
-<mat-card class="mt-4">
-	<mat-card-header>
-		<mat-card-title>{{ 'Appearance Settings' | translate }} </mat-card-title>
-	</mat-card-header>
-	<mat-card-content>
-		<div class="mt-4">
-			<theme-setting></theme-setting>
-			<language-setting class="ms-3"></language-setting>
-		</div>
-	</mat-card-content>
-</mat-card>
+<ng-container *transloco="let t; read: 'settings'">
+
+	<mat-card class="mt-4">
+		<mat-card-header>
+			<mat-card-title>{{ t('Appearance Settings') }}</mat-card-title>
+		</mat-card-header>
+		<mat-card-content>
+			<div class="mt-4">
+				<theme-setting></theme-setting>
+				<language-setting class="ms-3"></language-setting>
+			</div>
+		</mat-card-content>
+	</mat-card>
+
+</ng-container>

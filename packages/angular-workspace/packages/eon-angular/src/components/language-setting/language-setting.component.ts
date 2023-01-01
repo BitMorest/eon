@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {MatSelectChange} from '@angular/material/select';
 import {Language, LanguageData} from '@bitmorest/eon-common';
-import {TranslateService} from '@ngx-translate/core';
 import {LanguageApiService} from '../../services/language-api.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class LanguageSettingComponent{
 	public current = '';
 
 	constructor(
-		private translate: TranslateService,
+		// private translate: TranslateService,
 		private languageService: LanguageApiService
 	) {
 		this.languageService.subcribe({
@@ -27,10 +26,10 @@ export class LanguageSettingComponent{
 				this.current = languageData.current;
 
 				if (!this.current) {
-					this.current = this.translate.defaultLang;
+					// this.current = this.translate.defaultLang;
 				}
 
-				this.translate.use(this.current);
+				// this.translate.use(this.current);
 			},
 		});
 	}

@@ -12,8 +12,7 @@
 		"@angular/common": "^15.0.4",
 		"@angular/core": "^15.0.4",
 		"@angular/material": "^15.0.3",
-		"@ngx-translate/core": "^14.0.0",
-		"@ngx-translate/http-loader": "^7.0.0",
+		"@ngneat/transloco": "4.2.1",
 		"bootstrap": "~5.2.3"
 	},
 	"dependencies": {

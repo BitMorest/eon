@@ -1,11 +1,14 @@
-<mat-form-field appearance="outline">
-	<mat-label>{{ 'Language' | translate }}</mat-label>
-	<mat-select [(value)]="current" (selectionChange)="changeLanguage($event)">
-		<mat-option
-			*ngFor="let language of languages"
-			value="{{ language.symbol }}"
-		>
-			{{ language.name | titlecase }}
-		</mat-option>
-	</mat-select>
-</mat-form-field>
+<ng-container *transloco="let t; read: 'settings'">
+	<mat-form-field appearance="outline">
+		<mat-label>{{ t('Language') }}</mat-label>
+		<mat-select [(value)]="current" (selectionChange)="changeLanguage($event)">
+			<mat-option
+				*ngFor="let language of languages"
+				value="{{ language.symbol }}"
+			>
+				{{ language.name | titlecase }}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</ng-container>
+

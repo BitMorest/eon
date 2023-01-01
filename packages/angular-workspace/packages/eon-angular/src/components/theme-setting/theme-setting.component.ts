@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {MatSelectChange} from '@angular/material/select';
-import {TranslateService} from '@ngx-translate/core';
 import {ThemeApiService} from '../../services/theme-api.service';
 
 @Component({
@@ -20,7 +19,7 @@ export class ThemeSettingComponent {
 	public current = '';
 
 	constructor(
-		private translate: TranslateService,
+		// private translate: TranslateService,
 		private themeService: ThemeApiService
 	) {
 		this.themeService.subcribe({

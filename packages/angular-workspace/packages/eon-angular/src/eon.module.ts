@@ -1,6 +1,6 @@
-import {APP_INITIALIZER, ModuleWithProviders, NgModule} from '@angular/core';
+import {APP_INITIALIZER, Injectable, ModuleWithProviders, NgModule, Type} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {ThemeApiService} from './services/theme-api.service';
@@ -13,14 +13,14 @@ import {WindowButtonComponent} from './components/window-button/window-button.co
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.component';
 import {ThemeSettingComponent} from './components/theme-setting/theme-setting.component';
-
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {LanguageSettingComponent} from './components/language-setting/language-setting.component';
-import {TranslateModule} from '@ngx-translate/core';
 import {LanguageApiService} from './services/language-api.service';
 import {WindowApiService} from './services/window-api.service';
 import { EonConfig, EON_CONFIG } from './config';
+import { Translation, TranslocoConfig, TranslocoLoader, TranslocoModule, TRANSLOCO_CONFIG, TRANSLOCO_LOADER } from '@ngneat/transloco';
+
 
 
 function initializeAppFactory(window: WindowApiService,	theme: ThemeApiService,	language: LanguageApiService): () => Promise<void>  {
@@ -59,11 +59,10 @@ function initializeAppFactory(window: WindowApiService,	theme: ThemeApiService,	
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
-		TranslateModule.forChild(),
-		// Angular Material
-		
+		// BrowserAnimationsModule,
+		// Angular Material		
 		MatTooltipModule,
-		MatSelectModule,		
+		MatSelectModule,
 	],
 	exports: [
 		// ReExport angular modules
@@ -71,7 +70,8 @@ function initializeAppFactory(window: WindowApiService,	theme: ThemeApiService,	
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
-
+		TranslocoModule,
+		
 		// Rexport angular material
 		// MatButtonModule,
 		// MatDividerModule,
@@ -99,10 +99,15 @@ function initializeAppFactory(window: WindowApiService,	theme: ThemeApiService,	
 })
 export class EonModule {
 
-	static forRoot(config: EonConfig): ModuleWithProviders<EonModule> {
+	static forRoot(config: EonConfig, translocoConfig: TranslocoConfig, translocoLoader: Type<any>): ModuleWithProviders<EonModule> {
 		return {
 		  ngModule: EonModule,
-		  providers: [{ provide: EON_CONFIG, useValue: config }],
+		  providers: [
+			{ provide: EON_CONFIG, useValue: config },
+			{ provide: TRANSLOCO_CONFIG, useValue: translocoConfig},
+			{ provide: TRANSLOCO_LOADER, useClass: translocoLoader }
+		],
+		  
 		};
 	  }
 	  

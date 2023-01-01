@@ -1,5 +1,5 @@
 
-<h2>{{ 'MULTIPLES.TITLE' | translate }}</h2>
+<h2>Multiples</h2>
 <form [formGroup]="timesTableForm" (ngSubmit)="onSubmit()">
 	<div class="form-group">
 		<input
@@ -14,9 +14,8 @@
 		type="submit"
 		class="btn btn-success"
 		[disabled]="!timesTableForm.valid"
-		tooltip="abcd"
 	>
-		{{ 'MULTIPLES.SUBMIT' | translate }}
+		submit
 	</button>
 </form>
 

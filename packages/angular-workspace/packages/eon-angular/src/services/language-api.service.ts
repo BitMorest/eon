@@ -4,7 +4,6 @@ import {
 	LanguageApiInput,
 	LanguageData,
 } from '@bitmorest/eon-common';
-import {TranslateService} from '@ngx-translate/core';
 import {
 	BehaviorSubject,
 	filter,
@@ -23,7 +22,6 @@ export class LanguageApiService {
 
 	constructor(
 		private _electron: ElectronService,
-		private _translateService: TranslateService
 	) {
 		this._electron.receive<LanguageData>(
 			CoreApiConst.LANGUAGE_API_OUTPUT,

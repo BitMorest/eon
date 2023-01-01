@@ -1,4 +1,5 @@
 import { InjectionToken } from "@angular/core";
+import { TranslocoConfig } from "@ngneat/transloco";
 import { SideBarItem } from "./components/sidebar-item/sidebar-item.component";
 
 export interface EonConfig{

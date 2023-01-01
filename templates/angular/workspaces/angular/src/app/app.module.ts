@@ -1,12 +1,9 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HomeComponent} from './components/home/home.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {	EonModule,	BootstrapComponent} from '@bitmorest/eon-angular';
+import {EonModule,	BootstrapComponent} from '@bitmorest/eon-angular';
 import {AboutComponent} from './components/about/about.component';
 import {SettingsComponent} from './components/settings/settings.component';
 import {ExamplesComponent} from './components/examples/examples.component';
@@ -19,11 +16,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { routes } from './routes';
 import { eonConfigs } from './eon.config';
+import { translocoConfig } from '@ngneat/transloco';
+import { TranslocoHttpLoader } from './transloco.loader';
 
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+const translocoConfigs = translocoConfig({
+	availableLangs: ['en', 'es'],
+	defaultLang: 'en',
+	reRenderOnLangChange: true,
+});
 
 @NgModule({
 	declarations: [
@@ -39,18 +39,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 		MatButtonToggleModule,
 		MatInputModule,
 		MatCheckboxModule,
-
 		ReactiveFormsModule,
 		MatCardModule,
-		BrowserAnimationsModule,
-		TranslateModule.forRoot({
-			loader: {
-				provide: TranslateLoader,
-				useFactory: HttpLoaderFactory,
-				deps: [HttpClient],
-			},
-		}),
-		EonModule.forRoot(eonConfigs),
+		EonModule.forRoot(eonConfigs,translocoConfigs, TranslocoHttpLoader),
 		RouterModule.forRoot(routes),
 	],
 	providers: [],

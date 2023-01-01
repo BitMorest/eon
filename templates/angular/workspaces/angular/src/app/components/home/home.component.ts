@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, UntypedFormGroup} from '@angular/forms';
-import {TranslateService} from '@ngx-translate/core';
+// import {TranslateService} from '@ngx-translate/core';
 import {ElectronService} from '@bitmorest/eon-angular';
 import {AppApiConst} from 'shared';
 
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
 	constructor(
 		private electron: ElectronService,
-		private translate: TranslateService
+		// private translate: TranslateService
 	) {}
 
 	ngOnInit(): void {
