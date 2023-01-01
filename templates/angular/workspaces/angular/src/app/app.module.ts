@@ -20,7 +20,7 @@ import { translocoConfig } from '@ngneat/transloco';
 import { TranslocoHttpLoader } from './transloco.loader';
 
 const translocoConfigs = translocoConfig({
-	availableLangs: ['en', 'es'],
+	availableLangs: ['en', 'vi'],
 	defaultLang: 'en',
 	reRenderOnLangChange: true,
 });

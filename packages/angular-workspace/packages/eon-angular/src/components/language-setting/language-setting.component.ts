@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MatSelectChange} from '@angular/material/select';
 import {Language, LanguageData} from '@bitmorest/eon-common';
+import { TranslocoService } from '@ngneat/transloco';
 import {LanguageApiService} from '../../services/language-api.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class LanguageSettingComponent{
 	public current = '';
 
 	constructor(
-		// private translate: TranslateService,
+		private translocoService: TranslocoService,
 		private languageService: LanguageApiService
 	) {
 		this.languageService.subcribe({
