@@ -1,9 +1,8 @@
-import { EonConfig } from "@bitmorest/eon-angular";
+import { SideBarItem } from "@bitmorest/eon-angular";
 
-export const eonConfigs: EonConfig = {
-    titlebarTitle: "EonApp",
-    titlebarIcon: "https://code.visualstudio.com/assets/apple-touch-icon.png",
-    sidebarItems: [
+
+export const sidebarItems: Array<SideBarItem> = 
+   [
         {
             icon: 'fa-regular fa-house',
             href: '/home',
@@ -31,4 +30,3 @@ export const eonConfigs: EonConfig = {
             bottom: true,
         },
     ]
-}

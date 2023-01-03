@@ -36,7 +36,10 @@
 						"assets": ["src/assets"],
 						"styles": ["src/styles.scss"],
 						"scripts": [],
-						"preserveSymlinks": true
+						"preserveSymlinks": true,
+						"allowedCommonJsDependencies": [
+							"flat"
+						]
 					},
 					"configurations": {
 						"production": {

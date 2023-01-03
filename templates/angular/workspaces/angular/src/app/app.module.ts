@@ -1,50 +1,42 @@
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {HomeComponent} from './components/home/home.component';
-import {EonModule,	BootstrapComponent} from '@bitmorest/eon-angular';
-import {AboutComponent} from './components/about/about.component';
-import {SettingsComponent} from './components/settings/settings.component';
-import {ExamplesComponent} from './components/examples/examples.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatInputModule} from '@angular/material/input';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { Injectable, NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { EonModule, BootstrapComponent } from '@bitmorest/eon-angular';
 import { routes } from './routes';
-import { eonConfigs } from './eon.config';
-import { translocoConfig } from '@ngneat/transloco';
-import { TranslocoHttpLoader } from './transloco.loader';
+import { sidebarItems } from './sidebar-items';
+import { Translation, TranslocoLoader } from '@ngneat/transloco';
+import { HttpClient } from '@angular/common/http';
 
-const translocoConfigs = translocoConfig({
-	availableLangs: ['en', 'vi'],
-	defaultLang: 'en',
-	reRenderOnLangChange: true,
-});
+
+@Injectable({ providedIn: 'root' })
+export class TranslocoHttpLoader implements TranslocoLoader {
+	constructor(private http: HttpClient) { }
+
+	getTranslation(lang: string) {
+		return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
+	}
+}
+
 
 @NgModule({
-	declarations: [
-		HomeComponent,
-		AboutComponent,
-		SettingsComponent,
-		ExamplesComponent,
-	],
 	imports: [
-		MatButtonModule,
-		MatDividerModule,
-		MatIconModule,
-		MatButtonToggleModule,
-		MatInputModule,
-		MatCheckboxModule,
-		ReactiveFormsModule,
-		MatCardModule,
-		EonModule.forRoot(eonConfigs,translocoConfigs, TranslocoHttpLoader),
 		RouterModule.forRoot(routes),
+		EonModule.forRoot({
+			titlebarTitle: "EonApp",
+			titlebarIcon: "https://code.visualstudio.com/assets/apple-touch-icon.png",
+			sidebarItems: sidebarItems,
+			translocoConfig: {
+				availableLangs: [
+					{ id: "en", label: "English" },
+					{ id: "vi", label: "Tiếng Việt" },
+				],
+				defaultLang: 'en',
+			},
+			translocoLoader: TranslocoHttpLoader
+		}),
+
+
 	],
 	providers: [],
 	bootstrap: [BootstrapComponent],
 })
-export class AppModule {}
+export class AppModule { }

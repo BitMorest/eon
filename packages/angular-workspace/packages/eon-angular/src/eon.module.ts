@@ -61,7 +61,6 @@ function initializeAppFactory(window: WindowApiService, theme: ThemeApiService, 
 		RouterModule,
 		HttpClientModule,
 		BrowserAnimationsModule,
-		TranslocoModule,
 		// Angular Material		
 		MatTooltipModule,
 		MatSelectModule,
@@ -76,13 +75,8 @@ function initializeAppFactory(window: WindowApiService, theme: ThemeApiService, 
 		BrowserAnimationsModule,
 
 		// Rexport angular material
-		// MatButtonModule,
-		// MatDividerModule,
-		// MatIconModule,
 		MatTooltipModule,
 		MatSelectModule,
-		// MatInputModule,
-		// MatCheckboxModule,
 
 		// Export components
 		BootstrapComponent,
@@ -97,24 +91,25 @@ function initializeAppFactory(window: WindowApiService, theme: ThemeApiService, 
 			useFactory: initializeAppFactory,
 			deps: [ThemeApiService, LanguageApiService, WindowApiService],
 			multi: true,
-		},
-		{
-			provide: TRANSLOCO_SCOPE,
-			useValue: 'core'
-		},
+		}
 	],
 })
 export class EonModule {
 
-	static forRoot(config: EonConfig, translocoConfig: TranslocoConfig, translocoLoader: Type<any>): ModuleWithProviders<EonModule> {
+	static forRoot(config: EonConfig): ModuleWithProviders<EonModule> {
 		return {
 			ngModule: EonModule,
 			providers: [
 				{ provide: EON_CONFIG, useValue: config },
-				{ provide: TRANSLOCO_CONFIG, useValue: translocoConfig },
-				{ provide: TRANSLOCO_LOADER, useClass: translocoLoader }
+				{ provide: TRANSLOCO_CONFIG, useValue: {
+					... config.translocoConfig,
+					...{
+						reRenderOnLangChange: true,
+					},
+				 },
+				},
+				{ provide: TRANSLOCO_LOADER, useClass: config.translocoLoader }
 			],
-
 		};
 	}
 
