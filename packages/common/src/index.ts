@@ -1,44 +1,54 @@
 export type Environment = {
-	env: 'development' | 'production' | 'testing';
 	platform: string;
+	env: 'development' | 'production' | 'testing';
 };
 
-export type WindowAction = 'minimize' | 'toogleMaximize' | 'close';
+export class CoreApiConst {
+	static readonly CORE_INITIALIZE = 'CoreInitilizeChannel';
+	static readonly WINDOW_STATE = 'WindowStateChannel';
+	static readonly THEME_COLOR_MODE_STATE = 'ThemeColorModeChannel';
+	static readonly LANGUAGE_STATE = 'ThemeColorModeChannel';
+}
+
 export type WindowState = {
 	isMaximized: boolean;
 	isMaximiable: boolean;
 	isMinimizable: boolean;
 };
-export type WindowApiInput = {
-	action?: WindowAction;
-};
-export type ThemeApiInput = {
-	current?: string;
-};
-export type ThemeData = {
-	themes: Array<string>;
-	current: string;
+
+export type CoreInitializeInput = {
+	currentColorMode: string;
+	currentLanguage: string;
+	windowState?: Partial<WindowState>;
 };
 
-export type Language = {
-	name: string;
-	symbol: string;
+export type CoreInitializeOutput = {
+	currentColorMode: string;
+	currentLanguage: string;
+	windowState: WindowState;
 };
-export type LanguageApiInput = {
-	/**
-	 * The symbol of current language
-	 */
-	current?: string;
+
+export type WindowAction = 'minimize' | 'close' | 'toogleMaximize';
+
+export type CoreWindowStateInput = {
+	action?: WindowAction;
+	windowState?: Partial<WindowState>;
 };
-export type LanguageData = {
-	languages: Array<Language>;
-	current: string;
+
+export type CoreWindowStateOutput = WindowState;
+
+export type ThemeColorModeInput = {
+	currentColorMode: string;
 };
-export class CoreApiConst {
-	static readonly WINDOW_API_INPUT = 'WindowApiInput';
-	static readonly WINDOW_API_OUTPUT = 'WindowApiOuput';
-	static readonly THEME_API_INPUT = 'ThemeApiInput';
-	static readonly THEME_API_OUTPUT = 'ThemeApiOuput';
-	static readonly LANGUAGE_API_INPUT = 'LanguageApiInput';
-	static readonly LANGUAGE_API_OUTPUT = 'LanguageApiOuput';
-}
+
+export type ThemeColorModeOutput = {
+	currentColorMode: string;
+};
+
+export type LanguageModeInput = {
+	currentLanguage: string;
+};
+
+export type LanguageModeOutput = {
+	currentLanguage: string;
+};

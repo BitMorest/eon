@@ -14,8 +14,6 @@ export class Theme {
 
 	private themeConfig: Store<{theme: string}>;
 
-	private themes: Array<string> = ['light', 'dark'];
-
 	private constructor() {
 		this.themeConfig = new Store<{theme: string}>({
 			name: 'theme',
@@ -43,9 +41,5 @@ export class Theme {
 
 	public setTheme(theme: string) {
 		this.themeConfig.set('theme', theme);
-	}
-
-	public getThemes(): Array<string> {
-		return this.themes;
 	}
 }

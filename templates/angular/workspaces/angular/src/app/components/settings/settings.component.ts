@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-// import { Language } from '@bitmorest/eon-angular';
-// import { ThemeApiService } from '@bitmorest/eon-angular';
+// import { ThemeApiService, LanguageApiService } from '@bitmorest/eon-angular';
 
 @Component({
 	selector: 'app-settings',
@@ -8,8 +7,13 @@ import {Component} from '@angular/core';
 	styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-	// languages: Array<Language> = [
-	// 	{ label: 'Tiếng Việt', value: "vi" },
-	// 	{ label: 'English', value: "en" }
-	// ]
+	// public themes: Array<string> = [];
+	// public languages: Array<{ label: string, id: string }> = [];
+	// public currentThemes = '';
+	// public currentLanguage = '';
+	// constructor(
+	// 	private themeService: ThemeApiService,
+	// 	private languageService: LanguageApiService
+	// ) {
+	// }
 }

@@ -14,7 +14,7 @@ export interface WindowApi {
 	 * @param channel used by the renderer to send data and by the main to receive them
 	 * @param data the data sent by the renderer process to the main process
 	 */
-	send<In>(channel: string, input: In): void;
+	send<In>(channel: string, input?: In): void;
 }
 
 declare global {

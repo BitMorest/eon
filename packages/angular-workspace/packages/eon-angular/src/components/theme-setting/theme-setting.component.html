@@ -1,8 +1,0 @@
-<mat-form-field appearance="outline">
-	<mat-label>Theme</mat-label>
-	<mat-select [(value)]="current" (selectionChange)="changeTheme($event)">
-		<mat-option *ngFor="let theme of themes" value="{{ theme }}">{{
-			theme | titlecase 
-		}}</mat-option>
-	</mat-select>
-</mat-form-field>

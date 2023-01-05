@@ -1,36 +1,37 @@
 import {Injectable} from '@angular/core';
 import {CoreApiConst, WindowState, WindowAction} from '@bitmorest/eon-common';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {filter, first, map} from 'rxjs/operators';
+import {BehaviorSubject, SubscriptionLike} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
+import {ObserverOrNext} from '../types';
 import {ElectronService} from './electron.service';
 
 @Injectable({providedIn: 'root'})
 export class WindowApiService {
-	state = new BehaviorSubject<WindowState | undefined>(undefined);
+	_windowState = new BehaviorSubject<WindowState | undefined>(undefined);
 
 	constructor(private _electron: ElectronService) {
 		_electron.receive<WindowState>(
-			CoreApiConst.WINDOW_API_OUTPUT,
+			CoreApiConst.WINDOW_STATE,
 			(windowState: WindowState) => {
-				this.state.next(windowState);
+				this._windowState.next(windowState);
 			}
 		);
 	}
 
-	public initialize(): Promise<void> {
-		return new Promise<void>((resolve) => {
-			this.state.pipe(first()).subscribe({next: (_value) => resolve});
-			this._electron.send(CoreApiConst.WINDOW_API_INPUT, '');
-		});
+	public initilize(state: WindowState) {
+		this._windowState.next(state);
 	}
 
-	public getState(): Observable<WindowState> {
-		return this.state
+	public subscribe(
+		observerOrNext?: ObserverOrNext<WindowState>
+	): SubscriptionLike {
+		return this._windowState
 			.pipe(filter((state) => state !== undefined))
-			.pipe(map((state) => state as WindowState));
+			.pipe(map((state) => state as WindowState))
+			.subscribe(observerOrNext);
 	}
 
 	public doAction(action: WindowAction) {
-		this._electron.send(CoreApiConst.WINDOW_API_INPUT, {action});
+		this._electron.send(CoreApiConst.WINDOW_STATE, {action});
 	}
 }

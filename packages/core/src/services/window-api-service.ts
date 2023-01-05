@@ -1,24 +1,24 @@
-import {CoreApiConst, WindowApiInput, WindowState} from '@bitmorest/eon-common';
+import {
+	CoreApiConst,
+	CoreWindowStateInput as In,
+	CoreWindowStateOutput as Out,
+} from '@bitmorest/eon-common';
 import {BrowserWindow} from 'electron';
 import {Application, Window} from '../components';
 import {ApiService} from './api-service';
 // import { Logger } from '../utils';
 // const log = new Logger('eon-core');
 
-export class WindowApiService extends ApiService<WindowApiInput, WindowState> {
+export class WindowApiService extends ApiService<In, Out> {
 	receptionChannel(): string {
-		return CoreApiConst.WINDOW_API_INPUT;
+		return CoreApiConst.WINDOW_STATE;
 	}
 
 	sendingChannel(): string {
-		return CoreApiConst.WINDOW_API_OUTPUT;
+		return CoreApiConst.WINDOW_STATE;
 	}
 
-	process(
-		_app: Application,
-		_window: Window,
-		_input: WindowApiInput
-	): WindowState {
+	process(_app: Application, _window: Window, _input: In): Out {
 		const browser: BrowserWindow = _window.browser;
 
 		if (_input?.action) {

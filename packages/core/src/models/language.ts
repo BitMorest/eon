@@ -1,4 +1,3 @@
-import {Language as LanguageModel} from '@bitmorest/eon-common';
 import Store from 'electron-store';
 import {Logger} from '../utils';
 const log = new Logger('eon-core');
@@ -14,7 +13,6 @@ export class Language {
 	}
 
 	private languageConfig: Store<{language: string}>;
-	private languages: Array<LanguageModel> = [];
 
 	private constructor() {
 		this.languageConfig = new Store<{language: string}>({
@@ -35,14 +33,6 @@ export class Language {
 				},
 			},
 		});
-	}
-
-	public registerSupportLanguages(languages: Array<LanguageModel>) {
-		this.languages = languages;
-	}
-
-	public getLanguages(): Array<LanguageModel> {
-		return this.languages;
 	}
 
 	public getCurentLanguage(): string {

@@ -1,37 +1,26 @@
-import {CoreApiConst, ThemeApiInput, ThemeData} from '@bitmorest/eon-common';
+import {
+	CoreApiConst,
+	ThemeColorModeInput as In,
+	ThemeColorModeOutput as Out,
+} from '@bitmorest/eon-common';
 import {Application, Window} from '../components';
-import {Theme} from '../components/theme';
+import {Theme} from '../models/theme';
 import {ApiService} from './api-service';
 
-export class ThemeApiService extends ApiService<ThemeApiInput, ThemeData> {
+export class ThemeApiService extends ApiService<In, Out> {
 	receptionChannel(): string {
-		return CoreApiConst.THEME_API_INPUT;
+		return CoreApiConst.THEME_COLOR_MODE_STATE;
 	}
 
 	sendingChannel(): string {
-		return CoreApiConst.THEME_API_OUTPUT;
+		return CoreApiConst.THEME_COLOR_MODE_STATE;
 	}
 
-	process(
-		_app: Application,
-		_window: Window,
-		_input: ThemeApiInput
-	): ThemeData {
+	process(_app: Application, _window: Window, _input: In): Out {
 		const themeManager = Theme.getInstance();
-
-		if (_input.current) {
-			if (themeManager.getThemes().includes(_input.current)) {
-				themeManager.setTheme(_input.current);
-			} else {
-				throw new ReferenceError(
-					`Theme "${_input.current}" is not registed yet!`
-				);
-			}
-		}
-
+		themeManager.setTheme(_input.currentColorMode);
 		return {
-			themes: themeManager.getThemes(),
-			current: themeManager.getCurentTheme(),
+			currentColorMode: themeManager.getCurentTheme(),
 		};
 	}
 }

@@ -1,49 +1,28 @@
 import {
 	CoreApiConst,
-	LanguageApiInput,
-	LanguageData,
+	LanguageModeInput as In,
+	LanguageModeOutput as Out,
 } from '@bitmorest/eon-common';
 import {Application, Window} from '../components';
-import {Language} from '../components/language';
+import {Language} from '../models/language';
 import {ApiService} from './api-service';
 
-export class LanguageApiService extends ApiService<
-	LanguageApiInput,
-	LanguageData
-> {
+export class LanguageApiService extends ApiService<In, Out> {
 	receptionChannel(): string {
-		return CoreApiConst.LANGUAGE_API_INPUT;
+		return CoreApiConst.LANGUAGE_STATE;
 	}
 
 	sendingChannel(): string {
-		return CoreApiConst.LANGUAGE_API_OUTPUT;
+		return CoreApiConst.LANGUAGE_STATE;
 	}
 
-	process(
-		_app: Application,
-		_window: Window,
-		_input: LanguageApiInput
-	): LanguageData {
+	process(_app: Application, _window: Window, _input: In): Out {
 		const languageManager = Language.getInstance();
-
-		if (_input.current) {
-			if (
-				languageManager
-					.getLanguages()
-					.map((l) => l.symbol)
-					.includes(_input.current)
-			) {
-				languageManager.setLanguage(_input.current);
-			} else {
-				throw new ReferenceError(
-					`Language "${_input.current}" is not registed yet!`
-				);
-			}
+		if (_input.currentLanguage) {
+			languageManager.setLanguage(_input.currentLanguage);
 		}
-
 		return {
-			languages: languageManager.getLanguages(),
-			current: languageManager.getCurentLanguage(),
+			currentLanguage: languageManager.getCurentLanguage(),
 		};
 	}
 }

@@ -1,57 +1,50 @@
 /* eslint-disable unicorn/prefer-dom-node-dataset */
 
 import {Injectable} from '@angular/core';
-import {CoreApiConst, ThemeApiInput, ThemeData} from '@bitmorest/eon-common';
 import {
-	BehaviorSubject,
-	filter,
-	first,
-	map,
-	Observer,
-	SubscriptionLike,
-} from 'rxjs';
+	CoreApiConst,
+	ThemeColorModeInput,
+	ThemeColorModeOutput,
+} from '@bitmorest/eon-common';
+import {BehaviorSubject, SubscriptionLike} from 'rxjs';
+import {ColorMode, ObserverOrNext} from '../types';
 import {ElectronService} from './electron.service';
 
 @Injectable({providedIn: 'root'})
 export class ThemeApiService {
-	private _body = document.body;
-	private _themeData = new BehaviorSubject<ThemeData | undefined>(undefined);
+	public currentFlatformMode: string;
+	private _currentColorMode = new BehaviorSubject<ColorMode>('light');
 
 	constructor(private _electron: ElectronService) {
-		this._electron.receive<ThemeData>(
-			CoreApiConst.THEME_API_OUTPUT,
-			(themeData: ThemeData) => {
-				this._themeData.next(themeData);
-				this._body.setAttribute('data-theme-color', themeData.current);
-				this._body.setAttribute(
-					'data-theme-platform',
-					window.api.environment.platform
-				);
+		this.currentFlatformMode = window.api.environment.platform;
+		document.body.setAttribute('data-theme-platform', this.currentFlatformMode);
+
+		this._electron.receive<ThemeColorModeOutput>(
+			CoreApiConst.THEME_COLOR_MODE_STATE,
+			(themeColorModeOutput: ThemeColorModeOutput) => {
+				const colorMode = themeColorModeOutput.currentColorMode;
+				document.body.setAttribute('data-theme-color', colorMode);
+				this._currentColorMode.next(colorMode as ColorMode);
 			}
 		);
-		this._body.setAttribute('data-theme-color', 'light');
-		this._body.setAttribute('data-theme-platform', 'win32');
 	}
 
-	public initialize(): Promise<void> {
-		return new Promise<void>((resolve) => {
-			this._themeData.pipe(first()).subscribe({next: (_value) => resolve});
-			this._electron.send(CoreApiConst.THEME_API_INPUT, '');
-		});
+	public initialize(colorMode: ColorMode) {
+		this._currentColorMode.next(colorMode);
 	}
 
 	public subcribe(
-		observerOrNext?: Partial<Observer<ThemeData>> | ((value: ThemeData) => void)
+		observerOrNext?: ObserverOrNext<ColorMode>
 	): SubscriptionLike {
-		return this._themeData
-			.pipe(filter((data) => data !== undefined))
-			.pipe(map((data) => data as ThemeData))
-			.subscribe(observerOrNext);
+		return this._currentColorMode.subscribe(observerOrNext);
 	}
 
-	public changeTheme(theme: string) {
-		this._electron.send<ThemeApiInput>(CoreApiConst.THEME_API_INPUT, {
-			current: theme,
-		});
+	public changeColorMode(colorMode: ColorMode) {
+		this._electron.send<ThemeColorModeInput>(
+			CoreApiConst.THEME_COLOR_MODE_STATE,
+			{
+				currentColorMode: colorMode,
+			}
+		);
 	}
 }

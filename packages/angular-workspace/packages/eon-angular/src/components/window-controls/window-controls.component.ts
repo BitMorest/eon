@@ -37,7 +37,7 @@ export class WindowControlsComponent {
 	public state?: WindowState;
 
 	constructor(private windowApiService: WindowApiService) {
-		this.windowApiService.getState().subscribe({
+		this.windowApiService.subscribe({
 			next: (state) => {
 				this.state = state;
 			},
