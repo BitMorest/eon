@@ -7,7 +7,7 @@ import {
 	ColorModeOutput,
 } from '@bitmorest/eon-common';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
-import {ObserverOrNext} from '../types';
+import {ObserverOrNext} from '../../types';
 import {ElectronService} from './electron.service';
 
 @Injectable({providedIn: 'root'})

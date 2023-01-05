@@ -15,23 +15,23 @@ export class InitializeService {
 		private _languageApiService: LanguageApiService,
 		private _uiApiService: UIModeService
 	) {
-		console.log('[Eon]-------------------');
-		console.log('[Eon] Initializing...');
+		console.log('-------------------');
+		console.log(' Initializing...');
 		if (window && (window as Window).api) {
-			console.log('[Eon] Enviroments:', window.api.environment);
+			console.log(' Enviroments:', window.api.environment);
 			this._electron.receive<InitializeOutput>(
 				CoreApiConst.INITIALIZE,
 				(initilizeData: InitializeOutput) => {
 					this._windowApiService.initilize(initilizeData.windowState);
 					this._uiApiService.initialize(initilizeData.isDarkMode);
 					this._languageApiService.initialize(initilizeData.currentLanguage);
-					console.log('[Eon] Initializing done!!!');
-					console.log('[Eon] -------------------\n\n');
+					console.log(' Initializing done!!!');
+					console.log(' -------------------\n\n');
 				}
 			);
 			this._electron.send(CoreApiConst.INITIALIZE);
 		} else {
-			console.error('[Eon] Preloader API is not loaded');
+			console.error(' Preloader API is not loaded');
 		}
 	}
 }

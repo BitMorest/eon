@@ -15,7 +15,7 @@ import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.compo
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {LanguageApiService} from './services/language-api.service';
 import {BrowserWindowService} from './services/browser-window.service';
-import {EonConfig, EON_CONFIG} from './types';
+import {EonConfig, EON_CONFIG} from '../types';
 import {
 	TranslocoModule,
 	TRANSLOCO_CONFIG,
@@ -23,7 +23,7 @@ import {
 } from '@ngneat/transloco';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InitializeService} from './services/initialize.service';
-import {ElectronService} from './public-api';
+import {ElectronService} from './services/electron.service';
 
 @NgModule({
 	declarations: [

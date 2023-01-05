@@ -6,7 +6,7 @@ import {
 } from '@bitmorest/eon-common';
 import {LangDefinition, TranslocoService} from '@ngneat/transloco';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
-import {ObserverOrNext} from '../types';
+import {ObserverOrNext} from '../../types';
 import {ElectronService} from './electron.service';
 
 @Injectable({
@@ -37,6 +37,8 @@ export class LanguageApiService {
 		if (currentLanguage) {
 			this._translateService.setActiveLang(currentLanguage);
 		}
+
+		this._currentLanguage.next(this._translateService.getActiveLang());
 	}
 
 	public subcribe(observerOrNext?: ObserverOrNext<string>): SubscriptionLike {

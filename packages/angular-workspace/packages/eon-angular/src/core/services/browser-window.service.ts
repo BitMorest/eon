@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {CoreApiConst, WindowState, WindowAction} from '@bitmorest/eon-common';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
-import {ObserverOrNext} from '../types';
+import {ObserverOrNext} from '../../types';
 import {ElectronService} from './electron.service';
 
 @Injectable({providedIn: 'root'})

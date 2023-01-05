@@ -37,7 +37,7 @@ export class CoreSetting {
 			},
 			migrations: {
 				'0.0.1': (_store) => {
-					_store.set('darkMode', 'false');
+					_store.set('darkMode', false);
 				},
 			},
 		});

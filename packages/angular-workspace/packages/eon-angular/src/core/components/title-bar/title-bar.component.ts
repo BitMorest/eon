@@ -1,5 +1,5 @@
 import {Component, Inject, Input} from '@angular/core';
-import {EonConfig, EON_CONFIG} from '../../types';
+import {EonConfig, EON_CONFIG} from '../../../types';
 
 @Component({
 	selector: 'titlebar',

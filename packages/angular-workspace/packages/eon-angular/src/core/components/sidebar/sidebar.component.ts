@@ -1,6 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {EON_CONFIG, EonConfig} from '../../types';
-import {SideBarItem} from '../sidebar-item/sidebar-item.component';
+import {EON_CONFIG, EonConfig, SideBarItem} from '../../../types';
 
 @Component({
 	selector: 'sidebar',

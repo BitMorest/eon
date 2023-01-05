@@ -5,8 +5,7 @@ import {Component} from '@angular/core';
 	template: `
 		<titlebar></titlebar>
 		<div class="d-flex flex-row vw-100 overflow-hidden flex-grow-1">
-			<sidebar>			
-			</sidebar>
+			<sidebar> </sidebar>
 			<div class="main-content flex-grow-1 overflow-auto">
 				<div class="container-fluid">
 					<router-outlet></router-outlet>
@@ -19,7 +18,4 @@ import {Component} from '@angular/core';
 		class: 'd-flex flex-column vw-100 vh-100',
 	},
 })
-export class SidebarLayoutComponent{
-
-	
-}
+export class SidebarLayoutComponent {}

@@ -1,17 +1,15 @@
 /*
  * Public API Surface of efastdev-angular
  */
-export * from './eon.module';
-export * from './global';
 export * from './types';
 
-export * from './services/electron.service';
-export * from './services/ui-mode.service';
-export * from './services/language-api.service';
-export * from './services/events/side-bar-item-click-event.service';
-export * from './services/events/window-action-click-event.service';
+export * from './core/eon.module';
+export * from './core/services/electron.service';
+export * from './core/services/events/side-bar-item-click-event.service';
+export * from './core/services/events/window-action-click-event.service';
+export * from './core/components/bootstrap/bootstrap.component';
+export * from './core/components/sidebar-layout/sidebar-layout.component';
+export * from './core/components/frameless-layout/frameless-layout.component';
 
-export {SideBarItem} from './components/sidebar-item/sidebar-item.component';
-export * from './components/bootstrap/bootstrap.component';
-export * from './components/sidebar-layout/sidebar-layout.component';
-export * from './components/frameless-layout/frameless-layout.component';
+export * from './setting/setting.module';
+export * from './setting/appearance/appearance.component';

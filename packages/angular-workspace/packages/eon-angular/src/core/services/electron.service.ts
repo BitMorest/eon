@@ -1,5 +1,5 @@
 import {Injectable, NgZone} from '@angular/core';
-import {WindowApi} from '../global';
+import {WindowApi} from '../../types';
 
 @Injectable({providedIn: 'root'})
 export class ElectronService {

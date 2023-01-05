@@ -5,7 +5,8 @@
 		"outDir": "./.dist/out-tsc",
 		"tsBuildInfoFile": ".tmp/tsbuildinfo.json",
 		"paths": {
-			"eon-angular": ["dist/eon-angular"]
+			"eon-angular": ["dist/eon-angular"],
+			"eon-angular-components": ["dist/eon-angular-components"]
 		},
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,

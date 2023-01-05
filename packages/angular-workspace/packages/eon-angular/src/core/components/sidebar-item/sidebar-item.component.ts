@@ -9,13 +9,6 @@ import {
 import {NavigationEnd, Router, Scroll} from '@angular/router';
 import {SideBarItemClickEventService} from '../../services/events/side-bar-item-click-event.service';
 
-export interface SideBarItem {
-	icon: string;
-	href: string;
-	bottom?: boolean;
-	description?: string;
-}
-
 @Component({
 	selector: 'sidebar-item',
 	template: `<div
