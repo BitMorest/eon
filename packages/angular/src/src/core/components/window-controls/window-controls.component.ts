@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {WindowState} from '@bitmorest/eon-common';
+import {WindowState} from '@e-dizzy/types';
 import {BrowserWindowService} from '../../services/browser-window.service';
 
 @Component({

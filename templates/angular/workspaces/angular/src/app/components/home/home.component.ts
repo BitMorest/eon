@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, UntypedFormGroup} from '@angular/forms';
 // import {TranslateService} from '@ngx-translate/core';
-import {ElectronService} from '@bitmorest/eon-angular';
+import {ElectronService} from '@e-dizzy/angular';
 import {AppApiConst} from 'shared';
 
 @Component({
@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit {
 	multiples: number[] = [];
 
 	constructor(
-		private electron: ElectronService,
-		// private translate: TranslateService
-	) {}
+		private electron: ElectronService
+	) // private translate: TranslateService
+	{}
 
 	ngOnInit(): void {
 		// Specifying what to do with received data from main process
@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit {
 		// Init time tables with given random value
 		this.onSubmit();
 	}
-
 
 	onSubmit(): void {
 		const input = this.timesTableForm.value.input;

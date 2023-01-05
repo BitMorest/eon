@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CoreApiConst, WindowState, WindowAction} from '@bitmorest/eon-common';
+import {CoreApiConst, WindowState, WindowAction} from '@e-dizzy/types';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
 import {ObserverOrNext} from '../../types';

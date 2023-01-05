@@ -29,7 +29,7 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InitializeService} from './services/initialize.service';
 import {ElectronService} from './services/electron.service';
-import {TranslocoHttpLoader} from './services/transloco-loader.service';
+import {TranslocoHttpLoader} from './services/transloco-http-loader.service';
 
 @NgModule({
 	declarations: [

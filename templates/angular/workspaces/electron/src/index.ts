@@ -1,4 +1,4 @@
-import {Application} from '@bitmorest/eon-core';
+import {Application} from '@e-dizzy/electron';
 import {MultiplesApiService} from './multiples-service';
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';

@@ -4,7 +4,7 @@ import {
 	LangDefinition,
 	TranslocoConfig as TranslocoConfigBase,
 } from '@ngneat/transloco';
-import {Environment} from '@bitmorest/eon-common';
+import {Environment} from '@e-dizzy/types';
 
 export interface WindowApi {
 	environment: Environment;

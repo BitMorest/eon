@@ -23,7 +23,7 @@
 	"scripts": {
 		"start": "run-p -l start:shared start:angular start:electron",
 		"start:shared": "tsc -p workspaces/shared/tsconfig.json -w",
-		"start:angular": "wait-on ../../packages/common/.dist/index.d.ts && wait-on ../../packages/core/.dist/index.d.ts && wait-on workspaces/shared/.dist/index.d.ts && cd workspaces/angular && yarn start",
+		"start:angular": "wait-on ../../packages/types/.dist/index.d.ts && wait-on ../../packages/electron/.dist/index.d.ts && wait-on workspaces/shared/.dist/index.d.ts && cd workspaces/angular && yarn start",
 		"start:electron": "node scripts/electron-start-watch.js",
 		"package": "yarn package:shared && yarn package:angular-app && yarn package:electron-app",
 		"package:shared": "tsc -b workspaces/shared",
@@ -121,14 +121,12 @@
 		"webpack": "^5.75.0"
 	},
 	"dependencies": {
-		"@bitmorest/eon-core": "link:../../packages/core"
+		"@e-dizzy/types": "link:../../packages/core"
 	},
 	"resolutions": {
 		"**/typescript": "4.8.4",
-		"**/bootstrap": "~5.1.3",
-		"**/@popperjs/core": "^2.10.2",
-		"@bitmorest/eon-common": "link:../../packages/common",
-		"@bitmorest/eon-core": "link:../../packages/core",
-		"@bitmorest/eon-angular": "link:../../packages/angular"
+		"@e-dizzy/types": "link:../../packages/types",
+		"@e-dizzy/electron": "link:../../packages/electron",
+		"@e-dizzy/angular": "link:../../packages/angular./.dist"
 	}
 }

@@ -1,13 +1,9 @@
 import {Injectable} from '@angular/core';
-import {
-	CoreApiConst,
-	LanguageInput,
-	LanguageOutput,
-} from '@bitmorest/eon-common';
 import {LangDefinition, TranslocoService} from '@ngneat/transloco';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
-import {ObserverOrNext} from '../../types';
+import {LanguageOutput, CoreApiConst, LanguageInput} from '@e-dizzy/types';
 import {ElectronService} from './electron.service';
+import {ObserverOrNext} from '../../types';
 
 @Injectable({
 	providedIn: 'root',
@@ -37,7 +33,6 @@ export class LanguageApiService {
 		if (currentLanguage) {
 			this._translateService.setActiveLang(currentLanguage);
 		}
-
 		this._currentLanguage.next(this._translateService.getActiveLang());
 	}
 

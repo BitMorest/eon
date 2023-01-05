@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {EonModule, BootstrapComponent} from '@bitmorest/eon-angular';
+import {EonModule, BootstrapComponent} from '@e-dizzy/angular';
 import {routes} from './routes';
 import {sidebarItems} from './sidebar-items';
 

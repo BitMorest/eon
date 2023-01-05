@@ -34,7 +34,7 @@
 	},
 	"references": [
 		{
-			"path": "../common"
+			"path": "../types"
 		}
 	]
 }

@@ -1,11 +1,7 @@
 /* eslint-disable unicorn/prefer-dom-node-dataset */
 
 import {Injectable} from '@angular/core';
-import {
-	CoreApiConst,
-	ColorModeInput,
-	ColorModeOutput,
-} from '@bitmorest/eon-common';
+import {CoreApiConst, ColorModeInput, ColorModeOutput} from '@e-dizzy/types';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
 import {ObserverOrNext} from '../../types';
 import {ElectronService} from './electron.service';

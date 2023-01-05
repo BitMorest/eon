@@ -5,7 +5,7 @@ import {
 	Input,
 	OnInit,
 } from '@angular/core';
-import {WindowAction} from '@bitmorest/eon-common';
+import {WindowAction} from '@e-dizzy/types';
 import {WindowActionClickEventService} from '../../services/events/window-action-click-event.service';
 import {BrowserWindowService} from '../../services/browser-window.service';
 

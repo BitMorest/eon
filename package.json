@@ -1,6 +1,7 @@
 {
 	"name": "e-dizzy-source",
 	"private": true,
+	"version": "0.0.0",
 	"description": "Ultra fast electron & angular bootstrap",
 	"homepage": "https://github.com/e-dizzy/e-dizzy",
 	"bugs": "https://github.com/e-dizzy/e-dizzy/issues",
@@ -15,22 +16,24 @@
 	},
 	"license": "UNLICENSED",
 	"workspaces": [
-		"packages/types",
-		"packages/electron"
+		"./packages/types",
+		"./packages/electron",
+		"./packages/angular",
+		"./packages/angular/.dist"
 	],
 	"scripts": {
-		"prepare": "husky install",
 		"bootstrap": "lerna bootstrap --include-dependencies",
-		"lint": "eslint .",
-		"build": "run-s -l build:common build:core build:angular",
+		"prepare": "husky install",
+		"build": "run-s -l build:types build:electron build:angular",
 		"build:types": "yarn workspace @e-dizzy/types build",
 		"build:electron": "yarn workspace @e-dizzy/electron build",
-		"build:angular": "yarn workspace @bitmorest/eon-angular-workspace build",
+		"build:angular": "yarn workspace angular-worspace build",
 		"watch": "run-p -l watch:common watch:core watch:angular",
 		"watch:common": "yarn workspace @bitmorest/eon-common watch",
 		"watch:core": "yarn workspace @bitmorest/eon-core watch",
-		"watch:angular": "yarn workspace @bitmorest/eon-angular-workspace watch",
+		"watch:angular": "yarn workspace angular-worspace watch",
 		"release": "yarn build && lerna publish --no-private --skip-git",
+		"lint": "eslint .",
 		"clean": "git clean -xdfq"
 	},
 	"devDependencies": {

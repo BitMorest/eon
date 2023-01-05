@@ -1,5 +1,5 @@
 import {AppApiConst} from 'shared';
-import {ApiService, Application, Window} from '@bitmorest/eon-core';
+import {ApiService, Application, Window} from '@e-dizzy/electron';
 
 export class MultiplesApiService extends ApiService<number, number[]> {
 	receptionChannel(): string {

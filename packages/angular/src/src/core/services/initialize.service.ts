@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CoreApiConst, InitializeOutput} from '@bitmorest/eon-common';
+import {CoreApiConst, InitializeOutput} from '@e-dizzy/types';
 import {ElectronService} from './electron.service';
 import {LanguageApiService} from './language-api.service';
 import {UIModeService} from './ui-mode.service';
