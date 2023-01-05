@@ -6,7 +6,7 @@ import {ObserverOrNext} from '../types';
 import {ElectronService} from './electron.service';
 
 @Injectable({providedIn: 'root'})
-export class WindowApiService {
+export class BrowserWindowService {
 	_windowState = new BehaviorSubject<WindowState | undefined>(undefined);
 
 	constructor(private _electron: ElectronService) {

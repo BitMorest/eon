@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {ElectronService} from './electron.service';
 
-fdescribe('ElectronIpcService', () => {
+describe('ElectronIpcService', () => {
 	let service: ElectronService;
 
 	beforeEach(() => {

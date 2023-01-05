@@ -1,10 +1,10 @@
 import {
 	CoreApiConst,
-	LanguageModeInput as In,
-	LanguageModeOutput as Out,
+	LanguageInput as In,
+	LanguageOutput as Out,
 } from '@bitmorest/eon-common';
 import {Application, Window} from '../components';
-import {Language} from '../models/language';
+import {CoreSetting} from '../models/core-setting';
 import {ApiService} from './api-service';
 
 export class LanguageApiService extends ApiService<In, Out> {
@@ -17,9 +17,8 @@ export class LanguageApiService extends ApiService<In, Out> {
 	}
 
 	process(_app: Application, _window: Window, _input: In): Out {
-		const languageManager = Language.getInstance();
 		if (_input.currentLanguage) {
-			languageManager.setLanguage(_input.currentLanguage);
+			CoreSetting.getInstance().setLanguage(_input.currentLanguage);
 		}
 		return {
 			currentLanguage: this.getCurrentLanguage(),
@@ -27,6 +26,6 @@ export class LanguageApiService extends ApiService<In, Out> {
 	}
 
 	getCurrentLanguage() {
-		return Language.getInstance().getCurentLanguage();
+		return CoreSetting.getInstance().getCurentLanguage();
 	}
 }

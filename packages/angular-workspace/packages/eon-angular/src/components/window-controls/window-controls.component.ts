@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {WindowState} from '@bitmorest/eon-common';
-import {WindowApiService} from '../../services/window-api.service';
+import {BrowserWindowService} from '../../services/browser-window.service';
 
 @Component({
 	selector: 'window-controls',
@@ -36,7 +36,7 @@ import {WindowApiService} from '../../services/window-api.service';
 export class WindowControlsComponent {
 	public state?: WindowState;
 
-	constructor(private windowApiService: WindowApiService) {
+	constructor(private windowApiService: BrowserWindowService) {
 		this.windowApiService.subscribe({
 			next: (state) => {
 				this.state = state;

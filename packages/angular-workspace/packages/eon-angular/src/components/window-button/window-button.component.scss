@@ -13,14 +13,14 @@
 	}
 }
 
-@include theme-platform-mode(win32) {
+@include platform-mode(win32) {
 	:host {
 		width: 48px;
 		height: 100%;
 	}
 }
 
-@include theme-platform-mode(darwin) {
+@include platform-mode(darwin) {
 	:host {
 		width: 12px;
 		height: 12px;

@@ -1,17 +1,17 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {WControlsComponent} from './window-controls.component';
+import {WindowControlsComponent} from './window-controls.component';
 
 describe('WindowControlsComponent', () => {
-	let component: WControlsComponent;
-	let fixture: ComponentFixture<WControlsComponent>;
+	let component: WindowControlsComponent;
+	let fixture: ComponentFixture<WindowControlsComponent>;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [WControlsComponent],
+			declarations: [WindowControlsComponent],
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(WControlsComponent);
+		fixture = TestBed.createComponent(WindowControlsComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {
 	CoreApiConst,
-	LanguageModeInput,
-	LanguageModeOutput,
+	LanguageInput,
+	LanguageOutput,
 } from '@bitmorest/eon-common';
 import {LangDefinition, TranslocoService} from '@ngneat/transloco';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
@@ -22,9 +22,9 @@ export class LanguageApiService {
 	) {
 		this.avaiableLanguages =
 			_translateService.getAvailableLangs() as LangDefinition[];
-		this._electron.receive<LanguageModeOutput>(
+		this._electron.receive<LanguageOutput>(
 			CoreApiConst.LANGUAGE,
-			(response: LanguageModeOutput) => {
+			(response: LanguageOutput) => {
 				if (response.currentLanguage) {
 					this._translateService.setActiveLang(response.currentLanguage);
 					this._currentLanguage.next(response.currentLanguage);
@@ -45,6 +45,6 @@ export class LanguageApiService {
 
 	public changeLanguage(currentLanguage: string) {
 		const data = {currentLanguage};
-		this._electron.send<LanguageModeInput>(CoreApiConst.LANGUAGE, data);
+		this._electron.send<LanguageInput>(CoreApiConst.LANGUAGE, data);
 	}
 }

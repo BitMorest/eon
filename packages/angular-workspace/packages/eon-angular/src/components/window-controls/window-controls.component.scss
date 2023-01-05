@@ -11,7 +11,7 @@
 	}
 }
 
-@include theme-platform-mode(darwin) {
+@include platform-mode(darwin) {
 	:host {
 		display: flex;
 		flex-direction: row-reverse;
@@ -58,7 +58,7 @@
 	}
 }
 
-// @include theme-color-mode(light) {
+// @include color-mode(light) {
 // 	:host {
 // 		.disabled {
 // 			color: $gray-600 !important;
@@ -66,7 +66,7 @@
 // 	}
 // }
 
-// @include theme-color-mode(dark) {
+// @include color-mode(dark) {
 // 	:host {
 // 		.disabled {
 // 			color: $gray-700 !important;

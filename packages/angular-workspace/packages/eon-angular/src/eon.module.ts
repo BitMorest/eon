@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
-import {ThemeApiService} from './services/theme-api.service';
+import {UIModeService} from './services/ui-mode.service';
 import {BootstrapComponent} from './components/bootstrap/bootstrap.component';
 import {SidebarLayoutComponent} from './components/sidebar-layout/sidebar-layout.component';
 import {FramelessLayoutComponent} from './components/frameless-layout/frameless-layout.component';
@@ -14,7 +14,7 @@ import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {LanguageApiService} from './services/language-api.service';
-import {WindowApiService} from './services/window-api.service';
+import {BrowserWindowService} from './services/browser-window.service';
 import {EonConfig, EON_CONFIG} from './types';
 import {
 	TranslocoModule,
@@ -74,9 +74,9 @@ import {ElectronService} from './public-api';
 			deps: [
 				InitializeService,
 				ElectronService,
-				ThemeApiService,
+				UIModeService,
 				LanguageApiService,
-				WindowApiService,
+				BrowserWindowService,
 			],
 			multi: true,
 		},

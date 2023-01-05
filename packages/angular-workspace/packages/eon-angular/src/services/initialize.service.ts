@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {CoreApiConst, CoreInitializeOutput} from '@bitmorest/eon-common';
+import {CoreApiConst, InitializeOutput} from '@bitmorest/eon-common';
 import {ElectronService} from './electron.service';
 import {LanguageApiService} from './language-api.service';
-import {ThemeApiService} from './theme-api.service';
-import {WindowApiService} from './window-api.service';
+import {UIModeService} from './ui-mode.service';
+import {BrowserWindowService} from './browser-window.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -11,19 +11,19 @@ import {WindowApiService} from './window-api.service';
 export class InitializeService {
 	constructor(
 		private _electron: ElectronService,
-		private _windowApiService: WindowApiService,
+		private _windowApiService: BrowserWindowService,
 		private _languageApiService: LanguageApiService,
-		private _themeApiService: ThemeApiService
+		private _uiApiService: UIModeService
 	) {
 		console.log('[Eon]-------------------');
 		console.log('[Eon] Initializing...');
 		if (window && (window as Window).api) {
 			console.log('[Eon] Enviroments:', window.api.environment);
-			this._electron.receive<CoreInitializeOutput>(
+			this._electron.receive<InitializeOutput>(
 				CoreApiConst.INITIALIZE,
-				(initilizeData: CoreInitializeOutput) => {
+				(initilizeData: InitializeOutput) => {
 					this._windowApiService.initilize(initilizeData.windowState);
-					this._themeApiService.initialize(initilizeData.currentColorMode);
+					this._uiApiService.initialize(initilizeData.isDarkMode);
 					this._languageApiService.initialize(initilizeData.currentLanguage);
 					console.log('[Eon] Initializing done!!!');
 					console.log('[Eon] -------------------\n\n');

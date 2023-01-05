@@ -7,7 +7,7 @@
 	color: var(--eon-sidebar-bar-color);
 }
 
-@include theme-platform-mode(darwin) {
+@include platform-mode(darwin) {
 	:host {
 		border-radius: 0 0 0 6px;
 	}

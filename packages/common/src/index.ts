@@ -3,27 +3,21 @@ export type Environment = {
 	env: 'development' | 'production' | 'testing';
 };
 
-export class CoreApiConst {
-	static readonly INITIALIZE = 'CoreInitilizeChannel';
-	static readonly WINDOW_STATE = 'WindowStateChannel';
-	static readonly THEME_COLOR_MODE = 'ThemeColorModeChannel';
-	static readonly LANGUAGE = 'LanguageChannel';
-}
-
 export type WindowState = {
 	isMaximized: boolean;
 	isMaximiable: boolean;
 	isMinimizable: boolean;
 };
 
-export type CoreInitializeInput = {
-	currentColorMode: string;
-	currentLanguage: string;
-	windowState?: Partial<WindowState>;
-};
+export class CoreApiConst {
+	static readonly INITIALIZE = 'CoreInitilize';
+	static readonly WINDOW_STATE = 'CoreWindowState';
+	static readonly UI_MODE = 'CoreUIMode';
+	static readonly LANGUAGE = 'CoreLanguage';
+}
 
-export type CoreInitializeOutput = {
-	currentColorMode: string;
+export type InitializeOutput = {
+	isDarkMode: boolean;
 	currentLanguage: string;
 	windowState: WindowState;
 };
@@ -37,18 +31,18 @@ export type CoreWindowStateInput = {
 
 export type CoreWindowStateOutput = WindowState;
 
-export type ThemeColorModeInput = {
-	currentColorMode: string;
+export type ColorModeInput = {
+	isDarkMode: boolean;
 };
 
-export type ThemeColorModeOutput = {
-	currentColorMode: string;
+export type ColorModeOutput = {
+	isDarkMode: boolean;
 };
 
-export type LanguageModeInput = {
+export type LanguageInput = {
 	currentLanguage: string;
 };
 
-export type LanguageModeOutput = {
+export type LanguageOutput = {
 	currentLanguage: string;
 };

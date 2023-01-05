@@ -11,7 +11,7 @@ import * as path from 'node:path';
 import _ from 'lodash';
 import {Logger} from '../utils';
 import {Environment} from '../models';
-import {ThemeApiService} from '../services/theme-api-service';
+import {UiModeApiService} from '../services/ui-mode-api-service';
 import {WindowApiService} from '../services/window-api-service';
 import contextMenu from 'electron-context-menu';
 import {LanguageApiService} from '../services/language-api-service';
@@ -122,7 +122,7 @@ export class Window {
 		log.debug('onRegisterService()');
 		this.registerService(new InitializeApiService());
 		this.registerService(new LanguageApiService());
-		this.registerService(new ThemeApiService());
+		this.registerService(new UiModeApiService());
 		this.registerService(new WindowApiService());
 		for (const service of this.services) {
 			this.registerService(service);

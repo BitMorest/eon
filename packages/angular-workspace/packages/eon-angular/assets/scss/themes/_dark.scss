@@ -5,18 +5,17 @@
 @import '../maps';
 @import '../mixins';
 
-@include theme-color-mode(dark, true) {
+@include color-mode(dark, true) {
 	$primary: map.get($themes, 'dark', 'primary');
 	--primary: #{map.get($primary, 'default')};
 
 	$components: map.get($themes, 'dark', 'components');
-	@include mat.all-component-colors(
-		mat.define-dark-theme(
-			(
-				color: $dark-theme,
-			)
+	$matDarkTheme: mat.define-dark-theme(
+		(
+			color: $dark-theme,
 		)
 	);
+	@include mat.all-component-colors($matDarkTheme);
 
 	$titlebar: map.get($components, 'titlebar');
 	--eon-title-bar-color: #{map.get($titlebar, 'text')};

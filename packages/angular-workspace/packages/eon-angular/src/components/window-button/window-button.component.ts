@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import {WindowAction} from '@bitmorest/eon-common';
 import {WindowActionClickEventService} from '../../services/events/window-action-click-event.service';
-import {WindowApiService} from '../../services/window-api.service';
+import {BrowserWindowService} from '../../services/browser-window.service';
 
 export type WindowActionEventData = {
 	action: WindowAction;
@@ -40,7 +40,7 @@ export class WindowButtonComponent implements OnInit {
 
 	constructor(
 		private actionEventService: WindowActionClickEventService,
-		private windowApiService: WindowApiService
+		private windowApiService: BrowserWindowService
 	) {}
 
 	ngOnInit(): void {

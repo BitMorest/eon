@@ -6,7 +6,7 @@ export * from './global';
 export * from './types';
 
 export * from './services/electron.service';
-export * from './services/theme-api.service';
+export * from './services/ui-mode.service';
 export * from './services/language-api.service';
 export * from './services/events/side-bar-item-click-event.service';
 export * from './services/events/window-action-click-event.service';

@@ -1,15 +1,15 @@
 import {TestBed} from '@angular/core/testing';
 import {ElectronService} from './electron.service';
-import {WindowApiService} from './window-api.service';
+import {BrowserWindowService} from './browser-window.service';
 
 describe('WindowApiService', () => {
-	let service: WindowApiService;
+	let service: BrowserWindowService;
 
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			providers: [WindowApiService, ElectronService],
+			providers: [BrowserWindowService, ElectronService],
 		});
-		service = TestBed.inject(WindowApiService);
+		service = TestBed.inject(BrowserWindowService);
 	});
 
 	it('should be created', () => {

@@ -32,7 +32,7 @@
 	}
 }
 
-@include theme-platform-mode(darwin) {
+@include platform-mode(darwin) {
 	:host {
 		.main-content {
 			border-radius: 0 0 6px 0;

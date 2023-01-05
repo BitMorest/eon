@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MatSelectChange} from '@angular/material/select';
-import {ThemeApiService, LanguageApiService} from '@bitmorest/eon-angular';
+import {MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {UIModeService, LanguageApiService} from '@bitmorest/eon-angular';
 
 @Component({
 	selector: 'app-settings',
@@ -8,23 +9,25 @@ import {ThemeApiService, LanguageApiService} from '@bitmorest/eon-angular';
 	styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-	public themes: Array<string> = [];
 	public languages: Array<{label: string; id: string}>;
-
 	public currentThemes = '';
 	public currentLanguage = '';
 
 	constructor(
-		private themeService: ThemeApiService,
+		private uiModeService: UIModeService,
 		private languageService: LanguageApiService
 	) {
 		this.languages = languageService.avaiableLanguages;
-		this.languageService.subcribe((language) => {
+		this.languageService.subcribe((language: string) => {
 			this.currentLanguage = language;
 		});
 	}
 
 	onChangeLanguage(event: MatSelectChange) {
 		this.languageService.changeLanguage(event.value);
+	}
+
+	onColorModeChange(event: MatSlideToggleChange) {
+		this.uiModeService.changeColorMode(event.checked);
 	}
 }
