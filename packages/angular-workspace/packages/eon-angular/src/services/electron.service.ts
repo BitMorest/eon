@@ -6,13 +6,7 @@ export class ElectronService {
 	private _api!: WindowApi;
 
 	constructor(private _zone: NgZone) {
-		if (window && (window as Window).api) {
-			this._api = (window as Window).api;
-			console.log('Preloader API has been loaded successfully');
-			console.log('Current Application Enviroment:', this._api.environment);
-		} else {
-			console.warn('Preloader API is not loaded');
-		}
+		this._api = (window as Window).api;
 	}
 
 	public receive<Out>(channel: string, callback: (output: Out) => void): void {
@@ -30,7 +24,7 @@ export class ElectronService {
 		}
 	}
 
-	public send<In>(channel: string, input: In): void {
+	public send<In>(channel: string, input?: In): void {
 		if (this._api) {
 			console.log(`Sending to main process channel [${channel}]`, input);
 			this._api.send<In>(channel, input);

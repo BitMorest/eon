@@ -4,10 +4,10 @@ export type Environment = {
 };
 
 export class CoreApiConst {
-	static readonly CORE_INITIALIZE = 'CoreInitilizeChannel';
+	static readonly INITIALIZE = 'CoreInitilizeChannel';
 	static readonly WINDOW_STATE = 'WindowStateChannel';
-	static readonly THEME_COLOR_MODE_STATE = 'ThemeColorModeChannel';
-	static readonly LANGUAGE_STATE = 'ThemeColorModeChannel';
+	static readonly THEME_COLOR_MODE = 'ThemeColorModeChannel';
+	static readonly LANGUAGE = 'LanguageChannel';
 }
 
 export type WindowState = {
@@ -32,7 +32,7 @@ export type WindowAction = 'minimize' | 'close' | 'toogleMaximize';
 
 export type CoreWindowStateInput = {
 	action?: WindowAction;
-	windowState?: Partial<WindowState>;
+	windowState?: Partial<Omit<WindowState, 'isMaximized'>>;
 };
 
 export type CoreWindowStateOutput = WindowState;

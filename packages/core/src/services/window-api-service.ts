@@ -31,6 +31,19 @@ export class WindowApiService extends ApiService<In, Out> {
 			}
 		}
 
+		if (_input?.windowState?.isMaximiable) {
+			browser.setMaximizable(_input.windowState.isMaximiable);
+		}
+
+		if (_input?.windowState?.isMinimizable) {
+			browser.setMinimizable(_input.windowState.isMinimizable);
+		}
+
+		return this.getWindowState(_window);
+	}
+
+	getWindowState(_window: Window) {
+		const browser: BrowserWindow = _window.browser;
 		return {
 			isMaximized: browser.isMaximized(),
 			isMaximiable: browser.isMaximizable(),

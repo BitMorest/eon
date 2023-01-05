@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {CoreApiConst, CoreInitializeOutput} from '@bitmorest/eon-common';
-import {ColorMode} from '../types';
 import {ElectronService} from './electron.service';
 import {LanguageApiService} from './language-api.service';
 import {ThemeApiService} from './theme-api.service';
@@ -16,16 +15,23 @@ export class InitializeService {
 		private _languageApiService: LanguageApiService,
 		private _themeApiService: ThemeApiService
 	) {
-		this._electron.receive<CoreInitializeOutput>(
-			CoreApiConst.CORE_INITIALIZE,
-			(initilizeData: CoreInitializeOutput) => {
-				this._windowApiService.initilize(initilizeData.windowState);
-				this._themeApiService.initialize(
-					initilizeData.currentColorMode as ColorMode
-				);
-				this._languageApiService.initialize(initilizeData.currentLanguage);
-			}
-		);
-		this._electron.send(CoreApiConst.CORE_INITIALIZE, {});
+		console.log('[Eon]-------------------');
+		console.log('[Eon] Initializing...');
+		if (window && (window as Window).api) {
+			console.log('[Eon] Enviroments:', window.api.environment);
+			this._electron.receive<CoreInitializeOutput>(
+				CoreApiConst.INITIALIZE,
+				(initilizeData: CoreInitializeOutput) => {
+					this._windowApiService.initilize(initilizeData.windowState);
+					this._themeApiService.initialize(initilizeData.currentColorMode);
+					this._languageApiService.initialize(initilizeData.currentLanguage);
+					console.log('[Eon] Initializing done!!!');
+					console.log('[Eon] -------------------\n\n');
+				}
+			);
+			this._electron.send(CoreApiConst.INITIALIZE);
+		} else {
+			console.error('[Eon] Preloader API is not loaded');
+		}
 	}
 }

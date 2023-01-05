@@ -7,44 +7,40 @@ import {
 	ThemeColorModeOutput,
 } from '@bitmorest/eon-common';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
-import {ColorMode, ObserverOrNext} from '../types';
+import {ObserverOrNext} from '../types';
 import {ElectronService} from './electron.service';
 
 @Injectable({providedIn: 'root'})
 export class ThemeApiService {
 	public currentFlatformMode: string;
-	private _currentColorMode = new BehaviorSubject<ColorMode>('light');
+	private _currentColorMode = new BehaviorSubject<string>('light');
 
 	constructor(private _electron: ElectronService) {
 		this.currentFlatformMode = window.api.environment.platform;
 		document.body.setAttribute('data-theme-platform', this.currentFlatformMode);
 
 		this._electron.receive<ThemeColorModeOutput>(
-			CoreApiConst.THEME_COLOR_MODE_STATE,
+			CoreApiConst.THEME_COLOR_MODE,
 			(themeColorModeOutput: ThemeColorModeOutput) => {
 				const colorMode = themeColorModeOutput.currentColorMode;
 				document.body.setAttribute('data-theme-color', colorMode);
-				this._currentColorMode.next(colorMode as ColorMode);
+				this._currentColorMode.next(colorMode);
 			}
 		);
 	}
 
-	public initialize(colorMode: ColorMode) {
+	public initialize(colorMode: string) {
+		document.body.setAttribute('data-theme-color', colorMode);
 		this._currentColorMode.next(colorMode);
 	}
 
-	public subcribe(
-		observerOrNext?: ObserverOrNext<ColorMode>
-	): SubscriptionLike {
+	public subcribe(observerOrNext?: ObserverOrNext<string>): SubscriptionLike {
 		return this._currentColorMode.subscribe(observerOrNext);
 	}
 
-	public changeColorMode(colorMode: ColorMode) {
-		this._electron.send<ThemeColorModeInput>(
-			CoreApiConst.THEME_COLOR_MODE_STATE,
-			{
-				currentColorMode: colorMode,
-			}
-		);
+	public changeColorMode(colorMode: string) {
+		this._electron.send<ThemeColorModeInput>(CoreApiConst.THEME_COLOR_MODE, {
+			currentColorMode: colorMode,
+		});
 	}
 }

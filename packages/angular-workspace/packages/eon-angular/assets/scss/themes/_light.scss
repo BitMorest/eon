@@ -5,22 +5,20 @@
 @import '../maps';
 @import '../mixins';
 
-
 @include mat.all-component-themes(
-		mat.define-light-theme(
-			(
-				color: $light-theme,
-			)
+	mat.define-light-theme(
+		(
+			color: $light-theme,
+			density: -2,
 		)
-	);
-	
+	)
+);
 
-@include theme-color-mode(light, true) {
+body {
 	$primary: map.get($themes, 'light', 'primary');
 	--primary: #{map.get($primary, 'default')};
 
 	$components: map.get($themes, 'light', 'components');
-	
 
 	$titlebar: map.get($components, 'titlebar');
 	--eon-title-bar-color: #{map.get($titlebar, 'text')};
@@ -40,20 +38,18 @@
 			$titlebar,
 			'macOsMinimizeHoverDotColor'
 		)};
-
 	--eon-title-bar-mac-os-maximize-bg: #{map.get($titlebar, 'macOsMaximizeBg')};
 	--eon-title-bar-mac-os-maximize-hover-dot-color: #{map.get(
 			$titlebar,
 			'macOsMaximizeHoverDotColor'
 		)};
-
 	--eon-title-bar-mac-os-close-bg: #{map.get($titlebar, 'macOsCloseBg')};
 	--eon-title-bar-mac-os-close-hover-dot-color: #{map.get(
 			$titlebar,
 			'macOsCloseHoverDotColor'
 		)};
 
-	// // SIDE BAR //
+	// SIDE BAR //
 	$sidebar: map.get($components, 'sidebar');
 	--eon-sidebar-bar-color: #{map.get($sidebar, 'text')};
 	--eon-sidebar-bar-bg: #{map.get($sidebar, 'background')};

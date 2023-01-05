@@ -9,11 +9,11 @@ import {ApiService} from './api-service';
 
 export class LanguageApiService extends ApiService<In, Out> {
 	receptionChannel(): string {
-		return CoreApiConst.LANGUAGE_STATE;
+		return CoreApiConst.LANGUAGE;
 	}
 
 	sendingChannel(): string {
-		return CoreApiConst.LANGUAGE_STATE;
+		return CoreApiConst.LANGUAGE;
 	}
 
 	process(_app: Application, _window: Window, _input: In): Out {
@@ -22,7 +22,11 @@ export class LanguageApiService extends ApiService<In, Out> {
 			languageManager.setLanguage(_input.currentLanguage);
 		}
 		return {
-			currentLanguage: languageManager.getCurentLanguage(),
+			currentLanguage: this.getCurrentLanguage(),
 		};
+	}
+
+	getCurrentLanguage() {
+		return Language.getInstance().getCurentLanguage();
 	}
 }

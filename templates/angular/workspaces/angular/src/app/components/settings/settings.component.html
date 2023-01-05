@@ -7,6 +7,21 @@
 			<div class="mt-4">
 				<!-- <theme-setting></theme-setting> -->
 				<!-- <language-setting class="ms-3"></language-setting> -->
+
+				<mat-form-field appearance="fill">
+					<mat-label>Favorite food</mat-label>
+					<mat-select
+						[value]="currentLanguage"
+						(selectionChange)="onChangeLanguage($event)"
+					>
+						<mat-option
+							*ngFor="let language of languages"
+							[value]="language.id"
+						>
+							{{ language.label }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
 			</div>
 		</mat-card-content>
 	</mat-card>

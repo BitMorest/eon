@@ -4,22 +4,30 @@ import {
 	LanguageModeInput,
 	LanguageModeOutput,
 } from '@bitmorest/eon-common';
-import {TranslocoService} from '@ngneat/transloco';
+import {LangDefinition, TranslocoService} from '@ngneat/transloco';
+import {BehaviorSubject, SubscriptionLike} from 'rxjs';
+import {ObserverOrNext} from '../types';
 import {ElectronService} from './electron.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class LanguageApiService {
+	public avaiableLanguages: Array<{label: string; id: string}>;
+	private _currentLanguage = new BehaviorSubject<string>('en');
+
 	constructor(
 		private _electron: ElectronService,
 		private _translateService: TranslocoService
 	) {
+		this.avaiableLanguages =
+			_translateService.getAvailableLangs() as LangDefinition[];
 		this._electron.receive<LanguageModeOutput>(
-			CoreApiConst.LANGUAGE_STATE,
+			CoreApiConst.LANGUAGE,
 			(response: LanguageModeOutput) => {
 				if (response.currentLanguage) {
 					this._translateService.setActiveLang(response.currentLanguage);
+					this._currentLanguage.next(response.currentLanguage);
 				}
 			}
 		);
@@ -31,8 +39,12 @@ export class LanguageApiService {
 		}
 	}
 
+	public subcribe(observerOrNext?: ObserverOrNext<string>): SubscriptionLike {
+		return this._currentLanguage.subscribe(observerOrNext);
+	}
+
 	public changeLanguage(currentLanguage: string) {
 		const data = {currentLanguage};
-		this._electron.send<LanguageModeInput>(CoreApiConst.LANGUAGE_STATE, data);
+		this._electron.send<LanguageModeInput>(CoreApiConst.LANGUAGE, data);
 	}
 }

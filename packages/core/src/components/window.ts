@@ -15,6 +15,7 @@ import {ThemeApiService} from '../services/theme-api-service';
 import {WindowApiService} from '../services/window-api-service';
 import contextMenu from 'electron-context-menu';
 import {LanguageApiService} from '../services/language-api-service';
+import {InitializeApiService} from '../services/initiallize-api-service';
 
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 const log = new Logger('eon-core');
@@ -119,6 +120,7 @@ export class Window {
 
 	protected onRegisterService(): void {
 		log.debug('onRegisterService()');
+		this.registerService(new InitializeApiService());
 		this.registerService(new LanguageApiService());
 		this.registerService(new ThemeApiService());
 		this.registerService(new WindowApiService());

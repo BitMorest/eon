@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {SettingsComponent} from './settings.component';
 import {SharedModule} from 'src/app/shared/shared.module';
 import {TRANSLOCO_SCOPE} from '@ngneat/transloco';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
 	declarations: [SettingsComponent],
@@ -24,6 +25,7 @@ import {TRANSLOCO_SCOPE} from '@ngneat/transloco';
 		MatInputModule,
 		MatCheckboxModule,
 		ReactiveFormsModule,
+		MatSelectModule,
 		MatCardModule,
 	],
 	providers: [{provide: TRANSLOCO_SCOPE, useValue: 'settings'}],

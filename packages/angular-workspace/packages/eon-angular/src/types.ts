@@ -23,5 +23,3 @@ export interface EonConfig {
 	translocoConfig: TranslocoConfig;
 	translocoLoader: Type<TranslocoLoader>;
 }
-
-export type ColorMode = 'light' | 'dark';

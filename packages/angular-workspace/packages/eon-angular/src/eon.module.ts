@@ -69,8 +69,10 @@ import {ElectronService} from './public-api';
 	providers: [
 		{
 			provide: APP_INITIALIZER,
-			useClass: InitializeService,
+			// eslint-disable-next-line unicorn/consistent-function-scoping
+			useFactory: () => () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
 			deps: [
+				InitializeService,
 				ElectronService,
 				ThemeApiService,
 				LanguageApiService,
@@ -90,7 +92,6 @@ export class EonModule {
 					provide: TRANSLOCO_CONFIG,
 					useValue: {
 						...config.translocoConfig,
-
 						reRenderOnLangChange: true,
 					},
 				},
