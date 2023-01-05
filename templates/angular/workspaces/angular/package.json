@@ -8,7 +8,9 @@
 		"package": "ng build --configuration production --base-href ./",
 		"e2e": "ng e2e",
 		"cypress:open": "cypress open",
-		"cypress:run": "cypress run"
+		"cypress:run": "cypress run",
+		"i18n:extract": "transloco-keys-manager extract",
+		"i18n:find": "transloco-keys-manager find"
 	},
 	"dependencies": {
 		"@angular/animations": "^15.0.3",
@@ -35,6 +37,7 @@
 		"@angular/compiler-cli": "^15.0.3",
 		"@cypress/schematic": "^2.4.0",
 		"@ngneat/transloco-keys-manager": "^3.5.0",
+		"@ngneat/transloco-scoped-libs": "^3.0.4",
 		"@types/jasmine": "^4.3.1",
 		"@types/node": "^18.11.12",
 		"cypress": "12.0.2",

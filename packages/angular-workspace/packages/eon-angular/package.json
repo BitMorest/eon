@@ -8,6 +8,12 @@
 		"url": "https://github.com/bitmorerest/eon.git"
 	},
 	"license": "UNLICENSED",
+	"i18n": [
+		{
+			"scope": "eon",
+			"path": "./assets/i18n"
+		}
+	],
 	"peerDependencies": {
 		"@angular/common": "^15.0.4",
 		"@angular/core": "^15.0.4",
@@ -22,5 +28,8 @@
 		"./sass": {
 			"sass": "./assets/scss/eon.scss"
 		}
+	},
+	"devDependencies": {
+		"@ngneat/transloco-keys-manager": "^3.5.0"
 	}
 }

@@ -1,34 +1,29 @@
-<ng-container *transloco="let t">
-	<mat-card class="mt-4">
-		<mat-card-header>
-			<mat-card-title>{{ t('settings.Appearance Settings') }}</mat-card-title>
-		</mat-card-header>
-		<mat-card-content class="mt-4">
-			<div>
-				<mat-form-field appearance="outline">
-					<mat-label>{{ t('settings.Language') }}</mat-label>
-					<mat-select
-						[(value)]="currentLanguage"
-						(selectionChange)="onChangeLanguage($event)"
-					>
-						<mat-option
-							*ngFor="let language of languages"
-							[value]="language.id"
-						>
-							{{ language.label }}
-						</mat-option>
-					</mat-select>
-				</mat-form-field>
-			</div>
-			<div>
-				<mat-slide-toggle
-					color="primary"
-					[checked]="isDarkMode"
-					(change)="onColorModeChange($event)"
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>{{ title }}</mat-card-title>
+	</mat-card-header>
+	<mat-card-content class="mt-4">
+		<div>
+			<mat-form-field appearance="outline">
+				<mat-label>{{ languageLabel }}</mat-label>
+				<mat-select
+					[(value)]="currentLanguage"
+					(selectionChange)="onChangeLanguage($event)"
 				>
-					{{ t('settings.Dark mode') }}
-				</mat-slide-toggle>
-			</div>
-		</mat-card-content>
-	</mat-card>
-</ng-container>
+					<mat-option *ngFor="let language of languages" [value]="language.id">
+						{{ language.label }}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<div>
+			<mat-slide-toggle
+				color="primary"
+				[checked]="isDarkMode"
+				(change)="onColorModeChange($event)"
+			>
+				{{ darkModeLabel }}
+			</mat-slide-toggle>
+		</div>
+	</mat-card-content>
+</mat-card>

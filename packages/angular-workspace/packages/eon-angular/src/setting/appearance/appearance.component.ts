@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatSelectChange} from '@angular/material/select';
 import {MatSlideToggleChange} from '@angular/material/slide-toggle';
 import {LanguageApiService} from '../../core/services/language-api.service';
@@ -10,6 +10,15 @@ import {UIModeService} from '../../core/services/ui-mode.service';
 	styleUrls: ['./appearance.component.scss'],
 })
 export class AppearanceComponent {
+	@Input()
+	public title = 'Missing [title] input';
+
+	@Input()
+	public languageLabel = 'Missing [languageLabel] input';
+
+	@Input()
+	public darkModeLabel = 'Missing [darkModeLabel] input';
+
 	public languages: Array<{label: string; id: string}>;
 	public isDarkMode = false;
 	public currentLanguage = '';
