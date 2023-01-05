@@ -1,4 +1,4 @@
-import {CoreApiConst, InitializeOutput as Out} from '@bitmorest/eon-common';
+import {CoreApiConst, InitializeOutput as Out} from '@e-dizzy/types';
 import {Application, Window} from '../components';
 import {ApiService} from './api-service';
 import {LanguageApiService} from './language-api-service';

@@ -1,19 +1,19 @@
 {
-	"name": "@bitmorest/eon-core",
+	"name": "@e-dizzy/electron",
 	"version": "0.0.0",
-	"description": "The typing using global on eon framework",
-	"homepage": "https://github.com/bitmorerest/eon",
-	"bugs": "https://github.com/bitmorerest/eon/issues",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/bitmorerest/eon.git"
-	},
-	"license": "UNLICENSED",
+	"description": "Ultra fast electron & angular bootstrap",
+	"homepage": "https://github.com/e-dizzy/e-dizzy",
+	"bugs": "https://github.com/e-dizzy/e-dizzy/issues",
 	"engines": {
 		"node": "^14.20.0 || ^16.13.0 || >=18.10.0",
 		"yarn": ">=1.22.4 <2",
 		"npm": "Please use yarn instead of NPM to install dependencies"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/e-dizzy/e-dizzy.git"
+	},
+	"license": "UNLICENSED",
 	"main": "./.dist/index.js",
 	"scripts": {
 		"test": "jest -c ./test/jest.config.js",
@@ -21,17 +21,23 @@
 		"watch": "yarn build -- --watch"
 	},
 	"dependencies": {
-		"@bitmorest/eon-common": "*",
+		"@e-dizzy/types": "*"
+	},
+	"peerDependencies": {
+		"@electron/remote": "^2.0.9",
+		"electron-context-menu": "^3.6.1",
 		"electron": "^22.0.0",
 		"electron-log": "^4.4.8",
 		"electron-store": "^8.1.0",
 		"lodash": "^4.17.21"
 	},
-	"peerDependencies": {
-		"@electron/remote": "^2.0.9",
-		"electron-context-menu": "^3.6.1"
-	},
 	"devDependencies": {
+		"@electron/remote": "^2.0.9",
+		"electron-context-menu": "^3.6.1",
+		"electron": "^22.0.0",
+		"electron-log": "^4.4.8",
+		"electron-store": "^8.1.0",
+		"lodash": "^4.17.21",
 		"@types/jest": "^29.2.4",
 		"@types/lodash": "^4.14.191",
 		"@types/node": "^18.11.17",

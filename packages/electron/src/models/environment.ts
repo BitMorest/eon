@@ -1,4 +1,4 @@
-import {Environment as EnvironmentInterface} from '@bitmorest/eon-common';
+import {Environment as EnvironmentInterface} from '@e-dizzy/types';
 
 export class Environment implements EnvironmentInterface {
 	public static load() {

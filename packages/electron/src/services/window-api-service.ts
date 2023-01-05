@@ -2,7 +2,7 @@ import {
 	CoreApiConst,
 	CoreWindowStateInput as In,
 	CoreWindowStateOutput as Out,
-} from '@bitmorest/eon-common';
+} from '@e-dizzy/types';
 import {BrowserWindow} from 'electron';
 import {Application, Window} from '../components';
 import {ApiService} from './api-service';

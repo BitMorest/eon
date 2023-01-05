@@ -2,7 +2,7 @@ import {
 	CoreApiConst,
 	ColorModeInput as In,
 	ColorModeOutput as Out,
-} from '@bitmorest/eon-common';
+} from '@e-dizzy/types';
 import {Application, Window} from '../components';
 import {CoreSetting} from '../models/core-setting';
 import {ApiService} from './api-service';

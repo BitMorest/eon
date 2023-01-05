@@ -22,7 +22,7 @@
 	"exclude": ["test"],
 	"references": [
 		{
-			"path": "../common"
+			"path": "../types"
 		}
 	]
 }

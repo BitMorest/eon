@@ -1,27 +1,23 @@
 {
-	"name": "@bitmorest/eon-common",
+	"name": "@e-dizzy/types",
 	"version": "0.0.0",
-	"description": "The typing using global on eon framework",
-	"homepage": "https://github.com/bitmorerest/eon",
-	"bugs": "https://github.com/bitmorerest/eon/issues",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/bitmorerest/eon.git"
-	},
-	"main": "./.dist/index.js",
-	"license": "UNLICENSED",
+	"description": "Ultra fast electron & angular bootstrap",
+	"homepage": "https://github.com/e-dizzy/e-dizzy",
+	"bugs": "https://github.com/e-dizzy/e-dizzy/issues",
 	"engines": {
 		"node": "^14.20.0 || ^16.13.0 || >=18.10.0",
 		"yarn": ">=1.22.4 <2",
 		"npm": "Please use yarn instead of NPM to install dependencies"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/e-dizzy/e-dizzy.git"
+	},
+	"license": "UNLICENSED",
 	"scripts": {
 		"test": "jest -c ./test/jest.config.js",
 		"build": "tsc -p tsconfig.json",
 		"watch": "yarn build -- --watch"
-	},
-	"dependencies": {
-		"@ts-types/rectangle": "^0.0.1"
 	},
 	"devDependencies": {
 		"@types/jest": "^29.2.4",

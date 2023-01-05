@@ -3,5 +3,4 @@ node_modules
 .angular
 .coverage
 .tmp
-packages/angular
 yarn-error.log
