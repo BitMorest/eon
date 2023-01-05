@@ -1831,18 +1831,6 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
-"@ts-types/coordinate-2d@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@ts-types/coordinate-2d/-/coordinate-2d-0.0.4.tgz#b9dd84511e25679d08b640c1490522ba27d97fd0"
-  integrity sha512-RaSjD4zoPoYsGCo0P9DhqoJ7MHuzmvs6DtbMybrcj3xgqJKss1IDtp+Cb9jU4hVmTKYE4UwmmmexzKDSHP/Yjg==
-
-"@ts-types/rectangle@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@ts-types/rectangle/-/rectangle-0.0.1.tgz#7b9fccd829d45cb350c7c037258e11239c61c169"
-  integrity sha512-tYrccGtkbViB1ihANH+cJdufq39RxUHxFjjooNLqgKGRZA/JvBRJq8yikoQPCfAKAwheLN0VRBdl431KmxYSOQ==
-  dependencies:
-    "@ts-types/coordinate-2d" "^0.0.4"
-
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.9.tgz#df4907fc07a886922637b15e02d4cebc4c0021b2"
