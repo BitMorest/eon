@@ -1,1 +1,8 @@
-{}
+{
+	"settings": {
+		"Settings": "settings.Settings",
+		"Appearance Settings": "settings.Appearance Settings",
+		"Language": "settings.Language",
+		"Dark Mode": "settings.Dark Mode"
+	}
+}

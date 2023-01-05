@@ -1,5 +1,5 @@
 import {Observer} from 'rxjs';
-import {InjectionToken, Type} from '@angular/core';
+import {InjectionToken} from '@angular/core';
 import {
 	LangDefinition,
 	TranslocoConfig as TranslocoConfigBase,
@@ -40,7 +40,11 @@ export interface SideBarItem {
 export type ObserverOrNext<T> = Partial<Observer<T>> | ((value: T) => void);
 
 export interface TranslocoConfig
-	extends Omit<TranslocoConfigBase, 'reRenderOnLangChange' | 'prodMode'> {
+	extends Omit<
+		TranslocoConfigBase,
+		'reRenderOnLangChange' | 'prodMode' | 'failedRetries'
+	> {
+	translationRootUrl?: string;
 	availableLangs?: LangDefinition[];
 }
 
@@ -51,5 +55,4 @@ export interface EonConfig {
 	titlebarIcon?: string;
 	sidebarItems?: Array<SideBarItem>;
 	translocoConfig: TranslocoConfig;
-	translocoLoader: Type<unknown>;
 }

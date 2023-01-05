@@ -1,4 +1,9 @@
-import {APP_INITIALIZER, ModuleWithProviders, NgModule} from '@angular/core';
+import {
+	APP_INITIALIZER,
+	isDevMode,
+	ModuleWithProviders,
+	NgModule,
+} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -24,6 +29,7 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InitializeService} from './services/initialize.service';
 import {ElectronService} from './services/electron.service';
+import {TranslocoHttpLoader} from './services/transloco-loader.service';
 
 @NgModule({
 	declarations: [
@@ -93,9 +99,11 @@ export class EonModule {
 					useValue: {
 						...config.translocoConfig,
 						reRenderOnLangChange: true,
+						failedRetries: 0,
+						prodMode: !isDevMode(),
 					},
 				},
-				{provide: TRANSLOCO_LOADER, useClass: config.translocoLoader},
+				{provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader},
 			],
 		};
 	}
