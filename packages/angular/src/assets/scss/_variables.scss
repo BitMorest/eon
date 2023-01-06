@@ -47,7 +47,7 @@ $light-theme: (
 			scrollBarBg: #c5cccf,
 			scrollBarBgHover: #adb6bb //
 		)
-		//,,,,
+		//,,,,,
 	),
 );
 
@@ -92,14 +92,14 @@ $dark-theme: (
 			scrollBarBg: #313235,
 			scrollBarBgHover: #515352 //
 		)
-		//,,,,
+		//,,,,,
 	),
 );
 
 $themes: (
 	light: $light-theme,
 	// Light theme
-	dark: $dark-theme // Dark theme,,,,,
+	dark: $dark-theme // Dark theme,,,,,,
 );
 
 $font-size-base: 0.9rem;
@@ -111,13 +111,5 @@ $font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto,
 $enable-negative-margins: true;
 $prefix: eon-;
 $variable-prefix: $prefix;
-$empty-map: ();
-$grays: $empty-map;
-$colors: $empty-map;
-$theme-colors: $empty-map;
-$theme-colors-rgb: $empty-map;
 
 @import 'bootstrap/scss/variables';
-
-// $theme-bg-light: #fefefe !default;
-// $theme-bg-dark: #222222 !default;

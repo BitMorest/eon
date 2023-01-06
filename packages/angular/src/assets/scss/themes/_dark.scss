@@ -2,7 +2,6 @@
 @use 'sass:map';
 @import '../functions';
 @import '../variables';
-@import '../maps';
 @import '../mixins';
 
 @include color-mode(dark, true) {

@@ -2,27 +2,27 @@ import {SideBarItem} from '@e-dizzy/angular';
 
 export const sidebarItems: Array<SideBarItem> = [
 	{
-		icon: 'fa-regular fa-house',
+		icon: 'fa-duotone fa-house',
 		href: '/home',
 		description: 'Home',
 	},
 	{
-		icon: 'fa-regular fa-sliders',
+		icon: 'fa-duotone fa-sliders',
 		href: '/settings',
 		description: 'Settings',
 	},
 	{
-		icon: 'fa-regular fa-circle-info',
+		icon: 'fa-duotone fa-circle-info',
 		href: '/about',
 		description: 'About',
 	},
 	{
-		icon: 'fa-regular fa-books',
+		icon: 'fa-duotone fa-books',
 		href: '/examples',
 		description: 'Examples',
 	},
 	{
-		icon: 'fa-regular fa-circle-question',
+		icon: 'fa-duotone fa-circle-question',
 		href: '#',
 		description: 'Support',
 		bottom: true,
