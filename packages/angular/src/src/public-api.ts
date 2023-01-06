@@ -3,7 +3,7 @@
  */
 export * from './types';
 
-export * from './core/eon.module';
+export * from './core/e-dizzy.module';
 export * from './core/services/electron.service';
 export * from './core/services/events/side-bar-item-click-event.service';
 export * from './core/services/events/window-action-click-event.service';

@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, Inject} from '@angular/core';
 import {TranslocoService} from '@ngneat/transloco';
-import {EON_CONFIG, EonConfig, SideBarItem} from '../../../types';
+import {E_DIZZY_CONFIG, EonConfig, SideBarItem} from '../../../types';
 
 @Component({
 	selector: 'sidebar',
@@ -24,7 +24,7 @@ import {EON_CONFIG, EonConfig, SideBarItem} from '../../../types';
 export class SidebarComponent {
 	public items?: Array<SideBarItem>;
 
-	constructor(@Inject(EON_CONFIG) private _config: EonConfig) {
+	constructor(@Inject(E_DIZZY_CONFIG) private _config: EonConfig) {
 		this.items = this._config.sidebarItems;
 	}
 }

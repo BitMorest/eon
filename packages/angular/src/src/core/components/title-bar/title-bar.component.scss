@@ -2,9 +2,9 @@
 
 :host {
 	-webkit-app-region: drag;
-	background: var(--eon-title-bar-bg);
-	color: var(--eon-title-bar-color);
-	border-bottom: 1px solid var(--eon-title-bar-border-color);
+	background: var(--e-dizzy-title-bar-bg);
+	color: var(--e-dizzy-title-bar-color);
+	border-bottom: 1px solid var(--e-dizzy-title-bar-border-color);
 }
 
 @include platform-mode(win32) {

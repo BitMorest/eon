@@ -20,7 +20,7 @@ import {SideBarItemComponent} from './components/sidebar-item/sidebar-item.compo
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {LanguageApiService} from './services/language-api.service';
 import {BrowserWindowService} from './services/browser-window.service';
-import {EonConfig, EON_CONFIG} from '../types';
+import {EonConfig, E_DIZZY_CONFIG} from '../types';
 import {
 	TranslocoModule,
 	TRANSLOCO_CONFIG,
@@ -89,12 +89,12 @@ import {TranslocoHttpLoader} from './services/transloco-http-loader.service';
 		},
 	],
 })
-export class EonModule {
-	static forRoot(config: EonConfig): ModuleWithProviders<EonModule> {
+export class EDizzyModule {
+	static forRoot(config: EonConfig): ModuleWithProviders<EDizzyModule> {
 		return {
-			ngModule: EonModule,
+			ngModule: EDizzyModule,
 			providers: [
-				{provide: EON_CONFIG, useValue: config},
+				{provide: E_DIZZY_CONFIG, useValue: config},
 				{
 					provide: TRANSLOCO_CONFIG,
 					useValue: {

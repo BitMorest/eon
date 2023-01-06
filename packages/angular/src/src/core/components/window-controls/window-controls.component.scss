@@ -6,7 +6,7 @@
 		height: 10px;
 
 		& > * {
-			fill: var(--eon-title-bar-color);
+			fill: var(--e-dizzy-title-bar-color);
 		}
 	}
 }
@@ -29,29 +29,29 @@
 			}
 
 			&.minimize {
-				background: var(--eon-title-bar-mac-os-minimize-bg);
+				background: var(--e-dizzy-title-bar-mac-os-minimize-bg);
 
 				&:hover {
-					background: var(--eon-title-bar-mac-os-minimize-hover-dot-color);
-					border: 3.5px solid var(--eon-title-bar-mac-os-minimize-bg);
+					background: var(--e-dizzy-title-bar-mac-os-minimize-hover-dot-color);
+					border: 3.5px solid var(--e-dizzy-title-bar-mac-os-minimize-bg);
 				}
 			}
 
 			&.toogleMaximize {
-				background: var(--eon-title-bar-mac-os-maximize-bg);
+				background: var(--e-dizzy-title-bar-mac-os-maximize-bg);
 
 				&:hover {
-					background: var(--eon-title-bar-mac-os-maximize-hover-dot-color);
-					border: 3.5px solid var(--eon-title-bar-mac-os-maximize-bg);
+					background: var(--e-dizzy-title-bar-mac-os-maximize-hover-dot-color);
+					border: 3.5px solid var(--e-dizzy-title-bar-mac-os-maximize-bg);
 				}
 			}
 
 			&.close {
-				background: var(--eon-title-bar-mac-os-close-bg);
+				background: var(--e-dizzy-title-bar-mac-os-close-bg);
 
 				&:hover {
-					background: var(--eon-title-bar-mac-os-close-hover-dot-color);
-					border: 3.5px solid var(--eon-title-bar-mac-os-close-bg);
+					background: var(--e-dizzy-title-bar-mac-os-close-hover-dot-color);
+					border: 3.5px solid var(--e-dizzy-title-bar-mac-os-close-bg);
 				}
 			}
 		}

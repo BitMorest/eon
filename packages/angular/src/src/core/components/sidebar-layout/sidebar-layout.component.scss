@@ -4,8 +4,8 @@
 	overflow: hidden;
 
 	.main-content {
-		color: var(--eon-body-color);
-		background-color: var(--eon-body-bg);
+		color: var(--e-dizzy-body-color);
+		background-color: var(--e-dizzy-body-bg);
 	}
 }
 
@@ -24,11 +24,11 @@
 		border-radius: 12px;
 		border: 4px solid transparent;
 		background-clip: content-box;
-		background-color: var(--eon-scroll-bar-bg);
+		background-color: var(--e-dizzy-scroll-bar-bg);
 	}
 
 	&::-webkit-scrollbar-thumb:hover {
-		background-color: var(--eon-scroll-bar-hover-color);
+		background-color: var(--e-dizzy-scroll-bar-hover-color);
 	}
 }
 

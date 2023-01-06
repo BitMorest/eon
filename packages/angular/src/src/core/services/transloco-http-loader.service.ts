@@ -3,7 +3,7 @@ import {Inject, Injectable} from '@angular/core';
 import {Translation, TranslocoLoader} from '@ngneat/transloco';
 import {TranslocoLoaderData} from '@ngneat/transloco/lib/transloco.loader';
 import {Observable} from 'rxjs';
-import {EonConfig, EON_CONFIG} from '../../types';
+import {EonConfig, E_DIZZY_CONFIG} from '../../types';
 
 @Injectable({
 	providedIn: 'root',
@@ -11,7 +11,7 @@ import {EonConfig, EON_CONFIG} from '../../types';
 export class TranslocoHttpLoader implements TranslocoLoader {
 	constructor(
 		private http: HttpClient,
-		@Inject(EON_CONFIG) private config: EonConfig
+		@Inject(E_DIZZY_CONFIG) private config: EonConfig
 	) {}
 
 	getTranslation(

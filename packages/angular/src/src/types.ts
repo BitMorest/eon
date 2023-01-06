@@ -48,7 +48,7 @@ export interface TranslocoConfig
 	availableLangs?: LangDefinition[];
 }
 
-export const EON_CONFIG = new InjectionToken<EonConfig>('EON_CONFIG');
+export const E_DIZZY_CONFIG = new InjectionToken<EonConfig>('E_DIZZY_CONFIG');
 
 export interface EonConfig {
 	titlebarTitle?: string;

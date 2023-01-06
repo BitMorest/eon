@@ -1,5 +1,5 @@
 import {Component, Inject, Input} from '@angular/core';
-import {EonConfig, EON_CONFIG} from '../../../types';
+import {EonConfig, E_DIZZY_CONFIG} from '../../../types';
 
 @Component({
 	selector: 'titlebar',
@@ -23,7 +23,7 @@ export class TitleBarComponent {
 	@Input()
 	public title?: string;
 
-	constructor(@Inject(EON_CONFIG) private config: EonConfig) {
+	constructor(@Inject(E_DIZZY_CONFIG) private config: EonConfig) {
 		this.title = config.titlebarTitle;
 		this.icon = config.titlebarIcon;
 	}

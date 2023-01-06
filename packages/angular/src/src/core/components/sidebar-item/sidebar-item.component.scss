@@ -12,7 +12,7 @@ sidebar-item {
 	}
 
 	&.active {
-		background: var(--eon-sidebar-bar-active-bg);
+		background: var(--e-dizzy-sidebar-bar-active-bg);
 
 		i {
 			border-color: var(--primary);
@@ -24,7 +24,7 @@ sidebar-item {
 .sidebar-item-tooltip {
 	.mdc-tooltip__surface {
 		font-size: var(--font-size-sm);
-		background: var(--eon-sidebar-bar-tooltop-bg);
-		color: var(--eon-sidebar-bar-tooltop-color);
+		background: var(--e-dizzy-sidebar-bar-tooltop-bg);
+		color: var(--e-dizzy-sidebar-bar-tooltop-color);
 	}
 }

@@ -28,7 +28,7 @@
 	},
 	"exports": {
 		"./sass": {
-			"sass": "./assets/scss/eon.scss"
+			"sass": "./assets/scss/styles.scss"
 		}
 	},
 	"devDependencies": {}
