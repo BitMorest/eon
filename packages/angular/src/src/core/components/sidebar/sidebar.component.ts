@@ -1,16 +1,21 @@
-import {Component, Inject} from '@angular/core';
+import {AfterViewInit, Component, Inject} from '@angular/core';
+import {TranslocoService} from '@ngneat/transloco';
 import {EON_CONFIG, EonConfig, SideBarItem} from '../../../types';
 
 @Component({
 	selector: 'sidebar',
-	template: `<sidebar-item
-		*ngFor="let item of items"
-		[icon]="item.icon"
-		[href]="item.href"
-		[description]="item.description ? item.description : ''"
-		[bottom]="item.bottom"
-	>
-	</sidebar-item>`,
+	template: `
+		<ng-container *transloco="let t">
+			<sidebar-item
+				*ngFor="let item of items"
+				[icon]="item.icon"
+				[href]="item.href"
+				[description]="item.description ? t(item.description) : ''"
+				[bottom]="item.bottom"
+			>
+			</sidebar-item>
+		</ng-container>
+	`,
 	styleUrls: ['sidebar.component.scss'],
 	host: {
 		class: 'sidebar d-flex flex-column h-100',
@@ -19,7 +24,7 @@ import {EON_CONFIG, EonConfig, SideBarItem} from '../../../types';
 export class SidebarComponent {
 	public items?: Array<SideBarItem>;
 
-	constructor(@Inject(EON_CONFIG) private config: EonConfig) {
-		this.items = config.sidebarItems;
+	constructor(@Inject(EON_CONFIG) private _config: EonConfig) {
+		this.items = this._config.sidebarItems;
 	}
 }

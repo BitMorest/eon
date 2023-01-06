@@ -51,6 +51,7 @@ import {TranslocoHttpLoader} from './services/transloco-http-loader.service';
 		BrowserModule,
 		RouterModule,
 		HttpClientModule,
+		TranslocoModule,
 		BrowserAnimationsModule,
 		// Angular Material
 		MatTooltipModule,

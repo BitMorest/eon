@@ -18,7 +18,6 @@ export class TranslocoHttpLoader implements TranslocoLoader {
 		_lang: string,
 		_data?: TranslocoLoaderData | undefined
 	): Observable<Translation> | Promise<Translation> {
-		console.log(this.config);
 		let rootUrl = '/assets/i18n/';
 		if (this.config.translocoConfig.translationRootUrl) {
 			rootUrl = this.config.translocoConfig.translationRootUrl;

@@ -1,30 +1,31 @@
+import {marker as _} from '@ngneat/transloco-keys-manager/marker';
 import {SideBarItem} from '@e-dizzy/angular';
 
 export const sidebarItems: Array<SideBarItem> = [
 	{
 		icon: 'fa-duotone fa-house',
 		href: '/home',
-		description: 'Home',
+		description: _('sidebar.Home'),
 	},
 	{
 		icon: 'fa-duotone fa-sliders',
 		href: '/settings',
-		description: 'Settings',
+		description: _('sidebar.Settings'),
 	},
 	{
 		icon: 'fa-duotone fa-circle-info',
 		href: '/about',
-		description: 'About',
+		description: _('sidebar.About'),
 	},
 	{
 		icon: 'fa-duotone fa-books',
 		href: '/examples',
-		description: 'Examples',
+		description: _('sidebar.Examples'),
 	},
 	{
 		icon: 'fa-duotone fa-circle-question',
 		href: '#',
-		description: 'Support',
+		description: _('sidebar.Support'),
 		bottom: true,
 	},
 ];

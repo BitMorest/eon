@@ -29,12 +29,10 @@ export class AppearanceComponent {
 	) {
 		this.languages = languageService.avaiableLanguages;
 		this.languageService.subcribe((language: string) => {
-			console.log(language);
 			this.currentLanguage = language;
 		});
 
 		this.uiModeService.subcribe((isDarkMode: boolean) => {
-			console.log(isDarkMode);
 			this.isDarkMode = isDarkMode;
 		});
 	}

@@ -7,18 +7,21 @@ import {
 	ViewEncapsulation,
 } from '@angular/core';
 import {NavigationEnd, Router, Scroll} from '@angular/router';
+import {TranslocoService} from '@ngneat/transloco';
 import {SideBarItemClickEventService} from '../../services/events/side-bar-item-click-event.service';
 
 @Component({
 	selector: 'sidebar-item',
-	template: `<div
-		[matTooltip]="description"
-		matTooltipPosition="right"
-		matTooltipClass="sidebar-item-tooltip"
-		class="d-flex align-items-center justify-content-center w-100 h-100"
-	>
-		<i class="{{ icon }}"></i>
-	</div>`,
+	template: `
+		<div
+			matTooltip="{{ description }}"
+			matTooltipPosition="right"
+			matTooltipClass="sidebar-item-tooltip"
+			class="d-flex align-items-center justify-content-center w-100 h-100"
+		>
+			<i class="{{ icon }}"></i>
+		</div>
+	`,
 	styleUrls: ['sidebar-item.component.scss'],
 	encapsulation: ViewEncapsulation.None,
 	host: {

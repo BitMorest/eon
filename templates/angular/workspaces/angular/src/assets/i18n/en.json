@@ -1,8 +1,15 @@
 {
+	"sidebar": {
+		"Home": "Home",
+		"Settings": "Settings",
+		"About": "About",
+		"Examples": "Examples",
+		"Support": "Support"
+	},
 	"settings": {
-		"Settings": "settings.Settings",
-		"Appearance Settings": "settings.Appearance Settings",
-		"Language": "settings.Language",
-		"Dark Mode": "settings.Dark Mode"
+		"Settings": "Settings",
+		"Appearance Settings": "Appearance Settings",
+		"Language": "Language",
+		"Dark Mode": "Dark Mode"
 	}
 }

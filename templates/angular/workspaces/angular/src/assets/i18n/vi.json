@@ -1,8 +1,15 @@
 {
+	"sidebar": {
+		"Home": "Trang chủ",
+		"Settings": "Cài đặt",
+		"About": "Giới thiệu",
+		"Examples": "Ví dụ",
+		"Support": "Hỗ trợ"
+	},
 	"settings": {
-		"Settings": "settings.Settings",
-		"Appearance Settings": "settings.Appearance Settings",
-		"Language": "settings.Language",
-		"Dark Mode": "settings.Dark Mode"
+		"Settings": "Cài đặt",
+		"Appearance Settings": "Cài đặt hiển thị",
+		"Language": "Ngôn ngữ",
+		"Dark Mode": "Chế độ nền tối"
 	}
 }
