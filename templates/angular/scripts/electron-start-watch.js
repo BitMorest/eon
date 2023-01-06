@@ -31,6 +31,7 @@ class ElectronForgeRunner {
 		if (this.childProcess) kill(this.childProcess.pid);
 		this.childProcess = spawn(
 			'npx wait-on http://localhost:4200 && npx electron-forge start',
+			// 'npx electron-forge start',
 			[],
 			{
 				shell: true,

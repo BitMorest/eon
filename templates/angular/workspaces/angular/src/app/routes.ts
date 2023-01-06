@@ -14,26 +14,26 @@ export const routes: Route[] = [
 		path: '',
 		component: SidebarLayoutComponent,
 		children: [
-			{path: '', pathMatch: 'full', redirectTo: '/home'},
-			{
-				path: 'home',
-				loadChildren: () =>
-					import('./components/home/home.module').then((m) => m.HomeModule),
-			},
-			{
-				path: 'settings',
-				loadChildren: () =>
-					import('./components/settings/settings.module').then(
-						(m) => m.SettingsModule
-					),
-			},
-			{
-				path: 'examples',
-				loadChildren: () =>
-					import('./components/examples/examples.module').then(
-						(m) => m.ExamplesModule
-					),
-			},
+			{path: '', pathMatch: 'full', redirectTo: '/about'},
+			// {
+			// 	path: 'home',
+			// 	loadChildren: () =>
+			// 		import('./components/home/home.module').then((m) => m.HomeModule),
+			// },
+			// {
+			// 	path: 'settings',
+			// 	loadChildren: () =>
+			// 		import('./components/settings/settings.module').then(
+			// 			(m) => m.SettingsModule
+			// 		),
+			// },
+			// {
+			// 	path: 'examples',
+			// 	loadChildren: () =>
+			// 		import('./components/examples/examples.module').then(
+			// 			(m) => m.ExamplesModule
+			// 		),
+			// },
 			{
 				path: 'about',
 				loadChildren: () =>
