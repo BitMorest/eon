@@ -1,13 +1,11 @@
 import {HttpClient} from '@angular/common/http';
 import {TestBed} from '@angular/core/testing';
-import {EDizzyMutilLanguagesModule} from '../e-dizzy-multi-languages.module';
-import {E_DIZZY_TRANSLOCO_CONFIG} from '../types';
 import {TranslocoHttpLoader} from './transloco-http-loader.service';
 
 describe('TranslocoLoaderService', () => {
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			imports: [EDizzyMutilLanguagesModule.forRoot({defaultLang: 'en'})],
+			imports: [],
 		});
 	});
 

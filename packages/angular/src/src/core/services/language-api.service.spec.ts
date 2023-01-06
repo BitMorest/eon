@@ -41,7 +41,7 @@ describe('LanguageApiService', () => {
 			_TranslocoService,
 			'setActiveLang'
 		).and.callThrough();
-		service.initialize(undefined);
+		service.initialize();
 		expect(_TranslocoServiceGetSpy).toHaveBeenCalledTimes(0);
 
 		const _currentLanguage = service[

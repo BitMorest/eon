@@ -7,7 +7,6 @@ import {
 	ViewEncapsulation,
 } from '@angular/core';
 import {NavigationEnd, Router, Scroll} from '@angular/router';
-import {TranslocoService} from '@ngneat/transloco';
 import {SideBarItemClickEventService} from '../../services/events/side-bar-item-click-event.service';
 
 @Component({

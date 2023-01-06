@@ -44,7 +44,7 @@
 		"unicorn/prevent-abbreviations": [
 			"error",
 			{
-				"ignore": ["EFastDev*"]
+				"ignore": ["EDizzy*", "e-dizzy"]
 			}
 		],
 		"import/no-unresolved": "off",

@@ -1,5 +1,3 @@
-import {AfterViewInit, Component, Inject} from '@angular/core';
-import {TranslocoService} from '@ngneat/transloco';
 import {E_DIZZY_CONFIG, EonConfig, SideBarItem} from '../../../types';
 
 @Component({
