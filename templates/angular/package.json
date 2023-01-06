@@ -1,6 +1,6 @@
 {
 	"name": "eon-application",
-	"version": "0.0.1",
+	"version": "0.0.0",
 	"productName": "Eon Application",
 	"description": "Codebase for desktop application base on electron and angular",
 	"author": {
