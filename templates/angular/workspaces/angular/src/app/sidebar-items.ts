@@ -18,13 +18,8 @@ export const sidebarItems: Array<SideBarItem> = [
 		description: _('sidebar.About'),
 	},
 	{
-		icon: 'fa-duotone fa-books',
-		href: '/examples',
-		description: _('sidebar.Examples'),
-	},
-	{
 		icon: 'fa-duotone fa-circle-question',
-		href: '#',
+		href: 'https://support.google.com/',
 		description: _('sidebar.Support'),
 		bottom: true,
 	},

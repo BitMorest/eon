@@ -7,7 +7,6 @@ import {
 import {ApiService} from '../services/api-service';
 import * as remoteMain from '@electron/remote/main';
 import {Application} from './application';
-import * as path from 'node:path';
 import _ from 'lodash';
 import {Logger} from '../utils';
 import {Environment} from '../models';
@@ -46,6 +45,9 @@ export class Window {
 		let defaultOptions: BrowserWindowConstructorOptions = {
 			width: 1280,
 			height: 720,
+			webPreferences: {
+				devTools: environment.env == 'development',
+			},
 		};
 		defaultOptions = _.merge(defaultOptions, customOptions);
 
@@ -102,11 +104,7 @@ export class Window {
 			});
 		} else {
 			// Else mode, we simply load angular bundle
-			const indexPath = path.join(
-				__dirname,
-				'../renderer/angular_window/index.html'
-			);
-			this.browser?.loadURL(`file://${indexPath}`);
+			this.browser?.loadURL(`file://angular_window/index.html`);
 		}
 
 		// When the window is closed`

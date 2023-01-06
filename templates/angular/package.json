@@ -27,8 +27,8 @@
 		"start:electron": "node scripts/electron-start-watch.js",
 		"package": "yarn package:shared && yarn package:angular-app && yarn package:electron-app",
 		"package:shared": "tsc -b workspaces/shared",
-		"package:angular-app": "cd workspaces/angular && yarn package",
-		"package:electron-app": "electron-forge package",
+		"package:angular": "cd workspaces/angular && yarn package",
+		"package:electron": "electron-forge package",
 		"test:e2e": "yarn test:angular-e2e && yarn test:electron-e2e",
 		"test:angular-e2e": "run-p -l -r start start:angular-e2e",
 		"start:angular-e2e": "wait-on http://localhost:4200 && cd workspaces/angular && yarn cypress:run",
@@ -40,7 +40,7 @@
 	"config": {
 		"forge": {
 			"packagerConfig": {
-				"icon": "./worspaces/electron/assets/icons/icon",
+				"icon": "./workspaces/angular/src/assets/icons/icon",
 				"executableName": "EonApplication"
 			},
 			"makers": [
@@ -49,15 +49,25 @@
 				},
 				{
 					"name": "@electron-forge/maker-dmg",
-					"config": {}
+					"config": {
+						"options": {
+							"icon": "./workspaces/angular/src/assets/icons/icon.icns"
+						}
+					}
 				},
 				{
 					"name": "@electron-forge/maker-deb",
-					"config": {}
+					"config": {
+						"options": {
+							"icon": "./workspaces/angular/src/assets/icons/icon.png"
+						}
+					}
 				},
 				{
 					"name": "@electron-forge/maker-squirrel",
-					"config": {}
+					"config": {
+						"setupIcon": "./workspaces/angular/src/assets/icons/icon.ico"
+					}
 				}
 			],
 			"plugins": [

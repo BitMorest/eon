@@ -18,7 +18,6 @@ class ElectronForgeRunner {
 			path.join(this.cwd, '/scripts/electron-start-watch.js'),
 			path.join(this.cwd, '/workspaces/electron/**/*'),
 			path.join(this.cwd, '/workspaces/shared/.dist/**/*'),
-
 			path.join(this.cwd, '/../../packages/types/.dist/**/*'),
 			path.join(this.cwd, '/../../packages/electron/.dist/**/*'),
 		];

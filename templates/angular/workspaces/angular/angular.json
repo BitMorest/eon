@@ -37,7 +37,10 @@
 						"styles": ["src/styles.scss"],
 						"scripts": [],
 						"preserveSymlinks": true,
-						"allowedCommonJsDependencies": ["flat"]
+						"allowedCommonJsDependencies": [
+							"flat",
+							"@ngneat/transloco-keys-manager/marker"
+						]
 					},
 					"configurations": {
 						"production": {

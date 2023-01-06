@@ -3,13 +3,14 @@ import {
 	WebContents,
 	app,
 	shell,
+	protocol,
 } from 'electron';
 import {ApiService} from '../services/api-service';
 import {Window} from './window';
 import {Logger} from '../utils';
 const log = new Logger('eon-core');
-
 import {Environment} from '../models';
+import path from 'node:path';
 const enviroment = Environment.load();
 
 export class Application {
@@ -59,6 +60,16 @@ export class Application {
 
 	private onReady() {
 		log.debug(`onReady()`);
+		protocol.interceptFileProtocol('file', (request, callback) => {
+			const root = path.join(__dirname, '../renderer');
+			let target = request.url.replace('file://', '');
+
+			if (target == 'angular_window/') {
+				target += 'index.html';
+			}
+
+			callback({path: `${root}/${target}`});
+		});
 		Application.current.onCreateWindow();
 	}
 
@@ -83,7 +94,7 @@ export class Application {
 		log.debug('onWindowAllClosed');
 		// On MacOS it is common for applications to stay open until the user explicitly quits
 		// But WebDriverIO Test Runner does handle that behaviour yet
-		if (enviroment.platform == 'darwin' || enviroment.env == 'testing') {
+		if (enviroment.platform !== 'darwin' || enviroment.env == 'testing') {
 			app.quit();
 		}
 	}
@@ -102,7 +113,10 @@ export class Application {
 			(event: Electron.Event, navigationUrl: string) => {
 				// Allowing local navigation only
 				const parsedUrl = new URL(navigationUrl);
-				if (parsedUrl.origin !== 'http://localhost:4200') {
+				if (
+					parsedUrl.origin !== 'http://localhost:4200' &&
+					!parsedUrl.origin.startsWith('file://')
+				) {
 					event.preventDefault();
 				}
 			}

@@ -28,13 +28,6 @@ export const routes: Route[] = [
 					),
 			},
 			{
-				path: 'examples',
-				loadChildren: () =>
-					import('./components/examples/examples.module').then(
-						(m) => m.ExamplesModule
-					),
-			},
-			{
 				path: 'about',
 				loadChildren: () =>
 					import('./components/about/about.module').then((m) => m.AboutModule),

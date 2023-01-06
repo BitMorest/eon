@@ -9,7 +9,7 @@ import {sidebarItems} from './sidebar-items';
 		RouterModule.forRoot(routes),
 		EonModule.forRoot({
 			titlebarTitle: 'EonApp',
-			titlebarIcon: 'https://code.visualstudio.com/assets/apple-touch-icon.png',
+			titlebarIcon: '/assets/icons/icon.png',
 			sidebarItems: sidebarItems,
 			translocoConfig: {
 				availableLangs: [
