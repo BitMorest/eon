@@ -1,7 +1,9 @@
 import {
+	app,
 	BrowserWindow,
 	BrowserWindowConstructorOptions,
 	ipcMain,
+	nativeImage,
 	WebPreferences,
 } from 'electron';
 import {ApiService} from '../services/api-service';
@@ -15,6 +17,7 @@ import {WindowApiService} from '../services/window-api-service';
 import contextMenu from 'electron-context-menu';
 import {LanguageApiService} from '../services/language-api-service';
 import {InitializeApiService} from '../services/initiallize-api-service';
+import path from 'node:path';
 
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 const log = new Logger('eon-core');
@@ -45,6 +48,7 @@ export class Window {
 		let defaultOptions: BrowserWindowConstructorOptions = {
 			width: 1280,
 			height: 720,
+			icon: this.loadIcon(),
 			webPreferences: {
 				devTools: environment.env == 'development',
 			},
@@ -114,6 +118,23 @@ export class Window {
 			// Delete current reference
 			delete this.browser;
 		});
+	}
+
+	private loadIcon(): Electron.NativeImage | undefined {
+		let iconObject;
+		if (environment.env == 'development') {
+			const iconPath = path.join(
+				__dirname,
+				'../renderer/angular_window/assets/icons/icon.png'
+			);
+			log.debug('Icon Path', iconPath);
+			iconObject = nativeImage.createFromPath(iconPath);
+			// Change dock icon on MacOS
+			if (iconObject && process.platform === 'darwin') {
+				app.dock.setIcon(iconObject);
+			}
+		}
+		return iconObject;
 	}
 
 	protected onRegisterService(): void {
