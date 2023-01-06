@@ -24,7 +24,7 @@
 	"scripts": {
 		"bootstrap": "lerna bootstrap --include-dependencies",
 		"prepare": "husky install",
-		"build": "run-s -l build:types build:electron build:angular",
+		"build": "run-s -l build:types && run-p -l build:electron build:angular",
 		"build:types": "yarn workspace @e-dizzy/types build",
 		"build:electron": "yarn workspace @e-dizzy/electron build",
 		"build:angular": "yarn workspace angular-worspace build",

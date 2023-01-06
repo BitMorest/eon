@@ -29,10 +29,14 @@ class ElectronForgeRunner {
 
 	reload = () => {
 		if (this.childProcess) kill(this.childProcess.pid);
-		this.childProcess = spawn('npx electron-forge start', [], {
-			shell: true,
-			stdio: 'inherit',
-		});
+		this.childProcess = spawn(
+			'npx wait-on http://localhost:4200 && npx electron-forge start',
+			[],
+			{
+				shell: true,
+				stdio: 'inherit',
+			}
+		);
 	};
 
 	startWatching = () => {

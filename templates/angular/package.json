@@ -103,6 +103,8 @@
 		"copy-webpack-plugin": "^11.0.0",
 		"css-loader": "^6.7.2",
 		"electron": "^22.0.0",
+		"electron-log": "^4.4.8",
+		"electron-store": "^8.1.0",
 		"electron-context-menu": "^3.6.1",
 		"electron-debug": "^3.2.0",
 		"electron-playwright-helpers": "^1.2.2",
@@ -121,12 +123,12 @@
 		"webpack": "^5.75.0"
 	},
 	"dependencies": {
-		"@e-dizzy/types": "link:../../packages/core"
+		"@e-dizzy/electron": "link:../../packages/electron"
 	},
 	"resolutions": {
 		"**/typescript": "4.8.4",
 		"@e-dizzy/types": "link:../../packages/types",
 		"@e-dizzy/electron": "link:../../packages/electron",
-		"@e-dizzy/angular": "link:../../packages/angular./.dist"
+		"@e-dizzy/angular": "link:../../packages/angular/.dist"
 	}
 }
