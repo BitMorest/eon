@@ -25,7 +25,7 @@
 		"start:shared": "tsc -p workspaces/shared/tsconfig.json -w",
 		"start:angular": "wait-on ../../packages/types/.dist/index.d.ts && wait-on ../../packages/electron/.dist/index.d.ts && wait-on workspaces/shared/.dist/index.d.ts && cd workspaces/angular && yarn start",
 		"start:electron": "node scripts/electron-start-watch.js",
-		"package": "yarn package:shared && yarn package:angular-app && yarn package:electron-app",
+		"package": "yarn package:shared && yarn package:angular && yarn package:electron",
 		"package:shared": "tsc -b workspaces/shared",
 		"package:angular": "cd workspaces/angular && yarn package",
 		"package:electron": "electron-forge package",

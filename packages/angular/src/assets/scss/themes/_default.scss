@@ -20,47 +20,53 @@ body {
 	$components: map.get($themes, 'light', 'components');
 
 	$titlebar: map.get($components, 'titlebar');
-	--eon-title-bar-color: #{map.get($titlebar, 'text')};
-	--eon-title-bar-bg: #{map.get($titlebar, 'background')};
-	--eon-title-bar-border-color: #{map.get($titlebar, 'border')};
-	--eon-title-bar-windown-os-window-button-hover-bg: #{map.get(
+	--e-dizzy-title-bar-color: #{map.get($titlebar, 'text')};
+	--e-dizzy-title-bar-bg: #{map.get($titlebar, 'background')};
+	--e-dizzy-title-bar-border-color: #{map.get($titlebar, 'border')};
+	--e-dizzy-title-bar-windown-os-window-button-hover-bg: #{map.get(
 			$titlebar,
 			'windowsOsButtonHover'
 		)};
-	--eon-title-bar-windown-os-close-window-button-hover-bg: #{map.get(
+	--e-dizzy-title-bar-windown-os-close-window-button-hover-bg: #{map.get(
 			$titlebar,
 			'windownsOsCloseButtonHover'
 		)};
 
-	--eon-title-bar-mac-os-minimize-bg: #{map.get($titlebar, 'macOsMinimizeBg')};
-	--eon-title-bar-mac-os-minimize-hover-dot-color: #{map.get(
+	--e-dizzy-title-bar-mac-os-minimize-bg: #{map.get(
+			$titlebar,
+			'macOsMinimizeBg'
+		)};
+	--e-dizzy-title-bar-mac-os-minimize-hover-dot-color: #{map.get(
 			$titlebar,
 			'macOsMinimizeHoverDotColor'
 		)};
-	--eon-title-bar-mac-os-maximize-bg: #{map.get($titlebar, 'macOsMaximizeBg')};
-	--eon-title-bar-mac-os-maximize-hover-dot-color: #{map.get(
+	--e-dizzy-title-bar-mac-os-maximize-bg: #{map.get(
+			$titlebar,
+			'macOsMaximizeBg'
+		)};
+	--e-dizzy-title-bar-mac-os-maximize-hover-dot-color: #{map.get(
 			$titlebar,
 			'macOsMaximizeHoverDotColor'
 		)};
-	--eon-title-bar-mac-os-close-bg: #{map.get($titlebar, 'macOsCloseBg')};
-	--eon-title-bar-mac-os-close-hover-dot-color: #{map.get(
+	--e-dizzy-title-bar-mac-os-close-bg: #{map.get($titlebar, 'macOsCloseBg')};
+	--e-dizzy-title-bar-mac-os-close-hover-dot-color: #{map.get(
 			$titlebar,
 			'macOsCloseHoverDotColor'
 		)};
 
 	// SIDE BAR //
 	$sidebar: map.get($components, 'sidebar');
-	--eon-sidebar-bar-color: #{map.get($sidebar, 'text')};
-	--eon-sidebar-bar-bg: #{map.get($sidebar, 'background')};
-	--eon-sidebar-bar-border-color: #{map.get($sidebar, 'border')};
-	--eon-sidebar-bar-active-bg: #{map.get($sidebar, 'menuActive')};
-	--eon-sidebar-bar-tooltop-bg: #{map.get($sidebar, 'tooltipBg')};
-	--eon-sidebar-bar-tooltop-color: #{map.get($sidebar, 'tooltipColor')};
+	--e-dizzy-sidebar-bar-color: #{map.get($sidebar, 'text')};
+	--e-dizzy-sidebar-bar-bg: #{map.get($sidebar, 'background')};
+	--e-dizzy-sidebar-bar-border-color: #{map.get($sidebar, 'border')};
+	--e-dizzy-sidebar-bar-active-bg: #{map.get($sidebar, 'menuActive')};
+	--e-dizzy-sidebar-bar-tooltop-bg: #{map.get($sidebar, 'tooltipBg')};
+	--e-dizzy-sidebar-bar-tooltop-color: #{map.get($sidebar, 'tooltipColor')};
 
 	// // MAIN CONTENT//
 	$content: map.get($components, 'content');
-	--eon-body-color: #{map.get($content, 'text')};
-	--eon-body-bg: #{map.get($content, 'background')};
-	--eon-scroll-bar-bg: #{map.get($content, 'scrollBarBg')};
-	--eon-scroll-bar-hover-color: #{map.get($content, 'scrollBarBgHover')};
+	--e-dizzy-body-color: #{map.get($content, 'text')};
+	--e-dizzy-body-bg: #{map.get($content, 'background')};
+	--e-dizzy-scroll-bar-bg: #{map.get($content, 'scrollBarBg')};
+	--e-dizzy-scroll-bar-hover-color: #{map.get($content, 'scrollBarBgHover')};
 }
