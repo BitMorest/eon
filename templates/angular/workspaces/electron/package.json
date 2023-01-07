@@ -1,5 +1,5 @@
 {
-	"name": "eon-application",
+	"name": "electron",
 	"version": "0.0.0",
 	"productName": "Eon Application",
 	"description": "Codebase for desktop application base on electron and angular",
@@ -21,10 +21,7 @@
 		"workspaces/shared"
 	],
 	"scripts": {
-		"start": "run-p -l start:shared start:angular start:electron",
-		"start:shared": "tsc -p workspaces/shared/tsconfig.json -w",
-		"start:angular": "wait-on ../../packages/types/.dist/index.d.ts && wait-on ../../packages/electron/.dist/index.d.ts && wait-on workspaces/shared/.dist/index.d.ts && cd workspaces/angular && yarn start",
-		"start:electron": "node scripts/electron-start-watch.js",
+		"start": "node ./scripts/start.js",
 		"package": "yarn package:shared && yarn package:angular && yarn package:electron",
 		"package:shared": "tsc -b workspaces/shared",
 		"package:angular": "cd workspaces/angular && yarn package",

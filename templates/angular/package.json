@@ -1,5 +1,5 @@
 {
-	"name": "eon-application",
+	"name": "application-source",
 	"version": "0.0.0",
 	"private": true,
 	"description": "Codebase for desktop application base on electron and angular",
@@ -9,12 +9,15 @@
 		"npm": "Please use yarn instead of NPM to install dependencies"
 	},
 	"license": "UNLICENSED",
+	"main": "workspaces/electron/.webpack/main.js",
 	"workspaces": [
-		"workspaces/electron",
-		"workspaces/angular",
-		"workspaces/shared"
+		"./workspaces/*"
 	],
 	"scripts": {
+		"start": "run-p -l start:shared start:angular start:electron",
+		"start:shared": "yarn workspace shared start",
+		"start:angular": "yarn workspace angular start",
+		"start:electron": "yarn workspace electron start",
 		"clean": "git clean -xdfq"
 	},
 	"resolutions": {
@@ -22,5 +25,9 @@
 		"@e-dizzy/types": "link:../../packages/types",
 		"@e-dizzy/electron": "link:../../packages/electron",
 		"@e-dizzy/angular": "link:../../packages/angular/.dist"
+	},
+	"devDependencies": {
+		"lerna": "^6.4.0",
+		"npm-run-all": "^4.1.5"
 	}
 }
