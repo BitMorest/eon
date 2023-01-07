@@ -1,7 +1,9 @@
 const appIcon = '../angular/src/assets/icons/icon';
 
 module.exports = {
+	buildIdentifier: 'production',
 	packagerConfig: {
+		asar: true, // or an object containing your asar options
 		icon: appIcon,
 	},
 	rebuildConfig: {},
@@ -44,5 +46,4 @@ module.exports = {
 		},
 	],
 	hooks: {},
-	buildIdentifier: 'production',
 };

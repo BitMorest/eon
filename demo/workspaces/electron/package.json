@@ -22,10 +22,7 @@
 	],
 	"scripts": {
 		"start": "node ./scripts/start.js",
-		"package": "yarn package:shared && yarn package:angular && yarn package:electron",
-		"package:shared": "tsc -b workspaces/shared",
-		"package:angular": "cd workspaces/angular && yarn package",
-		"package:electron": "electron-forge package",
+		"package": "electron-forge package",
 		"test:e2e": "yarn test:e2e:angular && yarn test:e2e:electron",
 		"test:e2e:electron": "yarn package && playwright test -c ./workspaces/electron/test/playwright.config.ts",
 		"test:e2e:angular": "run-p -l -r start test:e2e:angular:start",

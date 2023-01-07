@@ -13,7 +13,10 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json'],
-		modules: [path.resolve(__dirname, '..', '..', 'node_modules')],
+		modules: [
+			path.resolve(__dirname, 'node_modules'),
+			path.resolve(__dirname, '..', '..', 'node_modules'),
+		],
 	},
 	plugins: [
 		new CopyWebpackPlugin({

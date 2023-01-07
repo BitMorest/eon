@@ -20,6 +20,10 @@
 		"start:shared": "yarn workspace shared start",
 		"start:angular": "yarn workspace angular start",
 		"start:electron": "yarn workspace electron start",
+		"package": "run-s -l package:shared package:angular package:electron",
+		"package:shared": "yarn workspace shared package",
+		"package:angular": "yarn workspace angular package",
+		"package:electron": "yarn workspace electron package",
 		"git:clean": "git clean -xdfq",
 		"git:reset": "yarn git:clean && yarn install"
 	},

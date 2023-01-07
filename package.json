@@ -23,8 +23,9 @@
 		"./demo"
 	],
 	"scripts": {
-		"start": "run-p -l watch",
-		"start:demo": "cd demo && yarn start",
+		"start": "run-p -l watch start:demo",
+		"start:demo": "wait-on packages/types/.dist/index.d.ts && wait-on packages/angular/.dist/index.d.ts  && wait-on packages/electron/.dist/index.d.ts && cd demo && yarn start",
+		"package": "cd demo && yarn package",
 		"build": "run-s -l build:types && run-p -l build:electron build:angular",
 		"build:types": "yarn workspace @e-dizzy/types build",
 		"build:electron": "yarn workspace @e-dizzy/electron build",
@@ -36,7 +37,7 @@
 		"version": "lerna version --no-private",
 		"release": "yarn build && lerna publish --no-private --skip-git",
 		"lint": "eslint .",
-		"postinstall": "cd demo && yarn install",
+		"postinstall": "yarn build && cd demo && yarn install",
 		"prepare": "husky install",
 		"git:clean": "git clean -xdfq",
 		"git:reset": "yarn git:clean && yarn install"

@@ -3,6 +3,7 @@ const spawn = require('child_process').spawn;
 const chokidar = require('chokidar');
 const kill = require('tree-kill');
 const path = require('path');
+const fs = require('fs');
 
 class ElectronForgeRunner {
 	constructor() {
@@ -28,11 +29,17 @@ class ElectronForgeRunner {
 			path.join(this.cwd, '../shared/.dist/**/*'),
 			path.join(this.cwd, '../shared/package.json'),
 			path.join(this.cwd, '../shared/yarn.lock'),
-
-			// using only development e-dizzy
-			path.join(this.cwd, '/../../../../packages/types/.dist/**/*'),
-			path.join(this.cwd, '/../../../../packages/electron/.dist/**/*'),
 		];
+
+		// using only development e-dizzy
+		if (fs.existsSync(path.join(this.cwd, '/../../../packages/types'))) {
+			const eDizzyWatch = [
+				path.join(this.cwd, '/../../../packages/types/.dist/**/*'),
+				path.join(this.cwd, '/../../../packages/electron/.dist/**/*'),
+			];
+			this.watchPaths = [...this.watchPaths, ...eDizzyWatch];
+		}
+
 		this.ignoredPaths = '**/node_modules/*';
 		this.startWatching();
 		this.reload();
