@@ -19,8 +19,7 @@
 		"./packages/types",
 		"./packages/electron",
 		"./packages/angular",
-		"./packages/angular/.dist",
-		"./demo"
+		"./packages/angular/.dist"
 	],
 	"scripts": {
 		"demo:start": "run-p -l watch start:demo",

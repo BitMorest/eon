@@ -33,7 +33,6 @@
 		"@electron-forge/maker-dmg": "^6.0.4",
 		"@electron-forge/maker-rpm": "^6.0.4",
 		"@electron-forge/maker-squirrel": "^6.0.4",
-		"@electron-forge/maker-wix": "^6.0.4",
 		"@electron-forge/maker-zip": "^6.0.4",
 		"@electron-forge/plugin-webpack": "^6.0.4",
 		"@electron/remote": "^2.0.9",
@@ -68,7 +67,8 @@
 		"webpack": "^5.75.0"
 	},
 	"dependencies": {
-		"@e-dizzy/electron": "link:../../packages/electron"
+		"@e-dizzy/electron": "link:../../packages/electron",
+		"electron-forge-maker-nsis": "^24.0.0-alpha.9"
 	},
 	"resolutions": {
 		"**/typescript": "4.8.4",
