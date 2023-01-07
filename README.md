@@ -1,3 +1,16 @@
+https://stackoverflow.com/questions/47597283/electron-package-reduce-the-package-size
+
+can remove
+d3dcompiler_47.dll
+LICENSE
+LICENSES.chromium.html
+libEGL.dll
+libGLESv2.dll
+version
+vk_swiftshader.dll
+vk_swiftshader_icd.json
+vulkan-1.dll
+
 ### Git Commit Convention
 
 > type(scope?): subject
