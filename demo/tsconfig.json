@@ -16,11 +16,6 @@
 		"paths": {
 			"*": ["node_modules/*"]
 		},
-		"types": ["node"],
-		"references": [
-			{"path": "../types"},
-			{"path": "../electron"},
-			{"path": "../angular"}
-		]
+		"types": ["node"]
 	}
 }
