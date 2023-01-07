@@ -23,9 +23,10 @@
 		"./demo"
 	],
 	"scripts": {
-		"start": "run-p -l watch start:demo",
-		"start:demo": "wait-on packages/types/.dist/index.d.ts && wait-on packages/angular/.dist/index.d.ts  && wait-on packages/electron/.dist/index.d.ts && cd demo && yarn start",
-		"package": "cd demo && yarn package",
+		"demo:start": "run-p -l watch start:demo",
+		"demo:start:serve": "wait-on packages/types/.dist/index.d.ts && wait-on packages/angular/.dist/index.d.ts  && wait-on packages/electron/.dist/index.d.ts && cd demo && yarn start",
+		"demo:package": "cd demo && yarn package",
+		"demo:make": "cd demo && yarn make",
 		"build": "run-s -l build:types && run-p -l build:electron build:angular",
 		"build:types": "yarn workspace @e-dizzy/types build",
 		"build:electron": "yarn workspace @e-dizzy/electron build",

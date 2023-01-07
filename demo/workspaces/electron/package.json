@@ -16,21 +16,15 @@
 		"npm": "Please use yarn instead of NPM to install dependencies"
 	},
 	"license": "UNLICENSED",
-	"workspaces": [
-		"workspaces/angular",
-		"workspaces/shared"
-	],
 	"scripts": {
 		"start": "node ./scripts/start.js",
 		"package": "electron-forge package",
-		"test:e2e": "yarn test:e2e:angular && yarn test:e2e:electron",
+		"make": "electron-forge make",
+		"publish": "electron-forge publish",
+		"test": "yarn test:e2e:angular && yarn test:e2e:electron",
 		"test:e2e:electron": "yarn package && playwright test -c ./workspaces/electron/test/playwright.config.ts",
 		"test:e2e:angular": "run-p -l -r start test:e2e:angular:start",
 		"test:e2e:angular:start": "wait-on http://localhost:4200 && cd workspaces/angular && yarn cypress:run",
-		"make": "yarn package:shared && yarn package:angular && electron-forge make",
-		"i18n:extract": "yarn workspace angular i18n:extract",
-		"i18n:find": "yarn workspace angular i18n:find",
-		"publish": "electron-forge publish",
 		"clean": "git clean -xdfq"
 	},
 	"devDependencies": {
@@ -39,6 +33,7 @@
 		"@electron-forge/maker-dmg": "^6.0.4",
 		"@electron-forge/maker-rpm": "^6.0.4",
 		"@electron-forge/maker-squirrel": "^6.0.4",
+		"@electron-forge/maker-wix": "^6.0.4",
 		"@electron-forge/maker-zip": "^6.0.4",
 		"@electron-forge/plugin-webpack": "^6.0.4",
 		"@electron/remote": "^2.0.9",
@@ -53,11 +48,11 @@
 		"copy-webpack-plugin": "^11.0.0",
 		"css-loader": "^6.7.3",
 		"electron": "^22.0.0",
-		"electron-log": "^4.4.8",
-		"electron-store": "^8.1.0",
 		"electron-context-menu": "^3.6.1",
 		"electron-debug": "^3.2.0",
+		"electron-log": "^4.4.8",
 		"electron-playwright-helpers": "^1.2.2",
+		"electron-store": "^8.1.0",
 		"fork-ts-checker-webpack-plugin": "^7.2.14",
 		"node-loader": "^2.0.0",
 		"npm-check-updates": "^16.6.2",

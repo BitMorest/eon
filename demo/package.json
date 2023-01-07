@@ -24,6 +24,7 @@
 		"package:shared": "yarn workspace shared package",
 		"package:angular": "yarn workspace angular package",
 		"package:electron": "yarn workspace electron package",
+		"make": "yarn workspace electron make",
 		"git:clean": "git clean -xdfq",
 		"git:reset": "yarn git:clean && yarn install"
 	},
