@@ -6,23 +6,25 @@ module.exports = {
 	 * This is the main entry point for your application, it's the first file
 	 * that runs in the main process.
 	 */
-	entry: './workspaces/electron/src/index.ts',
+	entry: './src/index.ts',
 	// Put your normal webpack config below here
 	module: {
-		rules: require('./webpack.rules'),
+		rules: require('../../webpack.config'),
 	},
 	resolve: {
 		extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json'],
-		modules: [path.resolve(__dirname, '..', 'node_modules')],
+		modules: [path.resolve(__dirname, '..', '..', 'node_modules')],
 	},
 	plugins: [
 		new CopyWebpackPlugin({
 			patterns: [
-				{from: 'workspaces/electron/src/assets'},
+				// copy assets
+				{from: 'assets'},
+				// copy angular builded source
 				{
-					from: 'workspaces/angular/.dist',
+					from: '../angular/.dist',
 					to: '../renderer/angular_window',
-					noErrorOnMissing: true,
+					noErrorOnMissing: true, // don't throw error on serve mode
 				},
 			],
 		}),

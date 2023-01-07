@@ -1,5 +1,5 @@
+// Base webpack config for support native modules
 module.exports = [
-	// Add support for native node modules
 	{
 		test: /\.node$/,
 		use: 'node-loader',

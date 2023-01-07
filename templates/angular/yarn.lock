@@ -1360,6 +1360,10 @@
   version "0.0.0"
   uid ""
 
+"@e-dizzy/electron@link:packages/electron":
+  version "0.0.0"
+  uid ""
+
 "@e-dizzy/types@*":
   version "0.0.0"
   uid ""
