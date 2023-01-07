@@ -8,7 +8,7 @@
 		"url": "https://github.com/BitMorest"
 	},
 	"repository": "https://github.com/BitMorest/electron-angular.git",
-	"main": ".webpack/main/index.js",
+	"main": ".webpack/main",
 	"private": true,
 	"engines": {
 		"node": "^14.20.0 || ^16.13.0 || >=18.10.0",
