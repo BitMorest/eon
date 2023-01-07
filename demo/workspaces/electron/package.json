@@ -8,7 +8,7 @@
 		"url": "https://github.com/BitMorest"
 	},
 	"repository": "https://github.com/BitMorest/electron-angular.git",
-	"main": ".webpack/main",
+	"main": ".webpack/main/index.js",
 	"private": true,
 	"engines": {
 		"node": "^14.20.0 || ^16.13.0 || >=18.10.0",
@@ -67,8 +67,7 @@
 		"webpack": "^5.75.0"
 	},
 	"dependencies": {
-		"@e-dizzy/electron": "link:../../packages/electron",
-		"electron-forge-maker-nsis": "^24.0.0-alpha.9"
+		"@e-dizzy/electron": "link:../../packages/electron"
 	},
 	"resolutions": {
 		"**/typescript": "4.8.4",
