@@ -20,7 +20,7 @@
 		"./packages/electron",
 		"./packages/angular",
 		"./packages/angular/.dist",
-		"./packages/types"
+		"./packages/demo"
 	],
 	"scripts": {
 		"build": "run-s -l build:types && run-p -l build:electron build:angular",
