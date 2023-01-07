@@ -21,12 +21,7 @@
 			"./packages/electron",
 			"./packages/angular",
 			"./packages/angular/.dist",
-			"./packages/demo"
-		],
-		"nohoist": [
-			"@e-dizzy/types",
-			"@e-dizzy/electron",
-			"@e-dizzy/angular"
+			"./demo"
 		]
 	},
 	"scripts": {
