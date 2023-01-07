@@ -1,3 +1,4 @@
+import {Inject} from '@angular/core';
 import {E_DIZZY_CONFIG, EonConfig, SideBarItem} from '../../../types';
 
 @Component({
