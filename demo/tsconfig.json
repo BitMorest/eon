@@ -16,7 +16,11 @@
 		"paths": {
 			"*": ["node_modules/*"]
 		},
-		"types": ["node"]
-	},
-	"include": ["workspaces/electron/**/*"]
+		"types": ["node"],
+		"references": [
+			{"path": "../types"},
+			{"path": "../electron"},
+			{"path": "../angular"}
+		]
+	}
 }

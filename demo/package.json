@@ -1,8 +1,8 @@
 {
-	"name": "application-source",
+	"name": "application",
 	"version": "0.0.0",
 	"private": true,
-	"description": "Codebase for desktop application base on electron and angular",
+	"description": "Application base on eDizzy",
 	"engines": {
 		"node": "^14.20.0 || ^16.13.0 || >=18.10.0",
 		"yarn": ">=1.22.4 <2",
@@ -11,6 +11,7 @@
 	"license": "UNLICENSED",
 	"main": "workspaces/electron/.webpack/main.js",
 	"workspaces": [
+		"./workspaces/*",
 		"./workspaces/*"
 	],
 	"scripts": {

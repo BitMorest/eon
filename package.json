@@ -15,14 +15,22 @@
 		"url": "https://github.com/e-dizzy/e-dizzy.git"
 	},
 	"license": "UNLICENSED",
-	"workspaces": [
-		"./packages/types",
-		"./packages/electron",
-		"./packages/angular",
-		"./packages/angular/.dist",
-		"./packages/demo"
-	],
+	"workspaces": {
+		"packages": [
+			"./packages/types",
+			"./packages/electron",
+			"./packages/angular",
+			"./packages/angular/.dist",
+			"./packages/demo"
+		],
+		"nohoist": [
+			"@e-dizzy/types",
+			"@e-dizzy/electron",
+			"@e-dizzy/angular"
+		]
+	},
 	"scripts": {
+		"start": "yarn",
 		"build": "run-s -l build:types && run-p -l build:electron build:angular",
 		"build:types": "yarn workspace @e-dizzy/types build",
 		"build:electron": "yarn workspace @e-dizzy/electron build",
