@@ -22,8 +22,6 @@
 		"./packages/angular/.dist"
 	],
 	"scripts": {
-		"bootstrap": "lerna bootstrap --include-dependencies",
-		"prepare": "husky install",
 		"build": "run-s -l build:types && run-p -l build:electron build:angular",
 		"build:types": "yarn workspace @e-dizzy/types build",
 		"build:electron": "yarn workspace @e-dizzy/electron build",
@@ -34,7 +32,9 @@
 		"watch:angular": "yarn workspace angular-worspace watch",
 		"release": "yarn build && lerna publish --no-private --skip-git",
 		"lint": "eslint .",
-		"clean": "git clean -xdfq"
+		"prepare": "husky install",
+		"git:clean": "git clean -xdfq",
+		"git:reset": "yarn git:clean && yarn install"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.0",

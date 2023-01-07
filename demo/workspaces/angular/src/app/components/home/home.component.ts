@@ -19,9 +19,8 @@ export class HomeComponent implements OnInit {
 	multiples: number[] = [];
 
 	constructor(
-		private electron: ElectronService
-	) // private translate: TranslateService
-	{}
+		private electron: ElectronService // private translate: TranslateService
+	) {}
 
 	ngOnInit(): void {
 		// Specifying what to do with received data from main process
