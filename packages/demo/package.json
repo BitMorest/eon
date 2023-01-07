@@ -18,13 +18,11 @@
 		"start:shared": "yarn workspace shared start",
 		"start:angular": "yarn workspace angular start",
 		"start:electron": "yarn workspace electron start",
-		"clean": "git clean -xdfq"
+		"git:clean": "git clean -xdfq",
+		"git:reset": "yarn git:clean && yarn install"
 	},
 	"resolutions": {
-		"**/typescript": "4.8.4",
-		"@e-dizzy/types": "link:../../packages/types",
-		"@e-dizzy/electron": "link:../../packages/electron",
-		"@e-dizzy/angular": "link:../../packages/angular/.dist"
+		"**/typescript": "4.8.4"
 	},
 	"devDependencies": {
 		"lerna": "^6.4.0",
