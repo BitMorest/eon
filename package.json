@@ -19,7 +19,8 @@
 		"./packages/types",
 		"./packages/electron",
 		"./packages/angular",
-		"./packages/angular/.dist"
+		"./packages/angular/.dist",
+		"./packages/types"
 	],
 	"scripts": {
 		"build": "run-s -l build:types && run-p -l build:electron build:angular",
@@ -30,6 +31,7 @@
 		"watch:types": "yarn workspace @e-dizzy/types watch",
 		"watch:electron": "yarn workspace @e-dizzy/electron watch",
 		"watch:angular": "yarn workspace angular-worspace watch",
+		"version": "lerna version --no-private",
 		"release": "yarn build && lerna publish --no-private --skip-git",
 		"lint": "eslint .",
 		"prepare": "husky install",
