@@ -12,7 +12,8 @@
 	"main": "workspaces/electron/.webpack/main.js",
 	"workspaces": [
 		"./workspaces/*",
-		"./workspaces/*"
+		"../packages/angular/.dist",
+		"../packages/*"
 	],
 	"scripts": {
 		"start": "run-p -l start:shared start:angular start:electron",

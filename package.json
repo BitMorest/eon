@@ -37,6 +37,7 @@
 		"version": "lerna version --no-private",
 		"release": "yarn build && lerna publish --no-private --skip-git",
 		"lint": "eslint .",
+		"postinstall": "cd demo && yarn install",
 		"prepare": "husky install",
 		"git:clean": "git clean -xdfq",
 		"git:reset": "yarn git:clean && yarn install"
