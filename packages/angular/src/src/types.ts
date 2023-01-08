@@ -26,6 +26,8 @@ export interface WindowApi {
 declare global {
 	// Global augmentation of the `Window` interface
 	interface Window {
+		applicationName: string;
+		applicationVersion: string;
 		api: WindowApi;
 	}
 }

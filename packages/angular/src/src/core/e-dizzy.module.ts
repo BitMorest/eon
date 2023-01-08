@@ -76,8 +76,16 @@ import {TranslocoHttpLoader} from './services/transloco-http-loader.service';
 	providers: [
 		{
 			provide: APP_INITIALIZER,
-			// eslint-disable-next-line unicorn/consistent-function-scoping
-			useFactory: () => () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
+			useFactory:
+				(
+					_initialize: InitializeService,
+					_electron: ElectronService,
+					_window: BrowserWindowService,
+					_language: LanguageApiService,
+					_ui: UIModeService
+				) =>
+				(): Promise<void> =>
+					_initialize.boot(),
 			deps: [
 				InitializeService,
 				ElectronService,

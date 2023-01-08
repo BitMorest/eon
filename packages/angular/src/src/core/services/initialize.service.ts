@@ -14,24 +14,32 @@ export class InitializeService {
 		private _windowApiService: BrowserWindowService,
 		private _languageApiService: LanguageApiService,
 		private _uiApiService: UIModeService
-	) {
-		console.log('-------------------');
-		console.log('Initializing...');
-		if (window && (window as Window).api) {
-			console.log('Enviroments:', window.api.environment);
-			this._electron.receive<InitializeOutput>(
-				CoreApiConst.INITIALIZE,
-				(initilizeData: InitializeOutput) => {
-					this._windowApiService.initilize(initilizeData.windowState);
-					this._uiApiService.initialize(initilizeData.isDarkMode);
-					this._languageApiService.initialize(initilizeData.currentLanguage);
-					console.log('Initializing done!!!');
-					console.log('-------------------\n\n');
-				}
-			);
-			this._electron.send(CoreApiConst.INITIALIZE);
-		} else {
-			console.error('Preloader API is not loaded');
-		}
+	) {}
+
+	public boot(): Promise<void> {
+		return new Promise((resolve, reject) => {
+			console.log('Initializing...');
+			if (window && (window as Window).api) {
+				console.log(
+					'Preloader API is success injected. Run in electron browser mode!!!'
+				);
+				this._electron.receive<InitializeOutput>(
+					CoreApiConst.INITIALIZE,
+					(initilizeData: InitializeOutput) => {
+						this._windowApiService.initilize(initilizeData.windowState);
+						this._uiApiService.initialize(initilizeData.isDarkMode);
+						this._languageApiService.initialize(initilizeData.currentLanguage);
+						window.applicationName = initilizeData.applicationName;
+						window.applicationVersion = initilizeData.applicationVersion;
+						console.log('Initialize done!!!\n');
+						resolve();
+					}
+				);
+				this._electron.send(CoreApiConst.INITIALIZE);
+			} else {
+				console.error('Preloader API is not loaded!!!');
+				reject(new Error('Preloader API is not loaded!!!'));
+			}
+		});
 	}
 }

@@ -1,4 +1,5 @@
 import {CoreApiConst, InitializeOutput as Out} from '@e-dizzy/types';
+import {app} from 'electron';
 import {Application, Window} from '../components';
 import {ApiService} from './api-service';
 import {LanguageApiService} from './language-api-service';
@@ -19,6 +20,8 @@ export class InitializeApiService extends ApiService<unknown, Out> {
 		const langApiService = new LanguageApiService();
 		const winApiService = new WindowApiService();
 		return {
+			applicationName: app.getName(),
+			applicationVersion: app.getVersion(),
 			isDarkMode: uiModeApiService.isDarkMode(),
 			currentLanguage: langApiService.getCurrentLanguage(),
 			windowState: winApiService.getWindowState(_window),

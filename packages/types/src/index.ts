@@ -17,6 +17,8 @@ export class CoreApiConst {
 }
 
 export type InitializeOutput = {
+	applicationName: string;
+	applicationVersion: string;
 	isDarkMode: boolean;
 	currentLanguage: string;
 	windowState: WindowState;

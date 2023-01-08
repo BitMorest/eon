@@ -36,6 +36,7 @@ class ElectronForgeRunner {
 			const eDizzyWatch = [
 				path.join(this.cwd, '/../../../packages/types/.dist/**/*'),
 				path.join(this.cwd, '/../../../packages/electron/.dist/**/*'),
+				path.join(this.cwd, '/../../../packages/electron/renderer/preload.ts'),
 			];
 			this.watchPaths = [...this.watchPaths, ...eDizzyWatch];
 		}
