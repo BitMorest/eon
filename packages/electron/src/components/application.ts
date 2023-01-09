@@ -7,20 +7,29 @@ import {
 } from 'electron';
 import {ApiService} from '../services/api-service';
 import {Window} from './window';
-import {Logger} from '../utils';
-const log = new Logger('eon-core');
-import {Environment} from '../models';
 import path from 'node:path';
-const enviroment = Environment.load();
+import {
+	Environment,
+	EnvironmentConfig,
+	EnvironmentsConfig,
+} from '@e-dizzy/types';
+import _ from 'lodash';
+import {edizzyDebugGenerator} from '../utils/debuger';
+
+import {Logger} from '../utils/logger';
+import {platform} from 'node:process';
+const log = new Logger('core');
+const debug = edizzyDebugGenerator('application');
 
 export class Application {
 	private static instance?: Application;
 
 	public static create(
-		windowOptions: BrowserWindowConstructorOptions
+		windowOptions: BrowserWindowConstructorOptions,
+		enviroments: EnvironmentsConfig<EnvironmentConfig>
 	): Application {
 		if (!this.instance) {
-			this.instance = new Application(windowOptions);
+			this.instance = new Application(windowOptions, enviroments);
 		}
 		return this.instance;
 	}
@@ -32,16 +41,25 @@ export class Application {
 	public services: Array<ApiService<unknown, unknown>>;
 	public mainWindow: Window | undefined;
 	public windowOptions: BrowserWindowConstructorOptions;
+	public enviroment: Environment;
 
-	private constructor(windowOptions: BrowserWindowConstructorOptions) {
-		log.debug('application instance creating');
+	private constructor(
+		windowOptions: BrowserWindowConstructorOptions,
+		enviroments: EnvironmentsConfig<EnvironmentConfig>
+	) {
+		debug('application instance creating');
 		this.services = new Array<ApiService<unknown, unknown>>();
 		this.windowOptions = windowOptions;
+		const environment = this.getNodeEnv();
+		if (enviroments[environment].name) {
+			throw new TypeError("Enviroment config can't have contain key 'name'!");
+		}
+		this.enviroment = _.merge({name: environment}, enviroments[environment]);
 		process.on('uncaughtException', this.onUncaughtException);
 	}
 
 	public addApiService(service: ApiService<unknown, unknown>) {
-		log.debug(`addApiService()`, {
+		debug(`addApiService()`, {
 			'Class Name': service.constructor.name,
 			'Reception Channel': service.receptionChannel(),
 			'Sending Channel': service.sendingChannel(),
@@ -51,7 +69,7 @@ export class Application {
 	}
 
 	public run() {
-		log.debug(`run()`);
+		debug(`run()`);
 		app.on('ready', this.onReady);
 		app.on('activate', this.onActive);
 		app.on('window-all-closed', this.onWindowAllClosed);
@@ -59,7 +77,7 @@ export class Application {
 	}
 
 	private onReady() {
-		log.debug(`onReady()`);
+		debug(`onReady()`);
 		protocol.interceptFileProtocol('file', (request, callback) => {
 			const root = path.join(__dirname, '../renderer');
 			let target = request.url.replace('file://', '');
@@ -74,14 +92,14 @@ export class Application {
 	}
 
 	private onActive() {
-		log.debug(`onActive()`);
+		debug(`onActive()`);
 		Application.current.onCreateWindow();
 	}
 
 	private onCreateWindow() {
 		// On MacOS it is common to re-create a window from app even after all windows have been closed
 		if (!Application.current.mainWindow) {
-			log.debug(`onCreateWindow()`);
+			debug(`onCreateWindow()`);
 			Application.current.mainWindow = new Window(
 				Application.current,
 				Application.current.windowOptions,
@@ -91,10 +109,10 @@ export class Application {
 	}
 
 	private onWindowAllClosed() {
-		log.debug('onWindowAllClosed');
+		debug('onWindowAllClosed');
 		// On MacOS it is common for applications to stay open until the user explicitly quits
 		// But WebDriverIO Test Runner does handle that behaviour yet
-		if (enviroment.platform !== 'darwin' || enviroment.env == 'testing') {
+		if (platform !== 'darwin' || this.enviroment.name == 'testing') {
 			app.quit();
 		}
 	}
@@ -126,5 +144,19 @@ export class Application {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	private onUncaughtException(message: string, onUncaughtException: any) {
 		log.error(message, {exception: onUncaughtException});
+	}
+
+	private getNodeEnv(): 'development' | 'production' | 'testing' {
+		if (!process.env.NODE_ENV) {
+			return 'development';
+		} else if (
+			['development', 'production', 'testing'].includes(process.env.NODE_ENV)
+		) {
+			return process.env.NODE_ENV as 'development' | 'production' | 'testing';
+		} else {
+			throw new Error(
+				`NODE_ENV only acccept values is 'development' | 'production' | 'testing'`
+			);
+		}
 	}
 }

@@ -4,12 +4,15 @@ import {
 	CoreWindowStateOutput as Out,
 } from '@e-dizzy/types';
 import {BrowserWindow} from 'electron';
-import {Application, Window} from '../components';
+import {Application} from '../components/application';
+import {Window} from '../components/window';
 import {ApiService} from './api-service';
-// import { Logger } from '../utils';
-// const log = new Logger('eon-core');
 
 export class WindowApiService extends ApiService<In, Out> {
+	booting(_app: Application, _window: Window): void {
+		/* eslint-disable @typescript-eslint/no-empty-function */
+	}
+
 	receptionChannel(): string {
 		return CoreApiConst.WINDOW_STATE;
 	}

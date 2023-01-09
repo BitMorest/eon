@@ -4,10 +4,9 @@ import {
 	LangDefinition,
 	TranslocoConfig as TranslocoConfigBase,
 } from '@ngneat/transloco';
-import {Environment} from '@e-dizzy/types';
+import {AppInfo, Environment} from '@e-dizzy/types';
 
 export interface WindowApi {
-	environment: Environment;
 	/**
 	 * This method is used by the renderer process to receive data from the main process
 	 * @param channel used by the renderer to receive data and by the main to send them
@@ -26,8 +25,8 @@ export interface WindowApi {
 declare global {
 	// Global augmentation of the `Window` interface
 	interface Window {
-		applicationName: string;
-		applicationVersion: string;
+		appInfo: AppInfo;
+		enviroment: Environment;
 		api: WindowApi;
 	}
 }

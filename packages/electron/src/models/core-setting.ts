@@ -1,6 +1,6 @@
 import Store from 'electron-store';
-import {Logger} from '../utils';
-const log = new Logger('eon-core');
+import {edizzyDebugGenerator} from '../utils/debuger';
+const debug = edizzyDebugGenerator('CoreSetting');
 
 export type CoreSettingData = {
 	darkMode: boolean;
@@ -23,7 +23,7 @@ export class CoreSetting {
 		this._settings = new Store<CoreSettingData>({
 			name: 'core-settings',
 			beforeEachMigration: (_store, _context) => {
-				log.info(
+				debug(
 					`[Core Settings] migrate from ${_context.fromVersion} → ${_context.toVersion}`
 				);
 			},

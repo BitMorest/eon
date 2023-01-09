@@ -1,6 +1,29 @@
-export type Environment = {
-	platform: string;
-	env: 'development' | 'production' | 'testing';
+export interface Dictionary<T> {
+	[Key: string]: T;
+}
+
+export interface EnvironmentsConfig<T extends EnvironmentConfig> {
+	development: T;
+	production: T;
+	testing: T;
+}
+
+export interface EnvironmentConfig extends Dictionary<unknown> {
+	debug?: DebugOptions;
+}
+
+export interface Environment extends EnvironmentConfig {
+	name: 'development' | 'production' | 'testing';
+}
+
+export interface DebugOptions {
+	devTools?: boolean;
+	inspectElementMenu?: boolean;
+}
+
+export type AppInfo = {
+	name: string;
+	version: string;
 };
 
 export type WindowState = {
@@ -10,19 +33,10 @@ export type WindowState = {
 };
 
 export class CoreApiConst {
-	static readonly INITIALIZE = 'CoreInitilize';
 	static readonly WINDOW_STATE = 'CoreWindowState';
 	static readonly UI_MODE = 'CoreUIMode';
 	static readonly LANGUAGE = 'CoreLanguage';
 }
-
-export type InitializeOutput = {
-	applicationName: string;
-	applicationVersion: string;
-	isDarkMode: boolean;
-	currentLanguage: string;
-	windowState: WindowState;
-};
 
 export type WindowAction = 'minimize' | 'close' | 'toogleMaximize';
 

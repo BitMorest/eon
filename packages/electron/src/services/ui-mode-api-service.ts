@@ -3,11 +3,16 @@ import {
 	ColorModeInput as In,
 	ColorModeOutput as Out,
 } from '@e-dizzy/types';
-import {Application, Window} from '../components';
+import {Application} from '../components/application';
+import {Window} from '../components/window';
 import {CoreSetting} from '../models/core-setting';
 import {ApiService} from './api-service';
 
 export class UiModeApiService extends ApiService<In, Out> {
+	booting(_app: Application, _window: Window): void {
+		/* eslint-disable @typescript-eslint/no-empty-function */
+	}
+
 	receptionChannel(): string {
 		return CoreApiConst.UI_MODE;
 	}

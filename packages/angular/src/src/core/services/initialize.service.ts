@@ -29,8 +29,6 @@ export class InitializeService {
 						this._windowApiService.initilize(initilizeData.windowState);
 						this._uiApiService.initialize(initilizeData.isDarkMode);
 						this._languageApiService.initialize(initilizeData.currentLanguage);
-						window.applicationName = initilizeData.applicationName;
-						window.applicationVersion = initilizeData.applicationVersion;
 						console.log('Initialize done!!!\n');
 						resolve();
 					}

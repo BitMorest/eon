@@ -1,20 +1,11 @@
 {
 	"name": "electron",
 	"version": "0.0.0",
-	"productName": "Eon Application",
-	"description": "Codebase for desktop application base on electron and angular",
-	"author": {
-		"name": "BitMorest",
-		"url": "https://github.com/BitMorest"
-	},
-	"repository": "https://github.com/BitMorest/electron-angular.git",
-	"main": ".webpack/main",
+	"productName": "eDizzy",
+	"description": "eDizzy Framework application",
+	"author": "Bitmorest",
 	"private": true,
-	"engines": {
-		"node": "^14.20.0 || ^16.13.0 || >=18.10.0",
-		"yarn": ">=1.22.4 <2",
-		"npm": "Please use yarn instead of NPM to install dependencies"
-	},
+	"main": ".webpack/main",
 	"license": "UNLICENSED",
 	"scripts": {
 		"start": "node ./scripts/start.js",

@@ -5,15 +5,17 @@ import {CoreApiConst, ColorModeInput, ColorModeOutput} from '@e-dizzy/types';
 import {BehaviorSubject, SubscriptionLike} from 'rxjs';
 import {ObserverOrNext} from '../../types';
 import {ElectronService} from './electron.service';
+import {EnviromentService} from './enviroment.service';
 
 @Injectable({providedIn: 'root'})
 export class UIModeService {
-	public currentFlatformMode: string;
 	private _currentColorMode = new BehaviorSubject<boolean>(false);
 
-	constructor(private _electron: ElectronService) {
-		this.currentFlatformMode = window.api.environment.platform;
-		document.body.setAttribute('ui-platform-mode', this.currentFlatformMode);
+	constructor(
+		private _electron: ElectronService,
+		private _environmentService: EnviromentService
+	) {
+		// document.body.setAttribute('ui-platform-mode', );
 
 		this._electron.receive<ColorModeOutput>(
 			CoreApiConst.UI_MODE,
