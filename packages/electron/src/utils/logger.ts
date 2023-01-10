@@ -3,7 +3,7 @@ import log from 'electron-log';
 export class Logger {
 	private _log: log.LogFunctions;
 
-	constructor(scope = 'app') {
+	constructor(scope = 'main-process') {
 		this._log = log.scope(scope);
 		log.transports.file.level = 'info';
 		log.transports.console.level = 'info';

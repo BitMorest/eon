@@ -4,20 +4,24 @@ import {
 	app,
 	shell,
 	protocol,
+	globalShortcut,
+	ipcMain,
+	IpcMainEvent,
 } from 'electron';
 import {ApiService} from '../services/api-service';
 import {Window} from './window';
 import path from 'node:path';
 import {
+	ApplicationInfo,
 	Environment,
 	EnvironmentConfig,
 	EnvironmentsConfig,
 } from '@e-dizzy/types';
 import _ from 'lodash';
 import {edizzyDebugGenerator} from '../utils/debuger';
-
+import {arch, platform, versions} from 'node:process';
 import {Logger} from '../utils/logger';
-import {platform} from 'node:process';
+import {CoreSetting} from '../models/core-setting';
 const log = new Logger('core');
 const debug = edizzyDebugGenerator('application');
 
@@ -55,7 +59,31 @@ export class Application {
 			throw new TypeError("Enviroment config can't have contain key 'name'!");
 		}
 		this.enviroment = _.merge({name: environment}, enviroments[environment]);
+
 		process.on('uncaughtException', this.onUncaughtException);
+
+		ipcMain.on('ApplicationInfo', (event: IpcMainEvent) => {
+			const coreSettings = CoreSetting.getInstance();
+			const data: ApplicationInfo = {
+				name: app.getName(),
+				version: app.getVersion(),
+				enviroment: this.enviroment,
+				platform: {
+					name: platform,
+					arch,
+				},
+				engine: {
+					chrome: versions.chrome,
+					node: versions.node,
+					electron: versions.electron,
+				},
+				initializeData: {
+					darkMode: coreSettings.isDarkMode(),
+					language: coreSettings.getCurentLanguage(),
+				},
+			};
+			event.returnValue = data;
+		});
 	}
 
 	public addApiService(service: ApiService<unknown, unknown>) {
@@ -78,6 +106,8 @@ export class Application {
 
 	private onReady() {
 		debug(`onReady()`);
+		globalShortcut.unregisterAll();
+
 		protocol.interceptFileProtocol('file', (request, callback) => {
 			const root = path.join(__dirname, '../renderer');
 			let target = request.url.replace('file://', '');

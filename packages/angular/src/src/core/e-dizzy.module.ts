@@ -1,5 +1,6 @@
 import {
 	APP_INITIALIZER,
+	enableProdMode,
 	isDevMode,
 	ModuleWithProviders,
 	NgModule,
@@ -27,9 +28,9 @@ import {
 	TRANSLOCO_LOADER,
 } from '@ngneat/transloco';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {InitializeService} from './services/initialize.service';
 import {ElectronService} from './services/electron.service';
 import {TranslocoHttpLoader} from './services/transloco-http-loader.service';
+import {CoreApiConst} from '@e-dizzy/types';
 
 @NgModule({
 	declarations: [
@@ -76,22 +77,40 @@ import {TranslocoHttpLoader} from './services/transloco-http-loader.service';
 	providers: [
 		{
 			provide: APP_INITIALIZER,
-			useFactory:
-				(
-					_initialize: InitializeService,
-					_electron: ElectronService,
-					_window: BrowserWindowService,
-					_language: LanguageApiService,
-					_ui: UIModeService
-				) =>
-				(): Promise<void> =>
-					_initialize.boot(),
+			useFactory: (
+				_electron: ElectronService,
+				_window: BrowserWindowService
+			) => {
+				return (): Promise<void> => {
+					return new Promise((resolve, reject) => {
+						if (window && (window as Window).api) {
+							if (window.application.enviroment.name == 'production') {
+								enableProdMode();
+								// disable all console.log in production
+								window['console']['log'] = () => {}; // eslint-disable-line @typescript-eslint/no-empty-function
+							}
+							console.log('Initializing...!!!');
+							console.log(
+								'Run in ' + window.application.enviroment.name + ' mode!!!'
+							);
+							console.log('Application global enviroment', window.application);
+							const subscription = _window.subscribe((_value) => {
+								subscription.unsubscribe();
+								console.log('Initialize done!!!');
+								resolve();
+							});
+							_electron.send(CoreApiConst.WINDOW_STATE);
+						} else {
+							reject(new Error('Preloader API is not loaded!!!'));
+						}
+					});
+				};
+			},
 			deps: [
-				InitializeService,
 				ElectronService,
+				BrowserWindowService,
 				UIModeService,
 				LanguageApiService,
-				BrowserWindowService,
 			],
 			multi: true,
 		},

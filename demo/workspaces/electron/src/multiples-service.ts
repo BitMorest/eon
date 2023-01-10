@@ -2,6 +2,10 @@ import {AppApiConst} from 'shared';
 import {ApiService, Application, Window} from '@e-dizzy/electron';
 
 export class MultiplesApiService extends ApiService<number, number[]> {
+	booting(_app: Application, _window: Window): void {
+		/* eslint-disable camelcase */
+	}
+
 	receptionChannel(): string {
 		return AppApiConst.MULTIPLES_INPUT;
 	}

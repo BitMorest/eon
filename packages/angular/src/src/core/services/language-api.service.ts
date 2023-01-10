@@ -16,8 +16,10 @@ export class LanguageApiService {
 		private _electron: ElectronService,
 		private _translateService: TranslocoService
 	) {
+		const appInfo = (window as Window).application;
 		this.avaiableLanguages =
 			_translateService.getAvailableLangs() as LangDefinition[];
+		this.initialize(appInfo.initializeData.language);
 		this._electron.receive<LanguageOutput>(
 			CoreApiConst.LANGUAGE,
 			(response: LanguageOutput) => {

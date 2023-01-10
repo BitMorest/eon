@@ -3,7 +3,6 @@ import {
 	BrowserWindow,
 	BrowserWindowConstructorOptions,
 	ipcMain,
-	IpcMainEvent,
 	nativeImage,
 	WebPreferences,
 } from 'electron';
@@ -17,7 +16,6 @@ import contextMenu from 'electron-context-menu';
 import {LanguageApiService} from '../services/language-api-service';
 import path from 'node:path';
 import {edizzyDebugGenerator} from '../utils/debuger';
-import {CoreSetting} from '../models/core-setting';
 const debug = edizzyDebugGenerator('window');
 
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
@@ -150,21 +148,6 @@ export class Window {
 
 	protected onRegisterService(): void {
 		debug('onRegisterService()');
-		ipcMain.once('PRELLOAD', (event: IpcMainEvent) => {
-			const coreSettings = CoreSetting.getInstance();
-			event.returnValue = {
-				enviroment: this.application.enviroment,
-				initializeData: {
-					isDarkMode: coreSettings.isDarkMode(),
-					language: coreSettings.getCurentLanguage(),
-					windowState: {
-						isMaximized: this.browser.isMaximized(),
-						isMaximiable: this.browser.isMaximizable(),
-						isMinimizable: this.browser.isMinimizable(),
-					},
-				},
-			};
-		});
 		this.registerService(new LanguageApiService());
 		this.registerService(new UiModeApiService());
 		this.registerService(new WindowApiService());

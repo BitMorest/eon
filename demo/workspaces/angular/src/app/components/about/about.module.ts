@@ -12,7 +12,6 @@ import {SharedModule} from 'src/app/shared/shared.module';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {AboutComponent} from './about.component';
-
 @NgModule({
 	declarations: [AboutComponent],
 	imports: [

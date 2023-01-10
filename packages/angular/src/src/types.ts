@@ -4,7 +4,7 @@ import {
 	LangDefinition,
 	TranslocoConfig as TranslocoConfigBase,
 } from '@ngneat/transloco';
-import {AppInfo, Environment} from '@e-dizzy/types';
+import {ApplicationInfo} from '@e-dizzy/types';
 
 export interface WindowApi {
 	/**
@@ -25,8 +25,7 @@ export interface WindowApi {
 declare global {
 	// Global augmentation of the `Window` interface
 	interface Window {
-		appInfo: AppInfo;
-		enviroment: Environment;
+		application: ApplicationInfo;
 		api: WindowApi;
 	}
 }

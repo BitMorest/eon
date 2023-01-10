@@ -33,18 +33,8 @@ if (process.env.X_NODE_ENV === 'e2e-test') {
 	contextBridge.exposeInMainWorld('api', windowApi);
 }*/
 import {contextBridge, ipcRenderer, IpcRendererEvent} from 'electron';
-import {arch, platform as name, versions} from 'node:process';
-
-const preload = ipcRenderer.sendSync('PRELLOAD');
-contextBridge.exposeInMainWorld('platform', {
-	name,
-	arch,
-	chrome: versions.chrome,
-	node: versions.node,
-	electron: versions.electron,
-});
-contextBridge.exposeInMainWorld('environment', preload.environment);
-contextBridge.exposeInMainWorld('initilizeData', preload.initializeData);
+const applicationInfo = ipcRenderer.sendSync('ApplicationInfo');
+contextBridge.exposeInMainWorld('application', applicationInfo);
 contextBridge.exposeInMainWorld('api', {
 	send: <In>(channel: string, input: In) => {
 		ipcRenderer.send(channel, input);

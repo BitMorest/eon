@@ -21,11 +21,6 @@ export interface DebugOptions {
 	inspectElementMenu?: boolean;
 }
 
-export type AppInfo = {
-	name: string;
-	version: string;
-};
-
 export type WindowState = {
 	isMaximized: boolean;
 	isMaximiable: boolean;
@@ -61,4 +56,29 @@ export type LanguageInput = {
 
 export type LanguageOutput = {
 	currentLanguage: string;
+};
+
+export type PlatformInfo = {
+	name: string;
+	arch: string;
+};
+
+export type EngineInfo = {
+	node: string;
+	electron: string;
+	chrome: string;
+};
+
+export type InitializeData = {
+	darkMode: boolean;
+	language: string;
+};
+
+export type ApplicationInfo = {
+	name: string;
+	version: string;
+	platform: PlatformInfo;
+	engine: EngineInfo;
+	enviroment: Environment;
+	initializeData: InitializeData;
 };
