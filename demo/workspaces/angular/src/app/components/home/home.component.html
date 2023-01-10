@@ -1,23 +1,35 @@
-<h2>Multiples</h2>
-<form [formGroup]="timesTableForm" (ngSubmit)="onSubmit()">
-	<div class="form-group">
-		<input
-			id="input"
-			type="number"
-			class="form-control"
-			formControlName="input"
-			required
-		/>
+<div class="container" *transloco="let t; read: 'home'">
+	<div class="mt-4">
+		<h2>{{ t('Home') }}</h2>
 	</div>
-	<button
-		type="submit"
-		class="btn btn-success"
-		[disabled]="!timesTableForm.valid"
-	>
-		submit
-	</button>
-</form>
 
-<h3 class="results" *ngFor="let multiple of multiples; let i = index">
-	{{ timesTableForm.value.input }} * {{ 1 + i }} = {{ multiple }}
-</h3>
+	<mat-card class="mt-4">
+		<mat-card-header class="d-flex alight-center">
+			<mat-card-title>{{ t('Multiples') }}</mat-card-title>
+		</mat-card-header>
+		<mat-card-content>
+			<form [formGroup]="timesTableForm" (ngSubmit)="onSubmit()">
+				<div class="form-group">
+					<input
+						id="input"
+						type="number"
+						class="form-control"
+						formControlName="input"
+						required
+					/>
+				</div>
+				<button
+					type="submit"
+					class="btn btn-success"
+					[disabled]="!timesTableForm.valid"
+				>
+					{{ t('Submit') }}
+				</button>
+			</form>
+
+			<div class="results" *ngFor="let multiple of multiples; let i = index">
+				{{ timesTableForm.value.input }} * {{ 1 + i }} = {{ multiple }}
+			</div>
+		</mat-card-content>
+	</mat-card>
+</div>
